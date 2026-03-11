@@ -1,225 +1,992 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G League Spikeball</title>
-<style>
-body {
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:#000;
-  color:#ffd400;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G League Spikeball</title>
+  <style>
+    * { box-sizing: border-box; }
 
-header {
-  background:#111;
-  padding:30px;
-  text-align:center;
-  border-bottom:3px solid #ffd400;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #ffd400;
+      overflow-x: hidden;
+    }
 
-header h1 {
-  font-size:48px;
-  margin:0;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-nav {
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:15px;
-  background:#000;
-}
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      padding: 24px 20px;
+      text-align: center;
+      border-bottom: 3px solid #ffd400;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
 
-nav a {
-  color:#ffd400;
-  text-decoration:none;
-  font-weight:bold;
-}
+    header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-.hero {
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(black,#222);
-}
+    header p {
+      margin: 10px 0 0;
+      color: #fff4a8;
+      font-size: 1rem;
+    }
 
-.hero h2 {
-  font-size:42px;
-}
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 18px;
+    }
 
-.hero p {
-  max-width:700px;
-  margin:auto;
-  font-size:18px;
-}
+    nav a {
+      color: #ffd400;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 212, 0, 0.35);
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
 
-.button {
-  margin-top:25px;
-  padding:14px 28px;
-  background:#ffd400;
-  color:black;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
-  font-size:16px;
-}
+    nav a:hover {
+      background: #ffd400;
+      color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 212, 0, 0.25);
+    }
 
-.section {
-  padding:60px 20px;
-  text-align:center;
-}
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 30px;
+      padding: 60px 8vw;
+      background:
+        radial-gradient(circle at top left, rgba(255, 212, 0, 0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 212, 0, 0.12), transparent 25%),
+        linear-gradient(180deg, #050505 0%, #111 100%);
+    }
 
-.cards {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:30px;
-  margin-top:40px;
-}
+    .hero-text h2 {
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      text-transform: uppercase;
+    }
 
-.card {
-  background:#111;
-  border:2px solid #ffd400;
-  padding:25px;
-  width:250px;
-}
+    .hero-text p {
+      max-width: 640px;
+      color: #fff7c8;
+      font-size: 1.06rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
 
-/* Spikeball animation */
-.spikeball-area{
-  margin-top:60px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:300px;
-  position:relative;
-}
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
 
-.net{
-  width:180px;
-  height:180px;
-  border:5px solid #ffd400;
-  border-radius:50%;
-  position:relative;
-  overflow:hidden;
-}
+    .button,
+    .button-outline {
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.25s ease;
+      display: inline-block;
+    }
 
-.net::before{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:
-  repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 14px,
-    #ffd400 15px
-  ),
-  repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 14px,
-    #ffd400 15px
-  );
-  opacity:0.4;
-}
+    .button {
+      background: #ffd400;
+      color: #000;
+      border: none;
+      box-shadow: 0 12px 25px rgba(255, 212, 0, 0.22);
+    }
 
-.ball{
-  width:30px;
-  height:30px;
-  background:#ffd400;
-  border-radius:50%;
-  position:absolute;
-  animation:bounce 2s infinite ease-in-out;
-}
+    .button:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
 
-@keyframes bounce{
-  0%{transform:translate(-120px,-80px)}
-  25%{transform:translate(-20px,0)}
-  50%{transform:translate(0,40px)}
-  75%{transform:translate(40px,0)}
-  100%{transform:translate(-120px,-80px)}
-}
+    .button-outline {
+      border: 2px solid #ffd400;
+      color: #ffd400;
+      background: transparent;
+    }
 
-footer {
-  margin-top:40px;
-  padding:25px;
-  text-align:center;
-  border-top:2px solid #ffd400;
-}
-</style>
+    .button-outline:hover {
+      background: #ffd400;
+      color: #000;
+      transform: translateY(-3px);
+    }
+
+    .mini-stats {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .mini-stat {
+      background: rgba(255, 212, 0, 0.08);
+      border: 1px solid rgba(255, 212, 0, 0.2);
+      border-radius: 18px;
+      padding: 14px 18px;
+      min-width: 130px;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: #ffd400;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .arena {
+      width: min(520px, 92vw);
+      aspect-ratio: 1 / 1;
+      position: relative;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at center, rgba(255, 212, 0, 0.06), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      border: 1px solid rgba(255, 212, 0, 0.18);
+      box-shadow: inset 0 0 40px rgba(255, 212, 0, 0.05), 0 20px 50px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .glow-ring {
+      position: absolute;
+      inset: 14%;
+      border: 1px solid rgba(255, 212, 0, 0.12);
+      border-radius: 50%;
+      animation: pulseRing 2.4s infinite ease-in-out;
+    }
+
+    .glow-ring.two {
+      inset: 20%;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes pulseRing {
+      0%, 100% { transform: scale(0.98); opacity: 0.35; }
+      50% { transform: scale(1.03); opacity: 0.85; }
+    }
+
+    .net-wrap {
+      position: absolute;
+      left: 50%;
+      top: 56%;
+      transform: translate(-50%, -50%) perspective(900px) rotateX(67deg);
+      width: 250px;
+      height: 250px;
+      animation: rotateNet 8s linear infinite;
+    }
+
+    @keyframes rotateNet {
+      0% { transform: translate(-50%, -50%) perspective(900px) rotateX(67deg) rotateZ(0deg); }
+      100% { transform: translate(-50%, -50%) perspective(900px) rotateX(67deg) rotateZ(360deg); }
+    }
+
+    .net {
+      width: 100%;
+      height: 100%;
+      border: 8px solid #ffd400;
+      border-radius: 50%;
+      position: relative;
+      box-shadow:
+        0 0 0 8px rgba(255, 212, 0, 0.06),
+        0 0 30px rgba(255, 212, 0, 0.4),
+        inset 0 0 20px rgba(255, 212, 0, 0.18);
+      overflow: hidden;
+      background: rgba(255, 212, 0, 0.04);
+    }
+
+    .net::before,
+    .net::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .net::before {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 15px,
+          rgba(255, 212, 0, 0.65) 15px 17px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 15px,
+          rgba(255, 212, 0, 0.65) 15px 17px
+        );
+      opacity: 0.65;
+      animation: shimmer 3s linear infinite;
+    }
+
+    .net::after {
+      box-shadow: inset 0 -30px 35px rgba(0,0,0,0.28);
+    }
+
+    @keyframes shimmer {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.25); }
+      100% { filter: brightness(1); }
+    }
+
+    .leg {
+      position: absolute;
+      width: 12px;
+      height: 70px;
+      background: linear-gradient(180deg, #ffe66a, #b88b00);
+      bottom: -54px;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+
+    .leg.one { left: 28%; transform: rotate(10deg); }
+    .leg.two { right: 28%; transform: rotate(-10deg); }
+    .leg.three { left: 50%; transform: translateX(-50%); }
+
+    .ball {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff7b0, #ffd400 45%, #d6a900 100%);
+      box-shadow: 0 0 25px rgba(255, 212, 0, 0.45);
+      left: 18%;
+      top: 14%;
+      animation: ballFlight 2.4s infinite cubic-bezier(.52,.03,.47,.98);
+      z-index: 5;
+    }
+
+    @keyframes ballFlight {
+      0%   { left: 18%; top: 14%; transform: scale(1); }
+      22%  { left: 38%; top: 28%; transform: scale(1.04); }
+      35%  { left: 49%; top: 39%; transform: scale(0.95); }
+      38%  { left: 50%; top: 41%; transform: scale(0.78); }
+      44%  { left: 48%; top: 29%; transform: scale(1.08); }
+      62%  { left: 64%; top: 17%; transform: scale(0.98); }
+      78%  { left: 78%; top: 35%; transform: scale(1.02); }
+      100% { left: 18%; top: 14%; transform: scale(1); }
+    }
+
+    .impact {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 212, 0, 0.95);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: impactPulse 2.4s infinite ease-out;
+      opacity: 0;
+      z-index: 4;
+    }
+
+    @keyframes impactPulse {
+      0%, 32%, 100% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+      37% { transform: translate(-50%, -50%) scale(0.3); opacity: 0.95; }
+      45% { transform: translate(-50%, -50%) scale(5.2); opacity: 0; }
+    }
+
+    .player {
+      position: absolute;
+      width: 72px;
+      height: 140px;
+      bottom: 28px;
+      z-index: 3;
+      animation: playerBob 2s ease-in-out infinite;
+    }
+
+    .player.right {
+      right: 36px;
+      transform: scaleX(-1);
+      animation-delay: 0.4s;
+    }
+
+    .player.left {
+      left: 36px;
+    }
+
+    @keyframes playerBob {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -7px; }
+    }
+
+    .head {
+      width: 24px;
+      height: 24px;
+      background: #ffd400;
+      border-radius: 50%;
+      margin: 0 auto;
+      box-shadow: 0 0 12px rgba(255, 212, 0, 0.25);
+    }
+
+    .torso {
+      width: 14px;
+      height: 48px;
+      background: #ffd400;
+      margin: 6px auto 0;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .arm,
+    .leg-part {
+      position: absolute;
+      background: #ffd400;
+      border-radius: 999px;
+      transform-origin: top center;
+    }
+
+    .arm {
+      width: 10px;
+      height: 42px;
+      top: 6px;
+    }
+
+    .arm.left-arm {
+      left: -12px;
+      rotate: 36deg;
+      animation: swingArm 1.2s infinite ease-in-out;
+    }
+
+    .arm.right-arm {
+      right: -12px;
+      rotate: -36deg;
+      animation: swingArm 1.2s infinite ease-in-out reverse;
+    }
+
+    @keyframes swingArm {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(18deg); }
+    }
+
+    .legs {
+      position: relative;
+      width: 40px;
+      height: 54px;
+      margin: 0 auto;
+    }
+
+    .leg-part {
+      width: 10px;
+      height: 44px;
+      top: 0;
+    }
+
+    .leg-part.left-leg {
+      left: 8px;
+      rotate: 10deg;
+      animation: kickLeg 1.2s infinite ease-in-out;
+    }
+
+    .leg-part.right-leg {
+      right: 8px;
+      rotate: -10deg;
+      animation: kickLeg 1.2s infinite ease-in-out reverse;
+    }
+
+    @keyframes kickLeg {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-12deg); }
+    }
+
+    .scoreboard {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 212, 0, 0.35);
+      border-radius: 18px;
+      padding: 16px 18px;
+      min-width: 180px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      z-index: 6;
+    }
+
+    .scoreboard h3 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 6px 0;
+      color: #fff4b2;
+    }
+
+    .live-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 10px;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      color: #000;
+      background: #ffd400;
+      font-weight: 800;
+      animation: blinkLive 1s infinite;
+    }
+
+    @keyframes blinkLive {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.58; }
+    }
+
+    .section {
+      padding: 80px 8vw;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      text-transform: uppercase;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #fff2a0;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 212, 0, 0.08), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255, 212, 0, 0.25);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.28);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(255, 212, 0, 0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #fff4b7;
+      line-height: 1.6;
+    }
+
+    .leaderboard {
+      max-width: 920px;
+      margin: 0 auto;
+      background: rgba(255, 212, 0, 0.05);
+      border: 1px solid rgba(255, 212, 0, 0.22);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.3);
+    }
+
+    .leader-row {
+      display: grid;
+      grid-template-columns: 80px 1.5fr 1fr 1fr 1fr;
+      gap: 14px;
+      padding: 16px 22px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 212, 0, 0.12);
+    }
+
+    .leader-row.header {
+      background: #ffd400;
+      color: #000;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .leader-row:last-child { border-bottom: none; }
+
+    .bracket-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .round {
+      background: rgba(255, 212, 0, 0.05);
+      border: 1px solid rgba(255, 212, 0, 0.2);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .round h3 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .match {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255, 212, 0, 0.18);
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .match strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .video-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255, 212, 0, 0.09), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255, 212, 0, 0.22);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.32);
+    }
+
+    .video-screen {
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(circle at center, rgba(255, 212, 0, 0.18), transparent 22%),
+        linear-gradient(135deg, #121212, #000);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .play-button {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #ffd400;
+      position: relative;
+      box-shadow: 0 14px 30px rgba(255,212,0,0.24);
+      animation: pulsePlay 1.8s infinite ease-in-out;
+    }
+
+    .play-button::before {
+      content: "";
+      position: absolute;
+      left: 34px;
+      top: 25px;
+      border-left: 24px solid #000;
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+    }
+
+    @keyframes pulsePlay {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .video-caption {
+      padding: 24px;
+      color: #fff4b7;
+      line-height: 1.6;
+    }
+
+    .signup-box {
+      max-width: 760px;
+      margin: 0 auto;
+      background: rgba(255, 212, 0, 0.06);
+      border: 1px solid rgba(255, 212, 0, 0.22);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.28);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .form-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 212, 0, 0.24);
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff7c8;
+      font-size: 0.98rem;
+      outline: none;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #ffd400;
+      box-shadow: 0 0 0 3px rgba(255, 212, 0, 0.12);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 28px 20px;
+      text-align: center;
+      border-top: 2px solid rgba(255, 212, 0, 0.3);
+      color: #fff2a0;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .mini-stats,
+      .cta-row {
+        justify-content: center;
+      }
+
+      .scoreboard {
+        position: static;
+        margin: 18px auto 0;
+      }
+
+      .bracket-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .leader-row {
+        grid-template-columns: 60px 1.2fr 1fr 1fr 1fr;
+        font-size: 0.92rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .leader-row {
+        grid-template-columns: 44px 1fr 0.8fr 0.8fr 0.8fr;
+        gap: 10px;
+        padding: 14px 12px;
+        font-size: 0.82rem;
+      }
+
+      .player {
+        transform: scale(0.8);
+      }
+
+      .player.right {
+        transform: scaleX(-1) scale(0.8);
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <h1>G League Spikeball</h1>
+    <p>Black. Yellow. Fast. Loud. Competitive.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#teams">Teams</a>
+      <a href="#leaderboard">Rankings</a>
+      <a href="#bracket">Bracket</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#join">Join</a>
+    </nav>
+  </header>
 
-<header>
-<h1>G League Spikeball</h1>
-<p>Competitive Spikeball. Elite Players. High Energy.</p>
-</header>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>G League Spikeball</h2>
+      <p>
+        Welcome to a sharper, louder, more competitive Spikeball experience. This page now includes a working animated net, a live-style scoreboard, player silhouettes, rankings, a tournament bracket, a highlight section, and a signup form so it feels much more like a real sports league page.
+      </p>
+      <div class="cta-row">
+        <a class="button" href="#join">Join the League</a>
+        <a class="button-outline" href="#bracket">View Bracket</a>
+      </div>
+      <div class="mini-stats">
+        <div class="mini-stat"><strong>12</strong> Elite Teams</div>
+        <div class="mini-stat"><strong>48</strong> Active Players</div>
+        <div class="mini-stat"><strong>9</strong> Events This Season</div>
+      </div>
+    </div>
 
-<nav>
-<a href="#about">About</a>
-<a href="#teams">Teams</a>
-<a href="#events">Events</a>
-<a href="#join">Join</a>
-</nav>
+    <div class="hero-visual">
+      <div class="arena">
+        <div class="scoreboard">
+          <h3>Live Match</h3>
+          <div class="score-row"><span>Black Strikers</span><strong>19</strong></div>
+          <div class="score-row"><span>Yellow Storm</span><strong>17</strong></div>
+          <span class="live-badge">LIVE</span>
+        </div>
 
-<section class="hero">
-<h2>Welcome to the G League</h2>
-<p>The G League Spikeball community brings together competitive players who want fast-paced matches, tournaments, and a strong team environment.</p>
-<button class="button">Join the League</button>
+        <div class="glow-ring"></div>
+        <div class="glow-ring two"></div>
 
-<div class="spikeball-area">
-  <div class="net"></div>
-  <div class="ball"></div>
-</div>
+        <div class="net-wrap">
+          <div class="net">
+            <div class="leg one"></div>
+            <div class="leg two"></div>
+            <div class="leg three"></div>
+          </div>
+        </div>
 
-</section>
+        <div class="impact"></div>
+        <div class="ball"></div>
 
-<section id="about" class="section">
-<h2>About the League</h2>
-<p>The G League is built for serious Spikeball players who want organized play, structured tournaments, and an exciting competitive atmosphere.</p>
-</section>
+        <div class="player left">
+          <div class="head"></div>
+          <div class="torso">
+            <div class="arm left-arm"></div>
+            <div class="arm right-arm"></div>
+          </div>
+          <div class="legs">
+            <div class="leg-part left-leg"></div>
+            <div class="leg-part right-leg"></div>
+          </div>
+        </div>
 
-<section id="teams" class="section">
-<h2>Teams</h2>
-<div class="cards">
+        <div class="player right">
+          <div class="head"></div>
+          <div class="torso">
+            <div class="arm left-arm"></div>
+            <div class="arm right-arm"></div>
+          </div>
+          <div class="legs">
+            <div class="leg-part left-leg"></div>
+            <div class="leg-part right-leg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Black Strikers</h3>
-<p>A defensive powerhouse known for long rallies and tactical play.</p>
-</div>
+  <section id="about" class="section">
+    <div class="section-title">
+      <h2>About the League</h2>
+      <p>
+        G League Spikeball is designed for players who want organized competition, sharp branding, and a fun but serious atmosphere. The visual style leans esports and street-sport while keeping the Spikeball identity front and center.
+      </p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Fast-Paced Matches</h3>
+        <p>Quick rallies, aggressive recoveries, and constant movement keep every match exciting from first serve to final point.</p>
+      </div>
+      <div class="card">
+        <h3>League Play</h3>
+        <p>Structured schedules, standings, playoffs, and tournament seeding give the season a real competitive rhythm.</p>
+      </div>
+      <div class="card">
+        <h3>Esports Vibe</h3>
+        <p>Bold colors, animated visuals, and a live-match feel make the page look more like a real branded sports site.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Yellow Storm</h3>
-<p>An aggressive team built on speed and explosive hits.</p>
-</div>
+  <section id="teams" class="section">
+    <div class="section-title">
+      <h2>Featured Teams</h2>
+      <p>Each team has its own style, attitude, and identity on the court.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h3>Black Strikers</h3>
+        <p>A disciplined team known for relentless defense, clean touches, and smart reads under pressure.</p>
+      </div>
+      <div class="card">
+        <h3>Yellow Storm</h3>
+        <p>Explosive, athletic, and fearless. They thrive in quick transitions and high-risk angle shots.</p>
+      </div>
+      <div class="card">
+        <h3>Net Breakers</h3>
+        <p>Creative, chaotic, and impossible to predict. They turn broken plays into highlight clips.</p>
+      </div>
+      <div class="card">
+        <h3>Golden Bounce</h3>
+        <p>Known for consistency and composure, Golden Bounce wears opponents down point by point.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Net Breakers</h3>
-<p>Known for creative angles and unpredictable plays.</p>
-</div>
+  <section id="leaderboard" class="section">
+    <div class="section-title">
+      <h2>Player Rankings</h2>
+      <p>A leaderboard section gives the site a more real league feel and makes room for stats and top players.</p>
+    </div>
+    <div class="leaderboard">
+      <div class="leader-row header">
+        <div>Rank</div>
+        <div>Player</div>
+        <div>Team</div>
+        <div>Wins</div>
+        <div>Aces</div>
+      </div>
+      <div class="leader-row">
+        <div>#1</div>
+        <div>Jordan Cruz</div>
+        <div>Black Strikers</div>
+        <div>18</div>
+        <div>27</div>
+      </div>
+      <div class="leader-row">
+        <div>#2</div>
+        <div>Mia Santos</div>
+        <div>Yellow Storm</div>
+        <div>16</div>
+        <div>24</div>
+      </div>
+      <div class="leader-row">
+        <div>#3</div>
+        <div>Ethan Park</div>
+        <div>Net Breakers</div>
+        <div>15</div>
+        <div>22</div>
+      </div>
+      <div class="leader-row">
+        <div>#4</div>
+        <div>Zoe Walker</div>
+        <div>Golden Bounce</div>
+        <div>14</div>
+        <div>20</div>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
+  <section id="bracket" class="section">
+    <div class="section-title">
+      <h2>Tournament Bracket</h2>
+      <p>This simplified bracket section makes it feel like a season page with playoff energy.</p>
+    </div>
+    <div class="bracket-wrap">
+      <div class="round">
+        <h3>Quarterfinals</h3>
+        <div class="match"><strong>Match 1</strong> Black Strikers vs Yellow Heat</div>
+        <div class="match"><strong>Match 2</strong> Yellow Storm vs Court Kings</div>
+        <div class="match"><strong>Match 3</strong> Net Breakers vs Bounce Theory</div>
+        <div class="match"><strong>Match 4</strong> Golden Bounce vs Rally X</div>
+      </div>
+      <div class="round">
+        <h3>Semifinals</h3>
+        <div class="match"><strong>Semifinal 1</strong> Black Strikers vs Yellow Storm</div>
+        <div class="match"><strong>Semifinal 2</strong> Net Breakers vs Golden Bounce</div>
+      </div>
+      <div class="round">
+        <h3>Final</h3>
+        <div class="match"><strong>Championship</strong> Black Strikers vs Net Breakers</div>
+      </div>
+    </div>
+  </section>
 
-<section id="events" class="section">
-<h2>Upcoming Events</h2>
-<p>Summer Tournament - July</p>
-<p>Regional Championship - August</p>
-<p>National Finals - October</p>
-</section>
+  <section id="highlights" class="section">
+    <div class="section-title">
+      <h2>Highlight Video</h2>
+      <p>This section gives you a place to embed a real highlight reel later from YouTube or another video platform.</p>
+    </div>
+    <div class="video-card">
+      <div class="video-screen">
+        <div class="play-button"></div>
+      </div>
+      <div class="video-caption">
+        Featured highlight reel - diving saves, impossible angles, and championship-point energy. Replace this placeholder with an embedded video when you are ready to publish the page live.
+      </div>
+    </div>
+  </section>
 
-<section id="join" class="section">
-<h2>Join the League</h2>
-<p>Interested in competing or forming a team? Sign up and become part of the fastest growing Spikeball community.</p>
-<button class="button">Register Now</button>
-</section>
+  <section id="join" class="section">
+    <div class="section-title">
+      <h2>Team Signup Form</h2>
+      <p>This form is styled like a real signup section. Right now it is visual only, but it can be connected to Formspree, Google Forms, or a backend later.</p>
+    </div>
+    <div class="signup-box">
+      <form class="form-grid">
+        <div>
+          <label for="name">Full Name</label>
+          <input id="name" type="text" placeholder="Enter your name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="Enter your email" />
+        </div>
+        <div>
+          <label for="team">Preferred Team</label>
+          <select id="team">
+            <option>Black Strikers</option>
+            <option>Yellow Storm</option>
+            <option>Net Breakers</option>
+            <option>Golden Bounce</option>
+          </select>
+        </div>
+        <div>
+          <label for="level">Skill Level</label>
+          <select id="level">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Competitive</option>
+            <option>Elite</option>
+          </select>
+        </div>
+        <div class="full">
+          <label for="message">Why do you want to join?</label>
+          <textarea id="message" placeholder="Tell us about your game, experience, and goals."></textarea>
+        </div>
+        <div class="full">
+          <button class="button" type="button">Submit Interest</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-<footer>
-<p>© 2026 G League Spikeball</p>
-</footer>
-
+  <footer>
+    <p>© 2026 G League Spikeball | Built for speed, style, and loud rallies.</p>
+  </footer>
 </body>
 </html>
