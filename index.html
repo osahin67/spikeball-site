@@ -59,6 +59,7 @@
       border: 1px solid rgba(255, 212, 0, 0.35);
       border-radius: 999px;
       transition: 0.25s ease;
+      animation: slideUp 0.8s ease forwards;
     }
 
     nav a:hover {
@@ -443,7 +444,36 @@
       gap: 24px;
     }
 
+    @keyframes slideUp {
+      0% { transform: translateY(40px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateX(-40px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    .section-title {
+      animation: slideUp 0.8s ease forwards;
+    }
+
     .card {
+      opacity: 0;
+      transform: translateY(40px);
       background: linear-gradient(180deg, rgba(255, 212, 0, 0.08), rgba(255,255,255,0.02));
       border: 1px solid rgba(255, 212, 0, 0.25);
       border-radius: 24px;
@@ -468,6 +498,9 @@
     }
 
     .leaderboard {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 0.9s ease forwards;
       max-width: 920px;
       margin: 0 auto;
       background: rgba(255, 212, 0, 0.05);
@@ -506,6 +539,9 @@
     }
 
     .round {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 0.9s ease forwards;
       background: rgba(255, 212, 0, 0.05);
       border: 1px solid rgba(255, 212, 0, 0.2);
       border-radius: 24px;
@@ -532,6 +568,9 @@
     }
 
     .video-card {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 1s ease forwards;
       max-width: 900px;
       margin: 0 auto;
       background: linear-gradient(180deg, rgba(255, 212, 0, 0.09), rgba(255,255,255,0.02));
@@ -583,6 +622,9 @@
     }
 
     .signup-box {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 1s ease forwards;
       max-width: 760px;
       margin: 0 auto;
       background: rgba(255, 212, 0, 0.06);
@@ -916,5 +958,30 @@
   <footer>
     <p>© 2026 G League Spikeball | Built for speed, style, and loud rallies.</p>
   </footer>
+  <script>
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  const elements = document.querySelectorAll('header, nav a, .hero-text h2, .hero-text p, .mini-stat, .button, .button-outline, .section-title, .card, .leaderboard, .leader-row, .round, .match, .video-card, .video-caption, .signup-box, footer');
+
+  elements.forEach((el, index) => {
+    el.classList.add('reveal');
+
+    /* stagger animation so users can see each element animate */
+    const delay = index * 0.08;
+    el.style.transitionDelay = delay + 's';
+
+    observer.observe(el);
+  });
+
+  </script>
 </body>
 </html>
