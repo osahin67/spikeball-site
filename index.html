@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>G League Spikeball</title>
   <style>
-    * { box-sizing: border-box; }
+    /* Custom graffiti font */
+@font-face{
+  font-family:"AnotherTag";
+  src:url("aAnotherTag.ttf") format("truetype"),
+      url("aAnotherTag.otf") format("opentype");
+  font-weight:normal;
+  font-style:normal;
+}
+
+/* fallback fonts if file missing */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+* { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -32,9 +44,23 @@
 
     header h1 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      letter-spacing: 1px;
+      font-size: clamp(3.2rem, 5.2vw, 5rem);
+      letter-spacing: 6px;
       text-transform: uppercase;
+
+      /* use your graffiti font from the zip */
+      font-family:"AnotherTag","Permanent Marker",cursive;
+
+      /* cleaner graffiti styling */
+      color:#ffd400;
+      text-shadow:
+        -3px -3px 0 #000,
+        3px 3px 0 #000,
+        0 0 18px rgba(255,212,0,0.6);
+
+      transform: rotate(-3deg);
+      display:inline-block;
+      padding:8px 18px;
     }
 
     header p {
@@ -707,15 +733,26 @@
       box-shadow: 0 0 40px rgba(255, 212, 0, 0.45);
       color: #000;
       font-weight: 900;
-      font-size: 22px;
-      line-height: 1.15;
+      font-size: 24px;
+      line-height: 1.1;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       transform: translate(120vw, -120vh) scale(0.15);
-      z-index:10; /* ensure ball stays above everything */
-      opacity:1 !important; /* never fade */
+      z-index:10;
+      opacity:1 !important;
+
+      /* graffiti font */
+      font-family:"AnotherTag","Permanent Marker",cursive;
+      letter-spacing:4px;
+
+      text-shadow:
+        -3px -3px 0 #000,
+        3px 3px 0 #000,
+        6px 6px 0 rgba(0,0,0,0.6);
+
+      transform-origin:center;
       will-change: transform;
     }
 
