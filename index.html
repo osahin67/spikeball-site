@@ -1493,19 +1493,25 @@ slamButtons.forEach(btn => {
 // scroll reveal animation for players
 const playerCards = document.querySelectorAll('.player-card');
 
-const playerObserver = new IntersectionObserver(entries => {
+const playerObserver = new IntersectionObserver((entries, observer) => {
+
   entries.forEach(entry => {
+
     if(entry.isIntersecting){
+
       const cards = document.querySelectorAll('.player-card');
+
       cards.forEach((card,index)=>{
         setTimeout(()=>{
           card.classList.add('show');
         }, index*120);
       });
-    } else {
-      document.querySelectorAll('.player-card').forEach(card=>card.classList.remove('show'));
+
+      observer.disconnect(); // prevents animation reset
     }
+
   });
+
 },{threshold:0.2});
 
 playerCards.forEach(card=>playerObserver.observe(card));
@@ -1607,5 +1613,6 @@ function closePlayer(){
 
 </body>
 </html>
+
 
 
