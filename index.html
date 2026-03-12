@@ -59,11 +59,71 @@
 
       /* fade + spray reveal */
       opacity:0;
-      animation: sprayReveal 1.2s ease forwards;
+      animation: sprayReveal 1.2s ease forwards, glowPulse 3.5s ease-in-out infinite;
     }
 
 @keyframes sprayReveal{
   0%{opacity:0; filter:blur(6px) brightness(1.6);} 
+  60%{opacity:1; filter:blur(0.5px) brightness(1.2);} 
+  100%{opacity:1; filter:blur(0) brightness(1);} 
+}
+
+@keyframes glowPulse{
+  0%{
+    text-shadow:
+      -3px -3px 0 #000,
+      3px 3px 0 #000,
+      0 0 10px rgba(255,212,0,.35);
+  }
+
+  50%{
+    text-shadow:
+      -3px -3px 0 #000,
+      3px 3px 0 #000,
+      0 0 16px rgba(255,212,0,.55);
+  }
+
+  100%{
+    text-shadow:
+      -3px -3px 0 #000,
+      3px 3px 0 #000,
+      0 0 10px rgba(255,212,0,.35);
+  }
+}
+
+/* subtle reflected light behind logo */
+header h1::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:55%;
+  transform:translate(-50%,-50%);
+  width:140%;
+  height:120%;
+  pointer-events:none;
+  background:radial-gradient(ellipse at center,
+      rgba(255,212,0,.18) 0%,
+      rgba(255,212,0,.08) 40%,
+      rgba(255,212,0,0) 70%);
+  filter:blur(12px);
+  z-index:-1;
+}
+
+  50%{
+    text-shadow:
+      -3px -3px 0 #000,
+      3px 3px 0 #000,
+      0 0 28px rgba(255,212,0,.95),
+      0 0 45px rgba(255,212,0,.65);
+  }
+
+  100%{
+    text-shadow:
+      -3px -3px 0 #000,
+      3px 3px 0 #000,
+      0 0 14px rgba(255,212,0,.55);
+  }
+} 
   60%{opacity:1; filter:blur(0.5px) brightness(1.2);} 
   100%{opacity:1; filter:blur(0) brightness(1);} 
 }
@@ -766,38 +826,37 @@ header h1::after{
     }
 
     #slam-ball {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff7b0, #ffd400 45%, #d6a900 100%);
-      box-shadow: 0 0 40px rgba(255, 212, 0, 0.45);
-      color: #000;
-      font-weight: 900;
-      font-size: 24px;
-      line-height: 1.1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      transform: translate(120vw, -120vh) scale(0.15);
-      z-index:10;
-      opacity:1 !important;
+  position:absolute;
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #fff6b0 0%, #ffd400 45%, #caa800 80%);
+  box-shadow:0 6px 18px rgba(0,0,0,.45);
+}
 
-      /* graffiti font */
-      font-family:"AnotherTag","Permanent Marker",cursive;
-      letter-spacing:4px;
 
-      text-shadow:
-        -3px -3px 0 #000,
-        3px 3px 0 #000,
-        6px 6px 0 rgba(0,0,0,0.6);
+@keyframes slamSpin{
+  0%{
+    transform:translate(240px,-180px) scale(.4) rotate(0deg);
+    filter:blur(10px);
+    opacity:0;
+  }
 
-      transform-origin:center;
-      will-change: transform;
-    }
+  40%{
+    opacity:1;
+    filter:blur(3px);
+  }
+
+  70%{
+    transform:translate(-10px,20px) scale(1) rotate(320deg);
+    filter:blur(2px);
+  }
+
+  100%{
+    transform:translate(0,0) scale(1) rotate(360deg);
+    filter:blur(0);
+  }
+}
 
     #slam-net {
       position:absolute;
@@ -858,25 +917,62 @@ header h1::after{
     }
 
     @keyframes pageSlam {
-      0% {
-        transform: translate(120vw, -120vh) scale(0.15);
-        opacity:1;
+
+  /* start off screen right */
+  0%{
+    transform:translate(120vw,-80vh) scale(.3) rotate(0deg);
+    filter:blur(6px);
+    opacity:1;
+  }
+
+  /* fast dive straight to the net */
+  55%{
+    transform:translate(-35%,15%) scale(1.25) rotate(260deg);
+    filter:blur(1px);
+    opacity:1;
+  }
+
+  /* squash impact */
+  60%{
+    transform:translate(-35%,15%) scaleX(1.45) scaleY(.8) rotate(270deg);
+    filter:blur(0);
+  }
+
+  /* rebound up left */
+  100%{
+    transform:translate(-260%,-200%) scale(.9) rotate(420deg);
+    filter:blur(0);
+    opacity:1;
+  }
+}
+
+      38% {
+        transform: translate(18vw, -10vh) scale(0.75) rotate(220deg);
+        filter: blur(2px);
+        opacity: 1;
       }
-      50% {
-        transform: translate(-50%, -50%) scale(1.45); /* ball hits net */
-        opacity:1;
+      52% {
+        /* centered impact - shifted slightly right to line up with the net */
+        transform: translate(-36%, -42%) scale(1.18) rotate(300deg);
+        filter: blur(0.6px);
+        opacity: 1;
       }
-      60% {
-        transform: translate(-50%, -50%) scale(0.85); /* compression on impact */
-        opacity:1;
+      58% {
+        /* squash on impact */
+        transform: translate(-36%, -42%) scaleX(1.45) scaleY(0.82) rotate(312deg);
+        filter: blur(0);
+        opacity: 1;
       }
-      75% {
-        transform: translate(-120%, -120%) scale(0.7); /* bounce off */
-        opacity:1;
+      66% {
+        /* rebound off the center of the net */
+        transform: translate(-58%, -62%) scale(0.95) rotate(338deg);
+        filter: blur(0.6px);
+        opacity: 1;
       }
       100% {
-        transform: translate(-200%, -200%) scale(0.6); /* fly to top-left */
-        opacity:1;
+        transform: translate(-185%, -185%) scale(0.6) rotate(420deg);
+        filter: blur(0);
+        opacity: 1;
       }
     }
 
@@ -931,7 +1027,7 @@ header h1::after{
 <body>
   <div id="slam-overlay">
     <div id="slam-net"></div>
-    <div id="slam-ball">G LEAGUE<br>SPIKEBALL</div>
+    <div id="slam-ball"></div>
   </div>
   <div class="page-content">
   <header>
