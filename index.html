@@ -1450,27 +1450,28 @@ slamButtons.forEach(btn => {
 
 .player-card{
   opacity:0;
-  transform:translateY(30px);
-  transition:opacity .6s ease, transform .6s ease, box-shadow .25s ease;
-}
-
-.player-card.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-.player-card{
+  transform:translateY(30px) perspective(1000px) rotateX(0deg) rotateY(0deg);
   background:#111;
   border:2px solid #ffd400;
   border-radius:12px;
   padding:20px;
   cursor:pointer;
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:
+    opacity .6s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+  transform-style: preserve-3d;
+}
+
+.player-card.show{
+  opacity:1;
+  transform:translateY(0) perspective(1000px) rotateX(0deg) rotateY(0deg);
 }
 
 .player-card:hover{
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 10px 25px rgba(255,212,0,.25);
+  box-shadow:
+    0 20px 35px rgba(0,0,0,.45),
+    0 0 18px rgba(255,212,0,.35);
 }
 
 .player-img{
@@ -1479,8 +1480,12 @@ slamButtons.forEach(btn => {
   background:#333;
   border-radius:8px;
   margin-bottom:12px;
+  transition: transform .3s ease;
 }
 
+.player-card:hover .player-img{
+  transform: scale(1.05);
+}
 .player-name{
   font-size:18px;
   font-weight:600;
@@ -1642,6 +1647,7 @@ tiltCards.forEach(card => {
 
 </body>
 </html>
+
 
 
 
