@@ -908,7 +908,7 @@ header h1::after{
     }
 
     body.slam-active #slam-ball {
-      animation: pageSlam 1s cubic-bezier(.2,.9,.2,1) forwards;
+      animation: pageSlam .7s cubic-bezier(.2,.9,.2,1) forwards;
     }
 
     @keyframes netFade{
@@ -1288,7 +1288,7 @@ header h1::after{
     el.classList.add('reveal');
 
     /* stagger animation so users can see each element animate */
-    const delay = index * 0.08;
+    const delay = index * 0.035;
     el.style.transitionDelay = delay + 's';
 
     observer.observe(el);
