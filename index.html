@@ -46,21 +46,65 @@
       font-size: clamp(3.2rem, 5.2vw, 5rem);
       letter-spacing: 6px;
       text-transform: uppercase;
-
-      /* use your graffiti font from the zip */
       font-family:"AnotherTag","Permanent Marker",cursive;
-
-      /* cleaner graffiti styling */
       color:#ffd400;
       text-shadow:
         -3px -3px 0 #000,
         3px 3px 0 #000,
         0 0 18px rgba(255,212,0,0.6);
-
       transform: rotate(-3deg);
       display:inline-block;
       padding:8px 18px;
+      position:relative;
+
+      /* fade + spray reveal */
+      opacity:0;
+      animation: sprayReveal 1.2s ease forwards;
     }
+
+@keyframes sprayReveal{
+  0%{opacity:0; filter:blur(6px) brightness(1.6);} 
+  60%{opacity:1; filter:blur(0.5px) brightness(1.2);} 
+  100%{opacity:1; filter:blur(0) brightness(1);} 
+}
+
+/* spray droplets and mist removed — glow effect retained */ 
+  40%{opacity:.9;} 
+  70%{transform:scale(1.1) translate(6px,4px);} 
+  100%{opacity:.5; transform:scale(1);} 
+} 
+  60%{opacity:1; transform:translate(2px,-2px) scale(1.1);} 
+  100%{opacity:.75; transform:translate(0,0) scale(1);} 
+} 
+
+  /* droplets appear quickly one after another */
+  15%{opacity:.9; transform:scale(.9);} 
+  30%{opacity:.95; transform:scale(1.05);} 
+  45%{opacity:.95; transform:scale(1.1);} 
+  60%{opacity:.9; transform:scale(1.15);} 
+
+  /* settle like fresh paint */
+  80%{opacity:.8; transform:scale(1.05);} 
+  100%{opacity:.75; transform:scale(1);} 
+}
+
+/* stagger droplets so they appear in quick succession */
+header h1::before{
+  animation-delay:0s;
+}
+
+header h1::after{
+  animation-delay:.35s;
+} 
+  60%{opacity:.95; transform:scale(1.2);} 
+  100%{opacity:.75; transform:scale(1);} 
+} 
+  60%{opacity:.9; transform:scale(1.15);} 
+  100%{opacity:.75; transform:scale(1);} 
+} 
+  70%{opacity:.7; transform:scale(1.1);} 
+  100%{opacity:.55; transform:scale(1);}
+}
 
     header p {
       margin: 10px 0 0;
@@ -1192,6 +1236,3 @@ slamButtons.forEach(btn => {
 </script>
 </body>
 </html>
-
-
-
