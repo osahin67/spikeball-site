@@ -832,7 +832,7 @@ header h1::after{
       transition: opacity 0.35s ease;
     }
 
-    body.slam-active .page-content {
+    .slam-active .page-content {
       opacity: 0;
     }
 
@@ -850,7 +850,7 @@ header h1::after{
       transition: opacity 0.2s ease;
     }
 
-    body.slam-active #slam-overlay {
+    .slam-active #slam-overlay {
       opacity: 1;
       pointer-events: auto;
     }
@@ -929,15 +929,15 @@ header h1::after{
     /* remove old pseudo-leg styling */
     #slam-net::before,#slam-net::after{display:none;}
 
-    body.slam-active #slam-net{
+    .slam-active #slam-net{
       opacity:1; /* net visible immediately */
     }
 
-    body.slam-active #slam-net{
+    .slam-active #slam-net{
       animation: netFade 0.35s ease 0.55s forwards;
     }
 
-    body.slam-active #slam-ball {
+    .slam-active #slam-ball {
       animation: pageSlam .7s cubic-bezier(.2,.9,.2,1) forwards;
     }
 
@@ -1054,7 +1054,7 @@ header h1::after{
     }
   </style>
 </head>
-<body>
+<>
 <div id="slam-overlay">
   <div id="slam-net"></div>
   <div id="slam-impact"></div>
@@ -1463,6 +1463,24 @@ slamButtons.forEach(btn => {
     }, 1250);
   });
 });
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    const loader = document.getElementById("loading-screen");
+
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity .6s ease";
+
+    setTimeout(()=>{
+      loader.remove();
+    },600);
+
+  },1400);
+
+});
+    
 </script>
 
  <!-- PLAYER PAGES -->
@@ -1837,9 +1855,151 @@ tiltCards.forEach(card => {
   cursor:pointer;
 }
 
+/* LOADING SCREEN */
+
+#loading-screen{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:10000;
+overflow:hidden;
+}
+
+/* scene */
+
+.loader-scene{
+position:relative;
+width:400px;
+height:300px;
+}
+
+/* spikeball */
+
+.loader-ball{
+position:absolute;
+width:40px;
+height:40px;
+border-radius:50%;
+background:radial-gradient(circle at 35% 35%, #fff6b0, #ffd400 45%, #caa800 80%);
+box-shadow:0 0 25px rgba(255,212,0,.7);
+left:160px;
+top:130px;
+}
+
+/* player */
+
+.loader-player{
+position:absolute;
+left:120px;
+top:90px;
+width:80px;
+height:140px;
+}
+
+/* head */
+
+.player-head{
+width:18px;
+height:18px;
+background:#ffd400;
+border-radius:50%;
+margin:0 auto;
+}
+
+/* body */
+
+.player-body{
+width:4px;
+height:50px;
+background:#ffd400;
+margin:4px auto;
+}
+
+/* arm */
+
+.player-arm{
+position:absolute;
+width:40px;
+height:4px;
+background:#ffd400;
+top:30px;
+left:20px;
+transform-origin:left center;
+animation: swing 1.2s ease forwards;
+}
+
+/* legs */
+
+.player-leg{
+position:absolute;
+width:4px;
+height:40px;
+background:#ffd400;
+top:70px;
+}
+
+.player-leg.left{ left:32px; transform:rotate(10deg); }
+.player-leg.right{ left:42px; transform:rotate(-10deg); }
+
+/* arm swing */
+
+@keyframes swing{
+
+0%{ transform:rotate(-60deg); }
+
+60%{ transform:rotate(40deg); }
+
+100%{ transform:rotate(40deg); }
+
+}
+
+/* ball slam */
+
+@keyframes ballHit{
+
+0%{
+transform:translate(0,0) scale(1);
+}
+
+60%{
+transform:translate(60px,-20px) scale(1);
+}
+
+100%{
+transform:translate(0,0) scale(14);
+opacity:0;
+}
+
+}
+
+.loader-ball{
+animation: ballHit 1.2s ease forwards;
+animation-delay:.55s;
+}
+
 </style>
 
 </body>
+  <div id="loading-screen">
+
+  <div class="loader-scene">
+
+    <div class="loader-player">
+      <div class="player-head"></div>
+      <div class="player-body"></div>
+      <div class="player-arm"></div>
+      <div class="player-leg left"></div>
+      <div class="player-leg right"></div>
+    </div>
+
+    <div class="loader-ball"></div>
+
+  </div>
+
+</div>
 </html>
 
 
