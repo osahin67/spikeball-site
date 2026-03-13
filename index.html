@@ -1055,10 +1055,11 @@ header h1::after{
   </style>
 </head>
 <body>
-  <div id="slam-overlay">
-    <div id="slam-net"></div>
-    <div id="slam-ball"></div>
-  </div>
+<div id="slam-overlay">
+  <div id="slam-net"></div>
+  <div id="slam-impact"></div>
+  <div id="slam-ball"></div>
+</div>
   <div class="page-content">
   <header>
     <h1>G League Spikeball</h1>
@@ -1554,6 +1555,57 @@ slamButtons.forEach(btn => {
 </section>
 
 <style>
+
+  /* SLAM IMPACT FRAMES */
+
+#slam-impact{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#ffffff;
+  transform:translate(-50%,-50%) scale(.2);
+  opacity:0;
+  pointer-events:none;
+  z-index:3;
+}
+
+@keyframes slamImpact{
+
+  0%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.2);
+  }
+
+  40%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1.2);
+    box-shadow:
+      0 0 0 10px rgba(255,255,255,.9),
+      0 0 25px rgba(255,255,255,.8);
+  }
+
+  70%{
+    opacity:.8;
+    transform:translate(-50%,-50%) scale(2);
+    box-shadow:
+      0 0 0 40px rgba(255,255,255,.4),
+      0 0 50px rgba(255,255,255,.6);
+  }
+
+  100%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(3);
+    box-shadow:
+      0 0 0 80px rgba(255,255,255,0);
+  }
+}
+
+body.slam-active #slam-impact{
+  animation: slamImpact .55s ease-out .48s forwards;
+}
 
 .players-section{
   padding:80px 10%;
