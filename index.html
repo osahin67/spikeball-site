@@ -1057,7 +1057,15 @@ header h1::after{
 <body>
 <div id="slam-overlay">
   <div id="slam-net"></div>
+
+  <div id="slam-flash1" class="slam-flash"></div>
+  <div id="slam-flash2" class="slam-flash"></div>
+  <div id="slam-flash3" class="slam-flash"></div>
+
   <div id="slam-impact"></div>
+
+  <div id="slam-streak"></div>
+
   <div id="slam-ball"></div>
 </div>
   <div class="page-content">
@@ -1557,6 +1565,79 @@ slamButtons.forEach(btn => {
 <style>
 
   /* SLAM IMPACT FRAMES */
+
+  .slam-flash{
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  z-index:4;
+}
+
+@keyframes flashFrame{
+
+  0%{opacity:0;transform:scale(.4);}
+  20%{opacity:1;transform:scale(1);}
+  100%{opacity:0;transform:scale(1.4);}
+
+}
+
+body.slam-active #slam-flash1{
+  left:50%;
+  top:50%;
+  animation:flashFrame .12s ease .52s;
+}
+
+body.slam-active #slam-flash2{
+  left:52%;
+  top:49%;
+  animation:flashFrame .12s ease .60s;
+}
+
+body.slam-active #slam-flash3{
+  left:48%;
+  top:51%;
+  animation:flashFrame .12s ease .68s;
+}
+
+@keyframes screenShake{
+
+  0%{transform:translate(0,0);}
+  25%{transform:translate(-6px,4px);}
+  50%{transform:translate(6px,-4px);}
+  75%{transform:translate(-4px,3px);}
+  100%{transform:translate(0,0);}
+
+}
+
+body.slam-active{
+  animation:screenShake .25s ease .55s;
+}
+
+@keyframes netRipple{
+
+  0%{
+    transform:translate(-50%,-50%) perspective(900px) rotateX(70deg) scale(1);
+  }
+
+  50%{
+    transform:translate(-50%,-50%) perspective(900px) rotateX(70deg) scale(1.08);
+  }
+
+  100%{
+    transform:translate(-50%,-50%) perspective(900px) rotateX(70deg) scale(1);
+  }
+
+}
+
+body.slam-active #slam-net{
+  animation:
+    netFade 0.35s ease forwards,
+    netRipple .4s ease .55s;
+}
 
 #slam-impact{
   position:absolute;
