@@ -120,62 +120,7 @@ header h1::before{
   z-index:-1;
 }
 
-  50%{
-    text-shadow:
-      -3px -3px 0 #000,
-      3px 3px 0 #000,
-      0 0 28px rgba(255,212,0,.95),
-      0 0 45px rgba(255,212,0,.65);
-  }
-
-  100%{
-    text-shadow:
-      -3px -3px 0 #000,
-      3px 3px 0 #000,
-      0 0 14px rgba(255,212,0,.55);
-  }
-} 
-  60%{opacity:1; filter:blur(0.5px) brightness(1.2);} 
-  100%{opacity:1; filter:blur(0) brightness(1);} 
-}
-
-/* spray droplets and mist removed — glow effect retained */ 
-  40%{opacity:.9;} 
-  70%{transform:scale(1.1) translate(6px,4px);} 
-  100%{opacity:.5; transform:scale(1);} 
-} 
-  60%{opacity:1; transform:translate(2px,-2px) scale(1.1);} 
-  100%{opacity:.75; transform:translate(0,0) scale(1);} 
-} 
-
-  /* droplets appear quickly one after another */
-  15%{opacity:.9; transform:scale(.9);} 
-  30%{opacity:.95; transform:scale(1.05);} 
-  45%{opacity:.95; transform:scale(1.1);} 
-  60%{opacity:.9; transform:scale(1.15);} 
-
-  /* settle like fresh paint */
-  80%{opacity:.8; transform:scale(1.05);} 
-  100%{opacity:.75; transform:scale(1);} 
-}
-
-/* stagger droplets so they appear in quick succession */
-header h1::before{
-  animation-delay:0s;
-}
-
-header h1::after{
-  animation-delay:.35s;
-} 
-  60%{opacity:.95; transform:scale(1.2);} 
-  100%{opacity:.75; transform:scale(1);} 
-} 
-  60%{opacity:.9; transform:scale(1.15);} 
-  100%{opacity:.75; transform:scale(1);} 
-} 
-  70%{opacity:.7; transform:scale(1.1);} 
-  100%{opacity:.55; transform:scale(1);}
-}
+/* orphaned fragments removed */
 
     header p {
       margin: 10px 0 0;
@@ -1061,149 +1006,1452 @@ header h1::after{
     .page-back-btn:active {
       transform: translateY(1px) scale(0.96);
     }
-  </style>
+  
+/* ═══════════════════════════════════════════════
+   VISUAL OVERHAUL — G League Spikeball 2026
+═══════════════════════════════════════════════ */
+
+/* Extra fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Permanent+Marker&display=swap');
+
+:root {
+  --gold: #ffd400;
+  --gold-dim: rgba(255,212,0,.55);
+  --gold-faint: rgba(255,212,0,.08);
+  --black: #050505;
+  --surface: #0a0a0a;
+  --surface2: #111;
+  --border: rgba(255,212,0,.18);
+  --border-bright: rgba(255,212,0,.45);
+  --text-body: #e8dfc8;
+  --text-dim: rgba(232,223,200,.55);
+  --glow-sm: 0 0 12px rgba(255,212,0,.35);
+  --glow-md: 0 0 30px rgba(255,212,0,.5);
+  --glow-lg: 0 0 60px rgba(255,212,0,.35);
+}
+
+/* ── Body: noise grain overlay ── */
+body {
+  font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif !important;
+  background: var(--black) !important;
+  color: var(--text-body) !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+  opacity: 1;
+  mix-blend-mode: overlay;
+}
+
+/* ── Animated diagonal grid lines ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(255,212,0,.018) 60px,
+      rgba(255,212,0,.018) 61px
+    );
+  animation: gridDrift 25s linear infinite;
+}
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 200px 200px; }
+}
+
+/* ── .page backgrounds ── */
+.page {
+  background: var(--black) !important;
+}
+
+/* ── Header redesign ── */
+header {
+  background: rgba(5,5,5,.97) !important;
+  border-bottom: 1px solid rgba(255,212,0,.25) !important;
+  padding: 18px 20px !important;
+  position: relative;
+}
+
+/* gold scanline sweep on header */
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,212,0,.04) 50%, transparent 100%);
+  animation: headerSweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes headerSweep {
+  0%,100% { transform: translateX(-100%); opacity: 0; }
+  30%      { opacity: 1; }
+  70%      { opacity: 1; }
+  100%     { transform: translateX(100%); opacity: 0; }
+}
+
+/* ── Nav pills ── */
+nav a {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  font-size: .9rem !important;
+  font-weight: 400 !important;
+  padding: 8px 18px !important;
+  border: 1px solid rgba(255,212,0,.28) !important;
+  border-radius: 3px !important;
+  position: relative;
+  overflow: hidden;
+}
+nav a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,212,0,.08) 100%);
+  opacity: 0;
+  transition: opacity .2s;
+}
+nav a:hover::before { opacity: 1; }
+nav a:hover {
+  border-radius: 3px !important;
+  letter-spacing: 4px !important;
+}
+
+/* ── Hero text upgrade ── */
+.hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,212,0,.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,212,0,.05) 0%, transparent 40%),
+    linear-gradient(160deg, #070707 0%, #0a0a0a 50%, #060606 100%) !important;
+}
+
+.hero-text h2 {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 6px !important;
+  font-size: clamp(2.8rem, 6vw, 5.5rem) !important;
+  line-height: 0.95 !important;
+  color: var(--gold) !important;
+  text-shadow: 0 0 40px rgba(255,212,0,.3) !important;
+  /* italic slant for energy */
+  transform: skewX(-2deg);
+}
+
+.hero-text p {
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--text-body) !important;
+  font-size: 1rem !important;
+  letter-spacing: .5px !important;
+  line-height: 1.7 !important;
+  border-left: 3px solid rgba(255,212,0,.5);
+  padding-left: 16px;
+  margin-left: 2px;
+}
+
+/* ── Buttons ── */
+.button {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 4px !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  border-radius: 3px !important;
+  background: var(--gold) !important;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  padding: 14px 32px !important;
+  box-shadow: 0 0 20px rgba(255,212,0,.3), inset 0 1px 0 rgba(255,255,255,.2) !important;
+}
+.button:hover {
+  box-shadow: 0 0 40px rgba(255,212,0,.6), inset 0 1px 0 rgba(255,255,255,.2) !important;
+  letter-spacing: 5px !important;
+}
+.button-outline {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 4px !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  border-radius: 3px !important;
+  border: 1px solid var(--gold) !important;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  padding: 14px 32px !important;
+  position: relative;
+  overflow: hidden;
+}
+.button-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-102%);
+  transition: transform .25s cubic-bezier(.2,.9,.2,1);
+  z-index: -1;
+}
+.button-outline:hover::before { transform: translateX(0); }
+.button-outline:hover {
+  color: #000 !important;
+  border-color: var(--gold) !important;
+}
+
+/* ── Mini stat cards ── */
+.mini-stat {
+  background: transparent !important;
+  border: none !important;
+  border-left: 3px solid var(--gold) !important;
+  border-radius: 0 !important;
+  padding: 10px 16px !important;
+  min-width: 100px !important;
+  position: relative;
+}
+.mini-stat strong {
+  font-family: 'Bebas Neue', cursive !important;
+  font-size: 2rem !important;
+  letter-spacing: 2px !important;
+  display: block !important;
+  line-height: 1 !important;
+  color: var(--gold) !important;
+  text-shadow: var(--glow-sm) !important;
+}
+.mini-stat {
+  font-family: 'Oswald', sans-serif;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-dim);
+}
+
+/* ── Section titles ── */
+.section-title h2 {
+  font-family: 'Bebas Neue', cursive !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  letter-spacing: 8px !important;
+  color: var(--gold) !important;
+  text-shadow: 0 0 30px rgba(255,212,0,.25) !important;
+  position: relative;
+  display: inline-block;
+}
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.section-title p {
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+  color: var(--text-dim) !important;
+}
+
+/* ── Cards ── */
+.card {
+  background: linear-gradient(145deg, rgba(255,212,0,.05) 0%, rgba(255,212,0,.02) 100%) !important;
+  border: 1px solid rgba(255,212,0,.15) !important;
+  border-top: 2px solid rgba(255,212,0,.5) !important;
+  border-radius: 4px !important;
+  padding: 28px 24px !important;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.card:hover::before { opacity: 1; }
+.card:hover {
+  background: linear-gradient(145deg, rgba(255,212,0,.08) 0%, rgba(255,212,0,.03) 100%) !important;
+  border-color: rgba(255,212,0,.35) !important;
+  border-top-color: var(--gold) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5), var(--glow-sm) !important;
+  transform: translateY(-5px) !important;
+}
+.card h3 {
+  font-family: 'Bebas Neue', cursive !important;
+  font-size: 1.4rem !important;
+  letter-spacing: 3px !important;
+  color: var(--gold) !important;
+  margin: 0 0 10px !important;
+}
+.card p {
+  font-family: 'Oswald', sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--text-dim) !important;
+  font-size: .92rem !important;
+  letter-spacing: .3px !important;
+  line-height: 1.65 !important;
+}
+/* corner accent */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, transparent 50%, rgba(255,212,0,.08) 50%);
+  pointer-events: none;
+}
+
+/* ── Leaderboard ── */
+.leaderboard {
+  background: transparent !important;
+  border: 1px solid rgba(255,212,0,.15) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  max-height: 500px !important;
+}
+.leader-row {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,212,0,.07) !important;
+  padding: 14px 24px !important;
+}
+.leader-row.header {
+  background: var(--gold) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  font-size: 1rem !important;
+  border-radius: 0 !important;
+}
+.leader-row:not(.header):hover {
+  background: rgba(255,212,0,.05) !important;
+  padding-left: 34px !important;
+  box-shadow: inset 3px 0 0 var(--gold) !important;
+}
+.leader-link {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  font-size: .95rem;
+}
+
+/* ── Bracket ── */
+.round {
+  background: transparent !important;
+  border: 1px solid rgba(255,212,0,.15) !important;
+  border-top: 2px solid rgba(255,212,0,.4) !important;
+  border-radius: 4px !important;
+}
+.round h3 {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 4px !important;
+  font-size: 1.3rem !important;
+  color: var(--gold) !important;
+  border-bottom: 1px solid rgba(255,212,0,.15);
+  padding-bottom: 10px;
+  margin-bottom: 14px !important;
+}
+.match {
+  background: rgba(255,212,0,.03) !important;
+  border: 1px solid rgba(255,212,0,.12) !important;
+  border-left: 3px solid rgba(255,212,0,.4) !important;
+  border-radius: 3px !important;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .5px;
+  font-size: .92rem;
+}
+.match strong {
+  color: var(--gold);
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+/* ── Video card ── */
+.video-card {
+  background: #0a0a0a !important;
+  border: 1px solid rgba(255,212,0,.15) !important;
+  border-radius: 4px !important;
+}
+.video-screen {
+  background:
+    radial-gradient(circle at center, rgba(255,212,0,.12), transparent 30%),
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(255,212,0,.015) 30px 31px),
+    repeating-linear-gradient(90deg, transparent 0 30px, rgba(255,212,0,.015) 30px 31px),
+    linear-gradient(135deg, #0d0d0d, #000) !important;
+}
+.video-caption {
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: .5px !important;
+  color: var(--text-dim) !important;
+  font-size: .9rem !important;
+  border-top: 1px solid rgba(255,212,0,.1);
+}
+
+/* ── Sign-up form ── */
+.signup-box {
+  background: transparent !important;
+  border: 1px solid rgba(255,212,0,.15) !important;
+  border-top: 2px solid rgba(255,212,0,.45) !important;
+  border-radius: 4px !important;
+}
+input, select, textarea {
+  background: rgba(0,0,0,.7) !important;
+  border: 1px solid rgba(255,212,0,.18) !important;
+  border-radius: 3px !important;
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 1px !important;
+  color: var(--text-body) !important;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 2px rgba(255,212,0,.1), var(--glow-sm) !important;
+}
+
+/* ── Player cards ── */
+.player-card {
+  background: linear-gradient(160deg, rgba(255,212,0,.05) 0%, rgba(255,212,0,.02) 100%) !important;
+  border: 1px solid rgba(255,212,0,.18) !important;
+  border-top: 2px solid rgba(255,212,0,.5) !important;
+  border-radius: 4px !important;
+  position: relative;
+  overflow: hidden;
+}
+.player-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(255,212,0,.06) 100%);
+  pointer-events: none;
+}
+.player-card:hover {
+  border-color: rgba(255,212,0,.5) !important;
+  border-top-color: var(--gold) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,.6), 0 0 20px rgba(255,212,0,.2) !important;
+}
+.player-name {
+  font-family: 'Bebas Neue', cursive !important;
+  font-size: 1.15rem !important;
+  letter-spacing: 3px !important;
+  color: var(--gold) !important;
+}
+.player-img {
+  background: linear-gradient(145deg, #1a1a1a, #111) !important;
+  border-radius: 3px !important;
+}
+.drag-hint {
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 2px !important;
+}
+
+/* ── Page-header bars on sub-pages ── */
+.page-header {
+  background: rgba(5,5,5,.98) !important;
+  border-bottom: 1px solid rgba(255,212,0,.2) !important;
+  padding: 14px 24px !important;
+}
+.page-header h2 {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 6px !important;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important;
+}
+.page-back-btn {
+  border-radius: 3px !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+}
+.back-to-league {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  border-radius: 3px !important;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid rgba(255,212,0,.12) !important;
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 2px !important;
+  font-size: .78rem !important;
+  text-transform: uppercase !important;
+  color: var(--text-dim) !important;
+}
+
+/* ── Scoreboard ── */
+.scoreboard {
+  background: rgba(0,0,0,.85) !important;
+  border: 1px solid rgba(255,212,0,.25) !important;
+  border-radius: 4px !important;
+}
+.scoreboard h3 {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  font-size: 1rem !important;
+}
+.score-row {
+  font-family: 'Oswald', sans-serif !important;
+  letter-spacing: 1px !important;
+}
+.live-badge {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  border-radius: 2px !important;
+}
+
+/* ── Tip bar in transitions ── */
+/* (tipBar function uses inline styles so override via injected style) */
+
+
+/* ═══════════════════════════════════════════════════
+   HOME PAGE — FULL REDESIGN
+═══════════════════════════════════════════════════ */
+
+.home-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,212,0,.12), transparent),
+    radial-gradient(ellipse 40% 60% at 85% 60%, rgba(255,212,0,.05), transparent),
+    #050505;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal gold accent bar top-right */
+.home-wrap::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: conic-gradient(from 135deg, transparent 0deg 90deg, rgba(255,212,0,.06) 90deg 180deg, transparent 180deg);
+  pointer-events: none;
+}
+
+/* ── Top bar ── */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 6vw;
+  border-bottom: 1px solid rgba(255,212,0,.1);
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.45);
+}
+.top-bar-left { display: flex; align-items: center; gap: 10px; }
+.top-bar-tag { color: rgba(255,212,0,.45); }
+.top-bar-dot { opacity: .3; }
+.top-bar-tag.live-dot { color: #4dff91; }
+.top-bar-tag.live-dot::before {
+  content: '●';
+  font-size: .55rem;
+  margin-right: 5px;
+  animation: livePulse .9s ease-in-out infinite;
+}
+@keyframes livePulse { 0%,100%{opacity:1} 50%{opacity:.2} }
+.top-bar-right { font-size: .7rem; letter-spacing: 2px; opacity: .3; }
+
+/* ── Hero title block ── */
+.hero-title-block {
+  padding: 40px 6vw 0;
+  position: relative;
+  z-index: 2;
+}
+.hero-eyebrow {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .78rem;
+  letter-spacing: 6px;
+  color: rgba(255,212,0,.45);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.hero-wordmark {
+  font-family: 'AnotherTag', 'Permanent Marker', cursive;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: .9;
+  margin: 0;
+  color: #ffd400;
+  text-shadow:
+    -3px -3px 0 #000, 3px 3px 0 #000,
+    3px -3px 0 #000, -3px 3px 0 #000,
+    0 0 60px rgba(255,212,0,.4);
+  transform: rotate(-1.5deg);
+  display: inline-block;
+  animation: sprayReveal 1s ease forwards, glowPulse 3s ease-in-out infinite;
+  opacity: 0;
+}
+.hero-rule {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd400, transparent);
+  margin: 18px 0 14px;
+}
+.hero-tagline {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 6px;
+  font-size: 1rem;
+  color: rgba(255,212,0,.5);
+  margin: 0;
+}
+
+/* ── Live score strip ── */
+.score-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 6vw;
+  border-top: 1px solid rgba(255,212,0,.1);
+  border-bottom: 1px solid rgba(255,212,0,.1);
+  margin: 24px 0 0;
+  background: rgba(255,212,0,.03);
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+}
+.score-strip-label {
+  font-size: .7rem;
+  background: #ffd400;
+  color: #000;
+  padding: 3px 8px;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  animation: livePulse .9s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.score-team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.score-team:last-of-type { justify-content: flex-end; }
+.score-name { font-size: .82rem; color: rgba(255,212,0,.7); letter-spacing: 2px; }
+.score-num  { font-size: 1.8rem; color: #ffd400; line-height: 1; text-shadow: 0 0 20px rgba(255,212,0,.5); }
+.score-divider { font-size: .7rem; color: rgba(255,212,0,.3); letter-spacing: 3px; flex-shrink: 0; }
+.score-strip-venue { font-size: .62rem; color: rgba(255,212,0,.25); letter-spacing: 2px; margin-left: auto; display: none; }
+@media (min-width: 500px) { .score-strip-venue { display: block; } }
+
+/* ── Net visual ── */
+.hero-net-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20px 6vw 0;
+  flex: 1;
+  position: relative;
+}
+.hero-net-wrap .arena {
+  width: min(320px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255,212,0,.06), transparent 60%);
+  border: 1px solid rgba(255,212,0,.1);
+  box-shadow: 0 0 60px rgba(255,212,0,.06);
+}
+
+/* ── Nav grid ── */
+.home-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,212,0,.1);
+  border-top: 1px solid rgba(255,212,0,.12);
+  border-bottom: 1px solid rgba(255,212,0,.12);
+  margin-top: 24px;
+  text-decoration: none !important;
+}
+.nav-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 5vw;
+  background: #050505;
+  text-decoration: none !important;
+  color: #ffd400;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  transition: background .15s ease;
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.nav-tile::after { display: none !important; }
+.nav-tile:hover {
+  background: rgba(255,212,0,.07) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.nav-tile:active { background: rgba(255,212,0,.12) !important; }
+.nav-tile-icon { font-size: 1.1rem; flex-shrink: 0; }
+.nav-tile-label { flex: 1; }
+.nav-tile-arrow {
+  font-family: Arial, sans-serif;
+  font-size: .8rem;
+  color: rgba(255,212,0,.3);
+  transition: transform .15s ease, color .15s;
+}
+.nav-tile:hover .nav-tile-arrow { transform: translateX(4px); color: rgba(255,212,0,.7); }
+.nav-tile-join {
+  grid-column: 1 / -1;
+  background: rgba(255,212,0,.04) !important;
+  border-top: 1px solid rgba(255,212,0,.15) !important;
+}
+.nav-tile-join:hover { background: rgba(255,212,0,.1) !important; }
+
+/* ── Home footer strip ── */
+.home-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 6vw;
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.2);
+  border-top: 1px solid rgba(255,212,0,.06);
+}
+.hf-dot { opacity: .5; }
+
+/* ═══════════════════════════════════════════════════
+   SECTION PAGES — SHARED LAYOUT SYSTEM
+═══════════════════════════════════════════════════ */
+
+.sp-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 6vw;
+  border-bottom: 1px solid rgba(255,212,0,.12);
+  background: rgba(5,5,5,.98);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+}
+.sp-header-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.5);
+  text-transform: uppercase;
+}
+
+.sp-body {
+  padding: 0 6vw 60px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sp-hero-text {
+  padding: 44px 0 32px;
+}
+.sp-kicker {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 5px;
+  color: rgba(255,212,0,.4);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.sp-title {
+  font-family: 'AnotherTag', 'Permanent Marker', cursive;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: .92;
+  margin: 0 0 18px;
+  color: #ffd400;
+  text-shadow: -2px -2px 0 #000, 2px 2px 0 #000, 0 0 30px rgba(255,212,0,.25);
+}
+.sp-lead {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  color: rgba(232,223,200,.65);
+  line-height: 1.7;
+  max-width: 580px;
+  border-left: 3px solid rgba(255,212,0,.4);
+  padding-left: 16px;
+  margin: 0;
+}
+
+.sp-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,212,0,.35), transparent);
+  margin: 8px 0 32px;
+}
+
+/* ── About page — fact grid ── */
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,212,0,.1);
+  border: 1px solid rgba(255,212,0,.1);
+  margin-bottom: 36px;
+}
+@media (max-width: 600px) { .fact-grid { grid-template-columns: 1fr; } }
+.fact-card {
+  background: #050505;
+  padding: 28px 22px;
+}
+.fact-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.5rem;
+  color: #ffd400;
+  line-height: 1;
+  text-shadow: 0 0 25px rgba(255,212,0,.35);
+}
+.fact-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .85rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.55);
+  margin: 4px 0 8px;
+}
+.fact-desc {
+  font-family: 'Oswald', sans-serif;
+  font-size: .82rem;
+  color: rgba(232,223,200,.45);
+  line-height: 1.5;
+}
+
+.rule-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(255,212,0,.08);
+  border: 1px solid rgba(255,212,0,.1);
+  margin-bottom: 36px;
+}
+.rule-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 22px;
+  background: #050505;
+  transition: background .15s;
+}
+.rule-card:hover { background: rgba(255,212,0,.03); }
+.rule-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.4rem;
+  color: rgba(255,212,0,.25);
+  letter-spacing: 2px;
+  flex-shrink: 0;
+  min-width: 36px;
+}
+.rule-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: #ffd400;
+  margin-bottom: 4px;
+}
+.rule-body {
+  font-family: 'Oswald', sans-serif;
+  font-size: .85rem;
+  color: rgba(232,223,200,.5);
+  line-height: 1.5;
+}
+
+/* ── Teams page ── */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,212,0,.08);
+  border: 1px solid rgba(255,212,0,.1);
+  margin-bottom: 36px;
+}
+@media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
+.team-card {
+  background: #050505;
+  padding: 28px 24px;
+  transition: background .2s;
+  position: relative;
+  overflow: hidden;
+}
+.team-card:hover { background: rgba(255,212,0,.03); }
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.team-black::before { background: linear-gradient(90deg, #555, transparent); }
+.team-yellow::before { background: linear-gradient(90deg, #ffd400, transparent); }
+.team-orange::before { background: linear-gradient(90deg, #ff6b35, transparent); }
+.team-gold::before   { background: linear-gradient(90deg, #ffe066, transparent); }
+.team-badge {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .7rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.2);
+  margin-bottom: 6px;
+}
+.team-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+  color: #ffd400;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(255,212,0,.2);
+}
+.team-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.team-tag {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255,212,0,.2);
+  color: rgba(255,212,0,.5);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.team-desc {
+  font-family: 'Oswald', sans-serif;
+  font-size: .85rem;
+  color: rgba(232,223,200,.5);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.team-bar-wrap {
+  height: 3px;
+  background: rgba(255,212,0,.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.team-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd400, rgba(255,212,0,.4));
+  border-radius: 2px;
+}
+.team-bar-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.3);
+}
+
+/* ── Bracket page ── */
+.bracket-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+@media (max-width: 650px) { .bracket-layout { grid-template-columns: 1fr; } }
+.bracket-col { display: flex; flex-direction: column; gap: 10px; }
+.bracket-col-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.35);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.bracket-match {
+  border: 1px solid rgba(255,212,0,.12);
+  border-left: 3px solid rgba(255,212,0,.25);
+  background: rgba(255,212,0,.02);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bracket-final {
+  border-left: 3px solid #ffd400;
+  background: rgba(255,212,0,.05);
+  box-shadow: 0 0 20px rgba(255,212,0,.08);
+}
+.bm-slot {
+  font-family: 'Oswald', sans-serif;
+  font-size: .88rem;
+  color: rgba(232,223,200,.6);
+  letter-spacing: 1px;
+  padding: 4px 0;
+}
+.bm-a { color: rgba(255,212,0,.8); }
+.bm-final { color: #ffd400; font-weight: 600; }
+.bm-vs {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.2);
+  padding: 2px 0;
+}
+.bracket-trophy {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 8px;
+  filter: drop-shadow(0 0 12px rgba(255,212,0,.5));
+}
+
+/* ── Highlights page ── */
+.video-card {
+  background: #0a0a0a !important;
+  border: 1px solid rgba(255,212,0,.12) !important;
+  border-radius: 3px !important;
+  margin-bottom: 24px;
+}
+.video-screen {
+  position: relative !important;
+}
+.video-screen-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 29px, rgba(255,212,0,.02) 29px 30px),
+    repeating-linear-gradient(90deg, transparent 0 29px, rgba(255,212,0,.02) 29px 30px);
+  pointer-events: none;
+}
+.video-rec {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 3px;
+  color: #ff3333;
+  animation: livePulse .9s step-end infinite;
+}
+.vc-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: #ffd400;
+  margin-bottom: 6px;
+}
+.vc-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: .85rem;
+  color: rgba(232,223,200,.45);
+  line-height: 1.5;
+}
+.clip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(255,212,0,.08);
+  border: 1px solid rgba(255,212,0,.1);
+  margin-bottom: 36px;
+}
+.clip-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: #050505;
+  transition: background .15s;
+  cursor: pointer;
+}
+.clip-item:hover { background: rgba(255,212,0,.04); }
+.clip-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .8rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.25);
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.clip-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: .88rem;
+  color: rgba(232,223,200,.65);
+  letter-spacing: .5px;
+  flex: 1;
+}
+.clip-time {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.3);
+}
+
+/* ── Join page form ── */
+.join-form-wrap {
+  border: 1px solid rgba(255,212,0,.12);
+  border-top: 2px solid rgba(255,212,0,.4);
+  background: rgba(255,212,0,.02);
+  padding: 28px 24px;
+  margin-bottom: 36px;
+}
+.join-form { display: flex; flex-direction: column; gap: 16px; }
+.jf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .jf-row { grid-template-columns: 1fr; } }
+.jf-field { display: flex; flex-direction: column; gap: 6px; }
+.jf-full { grid-column: 1 / -1; }
+.jf-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.45);
+  text-transform: uppercase;
+}
+.jf-submit {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* ── Leaderboard upgrade ── */
+.leaderboard {
+  border-radius: 3px !important;
+  max-height: 60vh !important;
+}
+.leader-row {
+  grid-template-columns: 60px 1.8fr 1fr 0.8fr 0.8fr !important;
+}
+
+/* ── Back button row ── */
+.back-btn-row {
+  padding: 8px 0 20px;
+  display: flex;
+  justify-content: center;
+}
+.back-to-league {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 4px !important;
+  font-size: .9rem !important;
+  padding: 10px 28px !important;
+  border: 1px solid rgba(255,212,0,.3) !important;
+  background: transparent !important;
+  color: rgba(255,212,0,.6) !important;
+  border-radius: 2px !important;
+  clip-path: none !important;
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.back-to-league:hover {
+  border-color: #ffd400 !important;
+  color: #000 !important;
+  background: #ffd400 !important;
+}
+
+
+.radar-label-top { top: 8px; }
+.radar-label-bot { bottom: -2px; }
+
+
+/* ── SEASON COUNTDOWN ── */
+.countdown-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 6vw 8px;
+  flex-shrink: 0;
+}
+.countdown-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 5px;
+  color: rgba(255,212,0,.38);
+  margin-bottom: 14px;
+}
+.countdown-display {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+}
+.cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(54px, 16vw, 80px);
+}
+.cd-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2.8rem, 9vw, 5rem);
+  color: #ffd400;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow: 0 0 30px rgba(255,212,0,.5), 0 0 60px rgba(255,212,0,.2);
+  transition: color .1s ease, text-shadow .1s ease;
+}
+.cd-num.tick {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,255,255,.8), 0 0 40px rgba(255,212,0,.6);
+}
+.cd-sub {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .6rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.28);
+  margin-top: 2px;
+}
+.cd-sep {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: rgba(255,212,0,.2);
+  padding: 0 2px;
+  line-height: 1.05;
+  align-self: flex-start;
+  margin-top: 4px;
+  animation: sepPulse 1s step-end infinite;
+}
+@keyframes sepPulse { 0%,100%{opacity:1} 50%{opacity:.15} }
+.countdown-bar-wrap {
+  width: min(280px, 72vw);
+  height: 2px;
+  background: rgba(255,212,0,.1);
+  margin: 18px 0 10px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.countdown-bar {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,212,0,.4), #ffd400);
+  border-radius: 2px;
+  width: 0%;
+  transition: width .5s ease;
+  position: relative;
+}
+.countdown-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40px; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+  animation: barShimmer 2s ease-in-out infinite;
+}
+@keyframes barShimmer { 0%,100%{opacity:0} 50%{opacity:1} }
+.countdown-date {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .62rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.22);
+}
+
+</style>
 </head>
 <body>
 <div id="slam-overlay"></div>
   
 <div id="page-home" class="page active">
-  <header>
-    <h1>G League Spikeball</h1>
-    <p>Black. Yellow. Fast. Loud. Competitive.</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#teams">Teams</a>
-      <a href="#leaderboard">Rankings</a>
-      <a href="#bracket">Bracket</a>
-      <a href="#highlights">Highlights</a>
-      <a href="#players">Players</a>
-            <a href="#join" class="nav-btn">Join</a>
+  <div class="home-wrap">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <span class="top-bar-tag">SEASON 2026</span>
+        <span class="top-bar-dot">·</span>
+        <span class="top-bar-tag">GILROY CA</span>
+        <span class="top-bar-dot">·</span>
+        <span class="top-bar-tag live-dot">ACTIVE</span>
+      </div>
+      <div class="top-bar-right">16 PLAYERS · 5 TEAMS</div>
+    </div>
+
+    <!-- HERO TITLE BLOCK -->
+    <div class="hero-title-block">
+      <div class="hero-eyebrow">Invite Only · Competitive · Local</div>
+      <h1 class="hero-wordmark">G League<br>Spikeball</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">Black. Yellow. Fast. Loud.</p>
+    </div>
+
+
+    <!-- SEASON COUNTDOWN -->
+    <div class="countdown-wrap">
+      <div class="countdown-label">SEASON ENDS IN</div>
+      <div class="countdown-display">
+        <div class="cd-unit">
+          <div class="cd-num" id="cd-days">--</div>
+          <div class="cd-sub">DAYS</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit">
+          <div class="cd-num" id="cd-hours">--</div>
+          <div class="cd-sub">HRS</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit">
+          <div class="cd-num" id="cd-mins">--</div>
+          <div class="cd-sub">MIN</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit">
+          <div class="cd-num" id="cd-secs">--</div>
+          <div class="cd-sub">SEC</div>
+        </div>
+      </div>
+      <div class="countdown-bar-wrap">
+        <div class="countdown-bar" id="cd-bar"></div>
+      </div>
+      <div class="countdown-date">JUNE 1, 2026 · SYDNEY CASPER PARK</div>
+    </div>
+
+    <!-- NAV GRID -->
+    <nav class="home-nav">
+      <a href="#about"       class="nav-tile">
+        <span class="nav-tile-icon">🏐</span>
+        <span class="nav-tile-label">About</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
+      <a href="#teams"       class="nav-tile">
+        <span class="nav-tile-icon">🏆</span>
+        <span class="nav-tile-label">Teams</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
+      <a href="#leaderboard" class="nav-tile">
+        <span class="nav-tile-icon">📊</span>
+        <span class="nav-tile-label">Rankings</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
+      <a href="#bracket"     class="nav-tile">
+        <span class="nav-tile-icon">⚔️</span>
+        <span class="nav-tile-label">Bracket</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
+      <a href="#highlights"  class="nav-tile">
+        <span class="nav-tile-icon">🎬</span>
+        <span class="nav-tile-label">Highlights</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
+      <a href="#players"     class="nav-tile">
+        <span class="nav-tile-icon">👥</span>
+        <span class="nav-tile-label">Players</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
+      <a href="#join"        class="nav-tile nav-tile-join">
+        <span class="nav-tile-icon">🔒</span>
+        <span class="nav-tile-label">Request Invite</span>
+        <span class="nav-tile-arrow">→</span>
+      </a>
     </nav>
-  </header>
-  <section class="hero">
-    <div class="hero-text">
-      <h2>G League Spikeball</h2>
-      <p>
-        The G League is an invite‑only competitive Spikeball league for top local players. Competitions are held at Sydney Casper Park in Gilroy, California, bringing together the strongest players in the region for high‑level matches and tournaments.
-      </p>
-      <div class="cta-row">
-        <a class="button" href="#join">Join the League</a>
-        <a class="button-outline" href="#bracket">View Bracket</a>
-      </div>
-      <div class="mini-stats">
-        <div class="mini-stat"><strong>5</strong> Elite Teams</div>
-        <div class="mini-stat"><strong>16</strong> Active Players</div>
-        <div class="mini-stat"><strong>3</strong> Events This Season</div>
-      </div>
+
+    <!-- FOOTER STRIP -->
+    <div class="home-footer">
+      <span>© 2026 G League Spikeball</span>
+      <span class="hf-dot">·</span>
+      <span>Built for speed, style, and loud rallies</span>
     </div>
 
-    <div class="hero-visual">
-      <div class="arena">
-        <div class="scoreboard">
-          <h3>Live Match</h3>
-          <div class="score-row"><span>Black Strikers</span><strong>19</strong></div>
-          <div class="score-row"><span>Yellow Storm</span><strong>17</strong></div>
-          <span class="live-badge">LIVE</span>
-        </div>
-
-        <div class="glow-ring"></div>
-        <div class="glow-ring two"></div>
-
-        <div class="net-wrap">
-          <div class="net">
-            <div class="leg one"></div>
-            <div class="leg two"></div>
-            <div class="leg three"></div>
-          </div>
-        </div>
-
-        <div class="impact"></div>
-        <div class="ball"></div>
-      </div>
-    </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <p>© 2026 G League Spikeball | Built for speed, style, and loud rallies.</p>
-  </footer>
+  </div>
+</div>
 </div>
 
 <div id="page-about" class="page">
-
-  <div class="page-header">
+  <div class="sp-header">
     <button class="page-back-btn" data-goto="home">← Back</button>
-    <h2>🏐 About</h2>
+    <div class="sp-header-label">About the League</div>
   </div>
-  <div style="padding:0 0 20px">
-  <section id="about" class="section">
-    <div class="section-title">
-      <h2>About the League</h2>
-      <p>
-        G League Spikeball is an invite‑only league featuring some of the most competitive players in the Gilroy area. Matches and tournaments are hosted at <strong>Sydney Casper Park in Gilroy, California</strong>. The league focuses on skill, competition, and community while showcasing the best Spikeball players in the region.
-      </p>
-      </p>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Fast-Paced Matches</h3>
-        <p>Quick rallies, aggressive recoveries, and constant movement keep every match exciting from first serve to final point.</p>
-      </div>
-      <div class="card">
-        <h3>League Play</h3>
-        <p>Structured schedules, standings, playoffs, and tournament seeding give the season a real competitive rhythm.</p>
-      </div>
-      <div class="card">
-        <h3>Esports Vibe</h3>
-        <p>Bold colors, animated visuals, and a live-match feel make the page look more like a real branded sports site.</p>
-      </div>
-    </div>
-  </section>
+  <div class="sp-body">
 
-    <div class="back-btn-row">
-      <button class="back-to-league" data-goto="home">← Back to League</button>
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Est. 2026 · Gilroy, California</div>
+      <h2 class="sp-title">The Invite-Only<br>Spikeball Circuit</h2>
+      <p class="sp-lead">G League brings together the sharpest players in the South Bay for high-stakes Spikeball at Sydney Casper Park. No beginners. No casual matches. Just competition.</p>
     </div>
+
+    <div class="sp-divider"></div>
+
+    <div class="fact-grid">
+      <div class="fact-card">
+        <div class="fact-num">16</div>
+        <div class="fact-label">Active Players</div>
+        <div class="fact-desc">Hand-selected. Invite only. The best in the region.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">5</div>
+        <div class="fact-label">Elite Teams</div>
+        <div class="fact-desc">Each team has its own identity, strategy, and legacy.</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-num">3</div>
+        <div class="fact-label">Events This Season</div>
+        <div class="fact-desc">Round-robin, playoffs, and championship.</div>
+      </div>
+    </div>
+
+    <div class="sp-divider"></div>
+
+    <div class="rule-cards">
+      <div class="rule-card"><span class="rule-num">01</span><div><div class="rule-title">360° Play</div><div class="rule-body">No boundaries, no sides. The net is the center of everything.</div></div></div>
+      <div class="rule-card"><span class="rule-num">02</span><div><div class="rule-title">First to 21</div><div class="rule-body">Win by 2. Every point counts. Every serve matters.</div></div></div>
+      <div class="rule-card"><span class="rule-num">03</span><div><div class="rule-title">Any Contact</div><div class="rule-body">Head, knee, shoulder — if you can reach it, you can play it.</div></div></div>
+      <div class="rule-card"><span class="rule-num">04</span><div><div class="rule-title">Clean Serves</div><div class="rule-body">The serve must clear the rim. No rim shots. No do-overs.</div></div></div>
+    </div>
+
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home">← Back to League</button></div>
   </div>
 </div>
 
 <div id="page-teams" class="page">
-
-  <div class="page-header">
+  <div class="sp-header">
     <button class="page-back-btn" data-goto="home">← Back</button>
-    <h2>🏆 Teams</h2>
+    <div class="sp-header-label">Teams</div>
   </div>
-  <div style="padding:0 0 20px">
-  <section id="teams" class="section">
-    <div class="section-title">
-      <h2>Featured Teams</h2>
-      <p>Each team has its own style, attitude, and identity on the court.</p>
+  <div class="sp-body">
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Season 2026 Roster</div>
+      <h2 class="sp-title">Four Teams.<br>One Championship.</h2>
     </div>
-    <div class="cards">
-      <div class="card">
-        <h3>Black Strikers</h3>
-        <p>A disciplined team known for relentless defense, clean touches, and smart reads under pressure.</p>
+    <div class="sp-divider"></div>
+    <div class="team-grid">
+      <div class="team-card team-black">
+        <div class="team-badge">01</div>
+        <div class="team-name">Black Strikers</div>
+        <div class="team-stat-row">
+          <span class="team-tag">Defense</span>
+          <span class="team-tag">Discipline</span>
+          <span class="team-tag">Reads</span>
+        </div>
+        <p class="team-desc">Relentless defense, clean touches, and smart reads under pressure. They don't beat themselves.</p>
+        <div class="team-bar-wrap"><div class="team-bar" style="width:92%"></div></div>
+        <div class="team-bar-label">Defense Rating · 92</div>
       </div>
-      <div class="card">
-        <h3>Yellow Storm</h3>
-        <p>Explosive, athletic, and fearless. They thrive in quick transitions and high-risk angle shots.</p>
+      <div class="team-card team-yellow">
+        <div class="team-badge">02</div>
+        <div class="team-name">Yellow Storm</div>
+        <div class="team-stat-row">
+          <span class="team-tag">Explosive</span>
+          <span class="team-tag">Athletic</span>
+          <span class="team-tag">Fearless</span>
+        </div>
+        <p class="team-desc">High-risk angle shots and blistering transitions. When they're hot, no one can stop them.</p>
+        <div class="team-bar-wrap"><div class="team-bar" style="width:88%"></div></div>
+        <div class="team-bar-label">Offense Rating · 88</div>
       </div>
-      <div class="card">
-        <h3>Net Breakers</h3>
-        <p>Creative, chaotic, and impossible to predict. They turn broken plays into highlight clips.</p>
+      <div class="team-card team-orange">
+        <div class="team-badge">03</div>
+        <div class="team-name">Net Breakers</div>
+        <div class="team-stat-row">
+          <span class="team-tag">Creative</span>
+          <span class="team-tag">Chaotic</span>
+          <span class="team-tag">Unpredictable</span>
+        </div>
+        <p class="team-desc">Broken plays become highlight reels. You can't gameplan against them because they don't have a plan either.</p>
+        <div class="team-bar-wrap"><div class="team-bar" style="width:79%"></div></div>
+        <div class="team-bar-label">Chaos Rating · 79</div>
       </div>
-      <div class="card">
-        <h3>Golden Bounce</h3>
-        <p>Known for consistency and composure, Golden Bounce wears opponents down point by point.</p>
+      <div class="team-card team-gold">
+        <div class="team-badge">04</div>
+        <div class="team-name">Golden Bounce</div>
+        <div class="team-stat-row">
+          <span class="team-tag">Consistent</span>
+          <span class="team-tag">Composed</span>
+          <span class="team-tag">Methodical</span>
+        </div>
+        <p class="team-desc">They don't flash. They grind. Point by point, they wear you down until there's nothing left.</p>
+        <div class="team-bar-wrap"><div class="team-bar" style="width:85%"></div></div>
+        <div class="team-bar-label">Consistency Rating · 85</div>
       </div>
     </div>
-  </section>
-
-    <div class="back-btn-row">
-      <button class="back-to-league" data-goto="home">← Back to League</button>
-    </div>
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home">← Back to League</button></div>
   </div>
 </div>
-
 <div id="page-leaderboard" class="page">
 
   <div class="page-header">
@@ -1364,129 +2612,123 @@ header h1::after{
 </div>
 
 <div id="page-bracket" class="page">
-
-  <div class="page-header">
+  <div class="sp-header">
     <button class="page-back-btn" data-goto="home">← Back</button>
-    <h2>⚔️ Bracket</h2>
+    <div class="sp-header-label">Bracket</div>
   </div>
-  <div style="padding:0 0 20px">
-  <section id="bracket" class="section">
-    <div class="section-title">
-      <h2>Tournament Bracket</h2>
-      <p>This simplified bracket section makes it feel like a season page with playoff energy.</p>
+  <div class="sp-body">
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Season 2026 · Single Elimination</div>
+      <h2 class="sp-title">Tournament<br>Bracket</h2>
     </div>
-    <div class="bracket-wrap">
-      <div class="round">
-        <h3>Quarterfinals</h3>
-        <div class="match"><strong>Match 1</strong> Black Strikers vs Yellow Heat</div>
-        <div class="match"><strong>Match 2</strong> Yellow Storm vs Court Kings</div>
-        <div class="match"><strong>Match 3</strong> Net Breakers vs Bounce Theory</div>
-        <div class="match"><strong>Match 4</strong> Golden Bounce vs Rally X</div>
+    <div class="sp-divider"></div>
+    <div class="bracket-layout">
+      <div class="bracket-col">
+        <div class="bracket-col-label">Quarterfinals</div>
+        <div class="bracket-match"><div class="bm-slot bm-a">Black Strikers</div><div class="bm-vs">vs</div><div class="bm-slot">Yellow Heat</div></div>
+        <div class="bracket-match"><div class="bm-slot bm-a">Yellow Storm</div><div class="bm-vs">vs</div><div class="bm-slot">Court Kings</div></div>
+        <div class="bracket-match"><div class="bm-slot bm-a">Net Breakers</div><div class="bm-vs">vs</div><div class="bm-slot">Bounce Theory</div></div>
+        <div class="bracket-match"><div class="bm-slot bm-a">Golden Bounce</div><div class="bm-vs">vs</div><div class="bm-slot">Rally X</div></div>
       </div>
-      <div class="round">
-        <h3>Semifinals</h3>
-        <div class="match"><strong>Semifinal 1</strong> Black Strikers vs Yellow Storm</div>
-        <div class="match"><strong>Semifinal 2</strong> Net Breakers vs Golden Bounce</div>
+      <div class="bracket-col">
+        <div class="bracket-col-label">Semifinals</div>
+        <div class="bracket-match"><div class="bm-slot bm-a">Black Strikers</div><div class="bm-vs">vs</div><div class="bm-slot bm-a">Yellow Storm</div></div>
+        <div class="bracket-match"><div class="bm-slot bm-a">Net Breakers</div><div class="bm-vs">vs</div><div class="bm-slot bm-a">Golden Bounce</div></div>
       </div>
-      <div class="round">
-        <h3>Final</h3>
-        <div class="match"><strong>Championship</strong> Black Strikers vs Net Breakers</div>
+      <div class="bracket-col">
+        <div class="bracket-col-label">Championship</div>
+        <div class="bracket-match bracket-final"><div class="bm-slot bm-final">Black Strikers</div><div class="bm-vs">vs</div><div class="bm-slot bm-final">Net Breakers</div></div>
+        <div class="bracket-trophy">🏆</div>
       </div>
     </div>
-  </section>
-
-    <div class="back-btn-row">
-      <button class="back-to-league" data-goto="home">← Back to League</button>
-    </div>
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home">← Back to League</button></div>
   </div>
 </div>
-
 <div id="page-highlights" class="page">
-
-  <div class="page-header">
+  <div class="sp-header">
     <button class="page-back-btn" data-goto="home">← Back</button>
-    <h2>🎬 Highlights</h2>
+    <div class="sp-header-label">Highlights</div>
   </div>
-  <div style="padding:0 0 20px">
-  <section id="highlights" class="section">
-    <div class="section-title">
-      <h2>Highlight Video</h2>
-      <p>This section gives you a place to embed a real highlight reel later from YouTube or another video platform.</p>
+  <div class="sp-body">
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Season 2026 · Best Plays</div>
+      <h2 class="sp-title">Highlight<br>Reel</h2>
     </div>
+    <div class="sp-divider"></div>
     <div class="video-card">
       <div class="video-screen">
+        <div class="video-screen-grid"></div>
         <div class="play-button"></div>
+        <div class="video-rec">● REC</div>
       </div>
       <div class="video-caption">
-        Featured highlight reel - diving saves, impossible angles, and championship-point energy. Replace this placeholder with an embedded video when you are ready to publish the page live.
+        <div class="vc-title">Season 2026 — Championship Reel</div>
+        <div class="vc-sub">Diving saves, impossible angles, and championship-point energy. Embed a real YouTube or Vimeo clip here when ready.</div>
       </div>
     </div>
-  </section>
-
-    <div class="back-btn-row">
-      <button class="back-to-league" data-goto="home">← Back to League</button>
+    <div class="clip-list">
+      <div class="clip-item"><span class="clip-num">01</span><span class="clip-title">Dylan Kang — Ace Serve vs Yellow Storm</span><span class="clip-time">0:14</span></div>
+      <div class="clip-item"><span class="clip-num">02</span><span class="clip-title">Sean Anderson — Behind-the-back save</span><span class="clip-time">0:31</span></div>
+      <div class="clip-item"><span class="clip-num">03</span><span class="clip-title">Championship point — Black Strikers 21-19</span><span class="clip-time">1:02</span></div>
+      <div class="clip-item"><span class="clip-num">04</span><span class="clip-title">Virup Chalsani — 18-touch rally winner</span><span class="clip-time">2:14</span></div>
     </div>
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home">← Back to League</button></div>
   </div>
 </div>
-
 <div id="page-join" class="page">
-
-  <div class="page-header">
+  <div class="sp-header">
     <button class="page-back-btn" data-goto="home">← Back</button>
-    <h2>🔒 Join</h2>
+    <div class="sp-header-label">Request Invite</div>
   </div>
-  <div style="padding:0 0 20px">
-  <section id="join" class="section">
-    <div class="section-title">
-      <h2>Invite Request</h2>
-      <p>The G League is invite‑only. If you believe you have the skill level to compete with the top players in the Gilroy area, you may submit a request for consideration below.</p>
+  <div class="sp-body">
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Invite Only · Elite Players Only</div>
+      <h2 class="sp-title">Think You<br>Belong Here?</h2>
+      <p class="sp-lead">G League doesn't recruit. We evaluate. Submit your request and we'll review your game.</p>
     </div>
-    <div class="signup-box">
-      <form class="form-grid">
-        <div>
-          <label for="name">Full Name</label>
-          <input id="name" type="text" placeholder="Enter your name" />
+    <div class="sp-divider"></div>
+    <div class="join-form-wrap">
+      <form class="join-form">
+        <div class="jf-row">
+          <div class="jf-field">
+            <label class="jf-label">Full Name</label>
+            <input type="text" placeholder="Your name" />
+          </div>
+          <div class="jf-field">
+            <label class="jf-label">Email</label>
+            <input type="email" placeholder="your@email.com" />
+          </div>
         </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" type="email" placeholder="Enter your email" />
+        <div class="jf-row">
+          <div class="jf-field">
+            <label class="jf-label">Preferred Team</label>
+            <select>
+              <option>Black Strikers</option>
+              <option>Yellow Storm</option>
+              <option>Net Breakers</option>
+              <option>Golden Bounce</option>
+            </select>
+          </div>
+          <div class="jf-field">
+            <label class="jf-label">Skill Level</label>
+            <select>
+              <option>Competitive</option>
+              <option>Elite</option>
+              <option>Intermediate</option>
+              <option>Beginner</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label for="team">Preferred Team</label>
-          <select id="team">
-            <option>Black Strikers</option>
-            <option>Yellow Storm</option>
-            <option>Net Breakers</option>
-            <option>Golden Bounce</option>
-          </select>
+        <div class="jf-field jf-full">
+          <label class="jf-label">Make Your Case</label>
+          <textarea placeholder="Tell us about your game, your stats, your wins. Be specific."></textarea>
         </div>
-        <div>
-          <label for="level">Skill Level</label>
-          <select id="level">
-            <option>Beginner</option>
-            <option>Intermediate</option>
-            <option>Competitive</option>
-            <option>Elite</option>
-          </select>
-        </div>
-        <div class="full">
-          <label for="message">Why do you want to join?</label>
-        
-          <textarea id="message" placeholder="Tell us about your game, experience, and goals."></textarea>
-        </div>
-        <div class="full">
-          <button class="button" type="button">Submit Interest</button>
-        </div>
+        <button class="button jf-submit" type="button">Submit Request</button>
       </form>
     </div>
-  </section>
-
-    <div class="back-btn-row">
-      <button class="back-to-league" data-goto="home">← Back to League</button>
-    </div>
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home">← Back to League</button></div>
   </div>
 </div>
-
 <div id="page-players" class="page">
 
   <div class="page-header">
@@ -3947,6 +5189,62 @@ window.addEventListener('load', ()=>{
     setTimeout(()=>s.remove(), 580);
   }, 2200);
 });
+</script>
+
+<script>
+/* ── SEASON COUNTDOWN TIMER ── */
+(function() {
+  var END   = new Date('2026-06-01T00:00:00').getTime();
+  var START = new Date('2026-03-15T00:00:00').getTime();
+  var TOTAL = END - START;
+
+  var elDays  = document.getElementById('cd-days');
+  var elHours = document.getElementById('cd-hours');
+  var elMins  = document.getElementById('cd-mins');
+  var elSecs  = document.getElementById('cd-secs');
+  var elBar   = document.getElementById('cd-bar');
+  if (!elDays) return;
+
+  function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+  var lastSec = -1;
+
+  function tick() {
+    var now  = Date.now();
+    var diff = Math.max(0, END - now);
+
+    var days  = diff / 86400000;
+    var hours = (diff % 86400000) / 3600000;
+    var mins  = (diff % 3600000)  / 60000;
+    var secs  = (diff % 60000)    / 1000;
+
+    elDays.textContent  = Math.floor(days);
+    elHours.textContent = pad(hours);
+    elMins.textContent  = pad(mins);
+    elSecs.textContent  = pad(secs);
+
+    var s = Math.floor(secs);
+    if (s !== lastSec) {
+      lastSec = s;
+      elSecs.classList.add('tick');
+      setTimeout(function(){ elSecs.classList.remove('tick'); }, 120);
+    }
+
+    var elapsed = Math.max(0, now - START);
+    var pct = Math.min(100, (elapsed / TOTAL) * 100);
+    if (elBar) elBar.style.width = pct + '%';
+
+    if (diff > 0) {
+      setTimeout(tick, 250);
+    } else {
+      elDays.textContent = elHours.textContent = elMins.textContent = elSecs.textContent = '00';
+      if (elBar) elBar.style.width = '100%';
+      var lbl = document.querySelector('.countdown-label');
+      if (lbl) lbl.textContent = 'SEASON HAS ENDED';
+    }
+  }
+
+  tick();
+})();
 </script>
 </body>
 </html>
