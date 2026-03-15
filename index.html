@@ -1486,91 +1486,167 @@ window.addEventListener("load", () => {
  <!-- PLAYER PAGES -->
 <section id="players" class="players-section">
   <h2>Players</h2>
+  <p class="compare-hint">⚡ Drag one player card onto another to compare them head-to-head</p>
+
+  <!-- Drop Zone -->
+  <div id="compare-dropzone" class="compare-dropzone">
+    <div class="dropzone-inner">
+      <div class="dropzone-slots">
+        <div class="dropzone-slot" id="slot-a">
+          <span class="slot-label">Drop Player 1</span>
+        </div>
+        <div class="dropzone-vs">VS</div>
+        <div class="dropzone-slot" id="slot-b">
+          <span class="slot-label">Drop Player 2</span>
+        </div>
+      </div>
+      <p class="dropzone-tip">Drag cards here to compare</p>
+    </div>
+  </div>
 
   <div class="players-grid">
 
-    <a href="justin.html" class="player-card">
+    <a href="justin.html" class="player-card" draggable="true"
+       data-name="Justin Lim" data-rank="4" data-wins="14" data-aces="21" data-accuracy="88">
       <div class="player-img"></div>
       <div class="player-name">Justin</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="kai.html" class="player-card">
+    <a href="kai.html" class="player-card" draggable="true"
+       data-name="Kai Bodeman" data-rank="5" data-wins="12" data-aces="18" data-accuracy="85">
       <div class="player-img"></div>
       <div class="player-name">Kai</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="dylan.html" class="player-card">
+    <a href="dylan.html" class="player-card" draggable="true"
+       data-name="Dylan Kang" data-rank="1" data-wins="22" data-aces="34" data-accuracy="96">
       <div class="player-img"></div>
       <div class="player-name">Dylan</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="aarav.html" class="player-card">
+    <a href="aarav.html" class="player-card" draggable="true"
+       data-name="Aarav Patel" data-rank="6" data-wins="11" data-aces="16" data-accuracy="83">
       <div class="player-img"></div>
       <div class="player-name">Aarav</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="anish.html" class="player-card">
+    <a href="anish.html" class="player-card" draggable="true"
+       data-name="Anish Mishra" data-rank="7" data-wins="10" data-aces="15" data-accuracy="82">
       <div class="player-img"></div>
       <div class="player-name">Anish</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="nikita.html" class="player-card">
+    <a href="nikita.html" class="player-card" draggable="true"
+       data-name="Nikita Mescheryakov" data-rank="8" data-wins="9" data-aces="14" data-accuracy="80">
       <div class="player-img"></div>
       <div class="player-name">Nikita</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="brandon.html" class="player-card">
+    <a href="brandon.html" class="player-card" draggable="true"
+       data-name="Brandon Rios" data-rank="9" data-wins="8" data-aces="12" data-accuracy="79">
       <div class="player-img"></div>
       <div class="player-name">Brandon</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="andres.html" class="player-card">
+    <a href="andres.html" class="player-card" draggable="true"
+       data-name="Andres Schindler" data-rank="10" data-wins="7" data-aces="11" data-accuracy="77">
       <div class="player-img"></div>
       <div class="player-name">Andres</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="saul.html" class="player-card">
+    <a href="saul.html" class="player-card" draggable="true"
+       data-name="Saul Vargas" data-rank="11" data-wins="7" data-aces="10" data-accuracy="76">
       <div class="player-img"></div>
       <div class="player-name">Saul</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="mario.html" class="player-card">
+    <a href="mario.html" class="player-card" draggable="true"
+       data-name="Mario" data-rank="12" data-wins="6" data-aces="9" data-accuracy="74">
       <div class="player-img"></div>
       <div class="player-name">Mario</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="virup.html" class="player-card">
+    <a href="virup.html" class="player-card" draggable="true"
+       data-name="Virup Chalsani" data-rank="2" data-wins="19" data-aces="30" data-accuracy="94">
       <div class="player-img"></div>
       <div class="player-name">Virup</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="francisco.html" class="player-card">
+    <a href="francisco.html" class="player-card" draggable="true"
+       data-name="Francisco Flores" data-rank="13" data-wins="5" data-aces="8" data-accuracy="73">
       <div class="player-img"></div>
       <div class="player-name">Francisco</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="sean.html" class="player-card">
+    <a href="sean.html" class="player-card" draggable="true"
+       data-name="Sean Anderson" data-rank="3" data-wins="17" data-aces="26" data-accuracy="92">
       <div class="player-img"></div>
       <div class="player-name">Sean</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="ozan.html" class="player-card">
+    <a href="ozan.html" class="player-card" draggable="true"
+       data-name="Ozan Alexander Sahin" data-rank="14" data-wins="4" data-aces="7" data-accuracy="71">
       <div class="player-img"></div>
       <div class="player-name">Ozan</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="evan.html" class="player-card">
+    <a href="evan.html" class="player-card" draggable="true"
+       data-name="Evan Tran" data-rank="15" data-wins="3" data-aces="5" data-accuracy="69">
       <div class="player-img"></div>
       <div class="player-name">Evan</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
-    <a href="cesar.html" class="player-card">
+    <a href="cesar.html" class="player-card" draggable="true"
+       data-name="Cesar Velasco" data-rank="16" data-wins="2" data-aces="4" data-accuracy="66">
       <div class="player-img"></div>
       <div class="player-name">Cesar</div>
+      <div class="drag-hint">⠿ drag to compare</div>
     </a>
 
   </div>
 </section>
+
+<!-- HEAD-TO-HEAD COMPARISON MODAL -->
+<div id="compare-modal" class="compare-modal">
+  <div class="compare-modal-content">
+    <button class="compare-close" id="compare-close-btn">&times;</button>
+    <div class="compare-header">
+      <h2>Head-to-Head</h2>
+      <span class="compare-badge">MATCH UP</span>
+    </div>
+    <div class="compare-players">
+      <div class="compare-player" id="cmp-left">
+        <div class="cmp-avatar"></div>
+        <div class="cmp-name" id="cmp-name-a">—</div>
+        <div class="cmp-rank" id="cmp-rank-a"></div>
+      </div>
+      <div class="compare-vs-center">VS</div>
+      <div class="compare-player" id="cmp-right">
+        <div class="cmp-avatar"></div>
+        <div class="cmp-name" id="cmp-name-b">—</div>
+        <div class="cmp-rank" id="cmp-rank-b"></div>
+      </div>
+    </div>
+    <div class="compare-stats" id="compare-stats-rows"></div>
+    <div class="compare-winner" id="compare-winner"></div>
+    <button class="compare-reset-btn" id="compare-reset-btn">Compare Different Players</button>
+  </div>
+</div>
 
 <style>
 
@@ -1689,6 +1765,287 @@ body.slam-active #slam-impact{
   font-weight:600;
 }
 
+/* DRAG HINT */
+.drag-hint{
+  font-size:11px;
+  color:rgba(255,212,0,.4);
+  margin-top:8px;
+  letter-spacing:1px;
+  transition:color .2s;
+}
+.player-card:hover .drag-hint{
+  color:rgba(255,212,0,.8);
+}
+.player-card.dragging{
+  opacity:.45;
+  transform:scale(.95) !important;
+  border-color:rgba(255,212,0,.4);
+  box-shadow:none;
+}
+.player-card.drag-over-target{
+  border-color:#fff;
+  box-shadow:0 0 0 3px #ffd400, 0 0 30px rgba(255,212,0,.6);
+  transform:scale(1.06) !important;
+}
+
+/* COMPARE HINT */
+.compare-hint{
+  color:rgba(255,212,0,.6);
+  font-size:14px;
+  margin:10px 0 20px;
+  letter-spacing:.5px;
+}
+
+/* DROP ZONE */
+.compare-dropzone{
+  max-width:700px;
+  margin:0 auto 40px;
+  border:2px dashed rgba(255,212,0,.3);
+  border-radius:18px;
+  padding:24px 30px;
+  transition:border-color .2s, background .2s;
+  background:rgba(255,212,0,.03);
+}
+.compare-dropzone.drag-active{
+  border-color:#ffd400;
+  background:rgba(255,212,0,.07);
+}
+.dropzone-slots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+}
+.dropzone-slot{
+  flex:1;
+  max-width:220px;
+  height:70px;
+  border:1px solid rgba(255,212,0,.25);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s;
+}
+.dropzone-slot.filled{
+  border-color:#ffd400;
+  background:rgba(255,212,0,.1);
+}
+.dropzone-slot.filled .slot-label{
+  color:#ffd400;
+  font-weight:700;
+}
+.slot-label{
+  color:rgba(255,212,0,.45);
+  font-size:13px;
+  font-weight:600;
+  pointer-events:none;
+}
+.dropzone-vs{
+  font-size:22px;
+  font-weight:900;
+  color:rgba(255,212,0,.5);
+  letter-spacing:2px;
+}
+.dropzone-tip{
+  font-size:12px;
+  color:rgba(255,212,0,.3);
+  margin:12px 0 0;
+  text-align:center;
+}
+
+/* COMPARE MODAL */
+.compare-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+  z-index:10000;
+  padding:20px;
+}
+.compare-modal.open{
+  opacity:1;
+  pointer-events:auto;
+}
+.compare-modal-content{
+  background:#0d0d0d;
+  border:2px solid #ffd400;
+  border-radius:22px;
+  padding:36px;
+  width:100%;
+  max-width:700px;
+  position:relative;
+  box-shadow:0 30px 70px rgba(0,0,0,.6), 0 0 40px rgba(255,212,0,.1);
+  transform:scale(.92) translateY(20px);
+  transition:transform .35s cubic-bezier(.2,.9,.2,1);
+}
+.compare-modal.open .compare-modal-content{
+  transform:scale(1) translateY(0);
+}
+.compare-close{
+  position:absolute;
+  top:18px;
+  right:22px;
+  background:none;
+  border:none;
+  color:#ffd400;
+  font-size:28px;
+  cursor:pointer;
+  line-height:1;
+  transition:transform .15s;
+}
+.compare-close:hover{ transform:scale(1.2) rotate(10deg); }
+.compare-header{
+  text-align:center;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+}
+.compare-header h2{
+  margin:0;
+  font-size:24px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.compare-badge{
+  background:#ffd400;
+  color:#000;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  padding:4px 10px;
+  border-radius:999px;
+}
+.compare-players{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:16px;
+  margin-bottom:28px;
+  text-align:center;
+}
+.compare-player{}
+.cmp-avatar{
+  width:70px;
+  height:70px;
+  background:#222;
+  border-radius:50%;
+  border:3px solid #ffd400;
+  margin:0 auto 10px;
+  box-shadow:0 0 18px rgba(255,212,0,.25);
+}
+.cmp-name{
+  font-size:17px;
+  font-weight:700;
+  color:#ffd400;
+}
+.cmp-rank{
+  font-size:13px;
+  color:rgba(255,212,0,.6);
+  margin-top:4px;
+}
+.compare-vs-center{
+  font-size:28px;
+  font-weight:900;
+  color:rgba(255,212,0,.5);
+  letter-spacing:3px;
+}
+
+/* STAT ROWS */
+.compare-stats{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:24px;
+}
+.cmp-stat-row{
+  display:grid;
+  grid-template-columns:1fr 140px 1fr;
+  align-items:center;
+  gap:10px;
+}
+.cmp-stat-label{
+  text-align:center;
+  font-size:12px;
+  color:rgba(255,212,0,.55);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.cmp-bar-wrap{
+  position:relative;
+  height:10px;
+  background:rgba(255,255,255,.07);
+  border-radius:999px;
+  overflow:hidden;
+}
+.cmp-bar{
+  position:absolute;
+  top:0;
+  height:100%;
+  border-radius:999px;
+  transition:width .8s cubic-bezier(.2,.9,.2,1);
+}
+.cmp-bar.left{
+  right:0;
+  background:linear-gradient(90deg, rgba(255,212,0,.5), #ffd400);
+}
+.cmp-bar.right{
+  left:0;
+  background:linear-gradient(90deg, #ffd400, rgba(255,212,0,.5));
+}
+.cmp-bar.winner-bar.left,
+.cmp-bar.winner-bar.right{
+  background:linear-gradient(90deg,#ffe566,#fff176);
+  box-shadow:0 0 8px rgba(255,230,0,.5);
+}
+.cmp-val{
+  font-size:20px;
+  font-weight:800;
+  color:#ffd400;
+}
+.cmp-val.left{ text-align:right; }
+.cmp-val.right{ text-align:left; }
+.cmp-val.winner-val{ color:#fff176; text-shadow:0 0 10px rgba(255,230,0,.5); }
+
+/* WINNER BANNER */
+.compare-winner{
+  text-align:center;
+  margin-bottom:20px;
+  font-size:15px;
+  color:rgba(255,212,0,.7);
+  min-height:28px;
+}
+.compare-winner strong{
+  color:#ffd400;
+  font-size:18px;
+}
+.compare-reset-btn{
+  display:block;
+  margin:0 auto;
+  padding:12px 28px;
+  background:transparent;
+  border:2px solid #ffd400;
+  color:#ffd400;
+  font-weight:700;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:14px;
+  letter-spacing:.5px;
+  transition:.2s;
+}
+.compare-reset-btn:hover{
+  background:#ffd400;
+  color:#000;
+  transform:translateY(-2px);
+}
+
 </style>
 
 <script>
@@ -1770,6 +2127,213 @@ tiltCards.forEach(card => {
   });
 
 });
+</script>
+
+<script>
+/* ============================
+   DRAG-TO-COMPARE SYSTEM
+   ============================ */
+
+const PLAYER_DATA_KEYS = ['name','rank','wins','aces','accuracy'];
+
+let compareA = null;
+let compareB = null;
+let draggedCard = null;
+
+const dropzone   = document.getElementById('compare-dropzone');
+const slotA      = document.getElementById('slot-a');
+const slotB      = document.getElementById('slot-b');
+const modal      = document.getElementById('compare-modal');
+const closeBtn   = document.getElementById('compare-close-btn');
+const resetBtn   = document.getElementById('compare-reset-btn');
+
+function getPlayerData(card){
+  return {
+    name:     card.dataset.name,
+    rank:     parseInt(card.dataset.rank),
+    wins:     parseInt(card.dataset.wins),
+    aces:     parseInt(card.dataset.aces),
+    accuracy: parseInt(card.dataset.accuracy),
+    href:     card.getAttribute('href'),
+  };
+}
+
+function updateSlotLabel(slot, player){
+  const label = slot.querySelector('.slot-label');
+  if(player){
+    label.textContent = player.name.split(' ')[0];
+    slot.classList.add('filled');
+  } else {
+    label.textContent = slot.id === 'slot-a' ? 'Drop Player 1' : 'Drop Player 2';
+    slot.classList.remove('filled');
+  }
+}
+
+function openCompareModal(a, b){
+  // names + rank
+  document.getElementById('cmp-name-a').textContent = a.name;
+  document.getElementById('cmp-name-b').textContent = b.name;
+  document.getElementById('cmp-rank-a').textContent = 'Rank #' + a.rank;
+  document.getElementById('cmp-rank-b').textContent = 'Rank #' + b.rank;
+
+  // stats definition
+  const stats = [
+    { label:'Rank',          keyA: a.rank,     keyB: b.rank,     unit:'#', lowerIsBetter: true },
+    { label:'Wins',          keyA: a.wins,     keyB: b.wins,     unit:'',  lowerIsBetter: false },
+    { label:'Aces',          keyA: a.aces,     keyB: b.aces,     unit:'',  lowerIsBetter: false },
+    { label:'Serve Accuracy',keyA: a.accuracy, keyB: b.accuracy, unit:'%', lowerIsBetter: false },
+  ];
+
+  let aPoints = 0, bPoints = 0;
+  const statsContainer = document.getElementById('compare-stats-rows');
+  statsContainer.innerHTML = '';
+
+  stats.forEach(s => {
+    const aWins = s.lowerIsBetter ? s.keyA < s.keyB : s.keyA > s.keyB;
+    const bWins = s.lowerIsBetter ? s.keyB < s.keyA : s.keyB > s.keyA;
+    if(aWins) aPoints++;
+    if(bWins) bPoints++;
+
+    // bar widths — normalize within the pair
+    const maxVal = Math.max(s.keyA, s.keyB, 1);
+    const pctA = s.lowerIsBetter
+      ? ((maxVal - s.keyA + 1) / (maxVal + 1)) * 100
+      : (s.keyA / maxVal) * 100;
+    const pctB = s.lowerIsBetter
+      ? ((maxVal - s.keyB + 1) / (maxVal + 1)) * 100
+      : (s.keyB / maxVal) * 100;
+
+    const displayA = s.unit === '#' ? '#' + s.keyA : s.keyA + s.unit;
+    const displayB = s.unit === '#' ? '#' + s.keyB : s.keyB + s.unit;
+
+    const row = document.createElement('div');
+    row.className = 'cmp-stat-row';
+    row.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+        <span class="cmp-val left ${aWins?'winner-val':''}">${displayA}</span>
+        <div class="cmp-bar-wrap" style="width:100%">
+          <div class="cmp-bar left ${aWins?'winner-bar':''}" style="width:0%" data-pct="${pctA}"></div>
+        </div>
+      </div>
+      <div class="cmp-stat-label">${s.label}</div>
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px">
+        <span class="cmp-val right ${bWins?'winner-val':''}">${displayB}</span>
+        <div class="cmp-bar-wrap" style="width:100%">
+          <div class="cmp-bar right ${bWins?'winner-bar':''}" style="width:0%" data-pct="${pctB}"></div>
+        </div>
+      </div>
+    `;
+    statsContainer.appendChild(row);
+  });
+
+  // winner summary
+  const winnerEl = document.getElementById('compare-winner');
+  if(aPoints > bPoints){
+    winnerEl.innerHTML = `🏆 <strong>${a.name.split(' ')[0]}</strong> wins the matchup <strong>(${aPoints}–${bPoints})</strong>`;
+  } else if(bPoints > aPoints){
+    winnerEl.innerHTML = `🏆 <strong>${b.name.split(' ')[0]}</strong> wins the matchup <strong>(${bPoints}–${aPoints})</strong>`;
+  } else {
+    winnerEl.innerHTML = `🤝 It's a tie! Both players are evenly matched.`;
+  }
+
+  modal.classList.add('open');
+
+  // animate bars after paint
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.cmp-bar').forEach(bar => {
+        bar.style.width = bar.dataset.pct + '%';
+      });
+    });
+  });
+}
+
+function resetCompare(){
+  compareA = null;
+  compareB = null;
+  updateSlotLabel(slotA, null);
+  updateSlotLabel(slotB, null);
+  modal.classList.remove('open');
+  dropzone.classList.remove('drag-active');
+}
+
+closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+resetBtn.addEventListener('click', resetCompare);
+modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('open'); });
+
+// Drag events on player cards
+document.querySelectorAll('.player-card[draggable]').forEach(card => {
+
+  card.addEventListener('dragstart', e => {
+    draggedCard = card;
+    card.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'copy';
+    // show dropzone
+    dropzone.classList.add('drag-active');
+    // scroll to dropzone
+    dropzone.scrollIntoView({ behavior:'smooth', block:'center' });
+  });
+
+  card.addEventListener('dragend', () => {
+    draggedCard = null;
+    card.classList.remove('dragging');
+    document.querySelectorAll('.player-card').forEach(c => c.classList.remove('drag-over-target'));
+    dropzone.classList.remove('drag-active');
+  });
+
+  // drag over another player card (direct card-on-card drop)
+  card.addEventListener('dragover', e => {
+    e.preventDefault();
+    if(draggedCard && draggedCard !== card){
+      card.classList.add('drag-over-target');
+    }
+  });
+
+  card.addEventListener('dragleave', () => {
+    card.classList.remove('drag-over-target');
+  });
+
+  card.addEventListener('drop', e => {
+    e.preventDefault();
+    card.classList.remove('drag-over-target');
+    if(draggedCard && draggedCard !== card){
+      const pA = getPlayerData(draggedCard);
+      const pB = getPlayerData(card);
+      compareA = pA;
+      compareB = pB;
+      updateSlotLabel(slotA, pA);
+      updateSlotLabel(slotB, pB);
+      openCompareModal(pA, pB);
+    }
+  });
+});
+
+// Drop zone slot A
+slotA.addEventListener('dragover', e => { e.preventDefault(); slotA.style.borderColor='#ffd400'; });
+slotA.addEventListener('dragleave', () => { slotA.style.borderColor=''; });
+slotA.addEventListener('drop', e => {
+  e.preventDefault();
+  slotA.style.borderColor='';
+  if(draggedCard){
+    compareA = getPlayerData(draggedCard);
+    updateSlotLabel(slotA, compareA);
+    if(compareA && compareB) openCompareModal(compareA, compareB);
+  }
+});
+
+// Drop zone slot B
+slotB.addEventListener('dragover', e => { e.preventDefault(); slotB.style.borderColor='#ffd400'; });
+slotB.addEventListener('dragleave', () => { slotB.style.borderColor=''; });
+slotB.addEventListener('drop', e => {
+  e.preventDefault();
+  slotB.style.borderColor='';
+  if(draggedCard){
+    compareB = getPlayerData(draggedCard);
+    updateSlotLabel(slotB, compareB);
+    if(compareA && compareB) openCompareModal(compareA, compareB);
+  }
+});
+
 </script>
 
 
