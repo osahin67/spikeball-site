@@ -868,13 +868,11 @@ header h1::after{
 
     /* PAGE SLAM TRANSITION */
     .page-content {
-      transition: opacity 0.35s ease;
+      transition: opacity 0.3s ease;
     }
-
     .slam-active .page-content {
       opacity: 0;
     }
-
     #slam-overlay {
       position: fixed;
       inset: 0;
@@ -883,153 +881,11 @@ header h1::after{
       pointer-events: none;
       z-index: 9999;
       overflow: hidden;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.18s ease;
     }
-
     .slam-active #slam-overlay {
       opacity: 1;
       pointer-events: auto;
-    }
-
-    /* NET — exact copy of #loader-net */
-    #slam-net {
-      position: absolute;
-      top: 58%;
-      left: 50%;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      border: 10px solid #ffd400;
-      transform: translate(-50%,-50%) perspective(900px) rotateX(70deg);
-      box-shadow: 0 0 35px rgba(255,212,0,.45);
-      background:
-        repeating-linear-gradient(0deg,  transparent 0 18px, rgba(255,212,0,.65) 18px 20px),
-        repeating-linear-gradient(90deg, transparent 0 18px, rgba(255,212,0,.65) 18px 20px),
-        rgba(255,212,0,.04);
-      opacity: 0;
-    }
-    #slam-net::before, #slam-net::after { display: none; }
-
-    .slam-active #slam-net {
-      opacity: 1;
-      animation: slamNetSpin 1.4s linear infinite;
-    }
-
-    @keyframes slamNetSpin {
-      from { transform: translate(-50%,-50%) perspective(900px) rotateX(70deg) rotateZ(0deg); }
-      to   { transform: translate(-50%,-50%) perspective(900px) rotateX(70deg) rotateZ(360deg); }
-    }
-
-    /* BALL — anchored at net center so translate() offsets are intuitive */
-    #slam-ball {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      top: 58%;
-      left: 50%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #fff6b0 0%, #ffd400 45%, #caa800 80%);
-      box-shadow: 0 6px 18px rgba(0,0,0,.45);
-      opacity: 0;
-    }
-
-    /* FLASH — exact copy of #loader-flash */
-    #slam-flash {
-      position: absolute;
-      inset: 0;
-      background: #fff;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .slam-active #slam-flash {
-      animation: slamFlash .35s ease forwards;
-      animation-delay: .62s;
-    }
-    @keyframes slamFlash {
-      0%   { opacity: .9; }
-      30%  { opacity: .6; }
-      100% { opacity: 0;  }
-    }
-
-    /* SHOCKWAVE RINGS — centred on net */
-    #slam-shock1, #slam-shock2 {
-      position: absolute;
-      top: 58%;
-      left: 50%;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      transform: translate(-50%,-50%) scale(0);
-      opacity: 0;
-      pointer-events: none;
-    }
-    #slam-shock1 {
-      border: 6px solid #ffd400;
-      box-shadow: 0 0 20px rgba(255,212,0,.5);
-    }
-    #slam-shock2 {
-      border: 3px solid rgba(255,212,0,.5);
-    }
-    .slam-active #slam-shock1 {
-      animation: slamShock .55s cubic-bezier(.1,.8,.2,1) forwards;
-      animation-delay: .63s;
-    }
-    .slam-active #slam-shock2 {
-      animation: slamShock .65s cubic-bezier(.1,.8,.2,1) forwards;
-      animation-delay: .72s;
-    }
-    @keyframes slamShock {
-      0%   { transform: translate(-50%,-50%) scale(.2);  opacity: 1; }
-      100% { transform: translate(-50%,-50%) scale(4.5); opacity: 0; }
-    }
-
-    /* TITLE — exact copy of #loader-title */
-    #slam-title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%) scale(1.8);
-      opacity: 0;
-      text-align: center;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .slam-active #slam-title {
-      animation: slamTitle .45s cubic-bezier(.15,.85,.2,1) forwards;
-      animation-delay: .72s;
-    }
-    @keyframes slamTitle {
-      0%   { opacity: 0; transform: translate(-50%,-50%) scale(1.8); filter: blur(4px); }
-      60%  { opacity: 1; transform: translate(-50%,-50%) scale(.96);  filter: blur(0);  }
-      100% { opacity: 1; transform: translate(-50%,-50%) scale(1);    filter: blur(0);  }
-    }
-    #slam-title h1 {
-      font-family: "AnotherTag","Permanent Marker",cursive;
-      font-size: clamp(3.2rem,9vw,6rem);
-      color: #ffd400;
-      margin: 0;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      display: inline-block;
-      transform: rotate(-2deg);
-      text-shadow:
-        -3px -3px 0 #000,
-         3px  3px 0 #000,
-         3px -3px 0 #000,
-        -3px  3px 0 #000,
-        0 0 35px rgba(255,212,0,.95);
-    }
-    #slam-title p {
-      font-family: "AnotherTag","Permanent Marker",cursive;
-      font-size: clamp(1.1rem,3vw,1.9rem);
-      color: rgba(255,212,0,.75);
-      letter-spacing: 8px;
-      margin: 4px 0 0;
-      text-transform: uppercase;
-      text-shadow:
-        -2px -2px 0 #000,
-         2px  2px 0 #000,
-        0 0 16px rgba(255,212,0,.5);
     }
 
     @media (max-width: 900px) {
@@ -1080,18 +936,8 @@ header h1::after{
     }
   </style>
 </head>
-<>
-<div id="slam-overlay">
-  <div id="slam-net"></div>
-  <div id="slam-ball"></div>
-  <div id="slam-shock1"></div>
-  <div id="slam-shock2"></div>
-  <div id="slam-flash"></div>
-  <div id="slam-title">
-    <h1>G League Spikeball</h1>
-    <p>Black. Yellow. Fast. Loud.</p>
-  </div>
-</div>
+<body>
+<div id="slam-overlay"></div>
   <div class="page-content">
   <header>
     <h1>G League Spikeball</h1>
@@ -1460,108 +1306,528 @@ header h1::after{
 
   
 
-/* SPIKEBALL SLAM ON EVERY CLICK */
+/* ── SLAM TRANSITION SYSTEM ── */
 const slamOverlay = document.getElementById('slam-overlay');
-const slamBall    = document.getElementById('slam-ball');
-const slamFlash   = document.getElementById('slam-flash');
-const slamShock1  = document.getElementById('slam-shock1');
-const slamShock2  = document.getElementById('slam-shock2');
-const slamTitle   = document.getElementById('slam-title');
 
-function resetAnim(el) {
-  el.style.animation = 'none';
-  void el.offsetWidth;
-  el.style.animation = '';
+const TIPS = {
+  '#about':       ['Played on a circular trampoline net 🕸️','G League meets at Sydney Casper Park 🏟️','Fast. Loud. Competitive. ⚡'],
+  '#teams':       ['Black Strikers vs Yellow Storm 🟡','5 elite teams this season 🏆','Pick your squad wisely 🎯'],
+  '#leaderboard': ['Rankings update after every match 📊','Serve accuracy wins games 🎯','Top 16 players compete 👑'],
+  '#bracket':     ['Single elimination format ⚔️','Every match counts 💥','Who will make the finals? 🏆'],
+  '#highlights':  ['Best plays of the season 🎬','Highlight reel incoming 🎥','Relive the best moments ⚡'],
+  '#players':     ['Drag two cards together to compare ⠿','16 active players this season 👥','Find your rival 🔥'],
+  '#join':        ["G League is invite-only 🔒","Show us what you've got 💪",'Elite players only 🏆'],
+  player:         ['Checking player stats... 📊','Loading player profile 👤',"Who's got the best serve? 🎯"],
+  form:           ['Stats are updated manually 📝','Dispute your rankings here ✏️','Accuracy matters 🎯'],
+  default:        ['Spikeball never stops ⚡','Stay ready, stay sharp 🔥','Next rally incoming 💥'],
+};
+
+function getTip(k) { const p=TIPS[k]||TIPS.default; return p[Math.floor(Math.random()*p.length)]; }
+
+function clearOverlay() {
+  slamOverlay.innerHTML = '';
+  slamOverlay.style.background = '#000';
 }
 
-function triggerSlam() {
-  const overlay = slamOverlay;
-  const W = overlay.offsetWidth;
-  const H = overlay.offsetHeight;
+function tipBar(tip) {
+  const el = document.createElement('div');
+  el.style.cssText = 'position:absolute;bottom:0;left:0;right:0;background:rgba(255,212,0,.07);border-top:1px solid rgba(255,212,0,.16);padding:9px 22px;display:flex;align-items:center;gap:10px;font-family:"Bebas Neue","Permanent Marker",cursive;font-size:.92rem;color:rgba(255,212,0,.6);letter-spacing:2px;z-index:99;pointer-events:none;';
+  el.innerHTML = '<span style="font-size:.68rem;color:rgba(255,212,0,.35);letter-spacing:3px">TIP</span>' + tip;
+  return el;
+}
 
-  // Ball is anchored at top:58%, left:50% (the net center).
-  // All translate() values are offsets FROM that anchor point.
-  // Impact = translate(-50px,-50px) to center the 100px ball on the anchor.
-  const impX = -50;
-  const impY = -50;
+function injectStyle(id, css) {
+  let el = document.getElementById(id); if(el) el.remove();
+  el = document.createElement('style'); el.id = id; el.textContent = css;
+  document.head.appendChild(el);
+}
 
-  // Start: off-screen top-right
-  const startX =  W * 0.55;
-  const startY = -H * 0.65;
+/* ABOUT */
+function slamAbout(tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#000';
+  injectStyle('s-about', `
+    @keyframes sa-bg   { from{opacity:0;transform:scale(1.1)} to{opacity:1;transform:scale(1)} }
+    @keyframes sa-card { from{opacity:0;transform:translate(-50%,-50%) translateY(30px) scale(.94)} 65%{opacity:1;transform:translate(-50%,-50%) translateY(-3px) scale(1.01)} to{opacity:1;transform:translate(-50%,-50%) translateY(0) scale(1)} }
+    @keyframes sa-line { from{transform:scaleX(0);opacity:0} to{transform:scaleX(1);opacity:1} }
+    @keyframes sa-row  { from{opacity:0;transform:translateX(-18px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes sa-net  { to{transform:translate(-50%,-50%) perspective(900px) rotateX(68deg) rotateZ(360deg)} }
+    @keyframes sa-glow { 0%,100%{box-shadow:0 0 40px rgba(255,212,0,.08)} 50%{box-shadow:0 0 90px rgba(255,212,0,.22)} }
+  `);
 
-  // Midpoint: upper-right area, closing in
-  const midX = W * 0.12;
-  const midY = -H * 0.15;
+  // Background net
+  const net = document.createElement('div');
+  net.style.cssText = 'position:absolute;top:50%;left:50%;width:600px;height:600px;margin:-300px 0 0 -300px;border-radius:50%;border:8px solid rgba(255,212,0,.06);background:repeating-linear-gradient(0deg,transparent 0 18px,rgba(255,212,0,.05) 18px 19px),repeating-linear-gradient(90deg,transparent 0 18px,rgba(255,212,0,.05) 18px 19px);animation:sa-net 5s linear infinite;transform:translate(-50%,-50%) perspective(900px) rotateX(68deg) rotateZ(0deg);';
+  slamOverlay.appendChild(net);
 
-  // Rebound: fly off upper-left after impact
-  const rebX = -W * 0.55;
-  const rebY = -H * 0.65;
+  const card = document.createElement('div');
+  card.style.cssText = 'position:absolute;top:50%;left:50%;width:min(580px,92vw);background:linear-gradient(145deg,#0f0f0f,#080808);border:1px solid rgba(255,212,0,.35);border-radius:20px;padding:32px 36px 28px;animation:sa-card .55s cubic-bezier(.2,.9,.2,1) forwards,sa-glow 2s ease-in-out .6s infinite;opacity:0;z-index:5;overflow:hidden;';
 
-  const styleId = 'slam-dynamic-style';
-  let dynStyle = document.getElementById(styleId);
-  if (!dynStyle) {
-    dynStyle = document.createElement('style');
-    dynStyle.id = styleId;
-    document.head.appendChild(dynStyle);
-  }
+  // Gold accent bar top
+  const bar = '<div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#ffd400 30%,#ffd400 70%,transparent)"></div>';
 
-  dynStyle.textContent = `
-    @keyframes slamBallFly {
-      0%   { opacity:1; transform:translate(${startX}px,${startY}px) scale(.28) rotate(0deg);   filter:blur(7px); }
-      45%  { opacity:1; transform:translate(${midX}px,${midY}px)     scale(.85) rotate(200deg); filter:blur(3px); }
-      56%  { opacity:1; transform:translate(${impX}px,${impY}px) scaleX(1.55) scaleY(.72) rotate(265deg); filter:blur(0); }
-      60%  { opacity:1; transform:translate(${impX}px,${impY}px) scaleX(1.45) scaleY(.78) rotate(270deg); filter:blur(0); }
-      100% { opacity:1; transform:translate(${rebX}px,${rebY}px)     scale(.85) rotate(430deg); filter:blur(0);   }
-    }
+  const facts = [
+    ['🕸️','Net','Circular trampoline net — no boundaries, 360° play'],
+    ['⚡','Serve','Must clear the rim cleanly on the serve'],
+    ['🤜','Contact','Any body part can hit the ball'],
+    ['🏆','Win','First team to 21 points takes the set'],
+    ['📍','Location','Sydney Casper Park, Gilroy CA'],
+  ];
+
+  card.innerHTML = bar + `
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <div style="font-family:'AnotherTag','Permanent Marker',cursive;font-size:clamp(2.2rem,6vw,3.4rem);color:#ffd400;letter-spacing:4px;text-shadow:-3px -3px 0 #000,3px 3px 0 #000,0 0 25px rgba(255,212,0,.7)">About G League</div>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,#ffd400,rgba(255,212,0,.2),transparent);margin-bottom:18px;transform-origin:left;animation:sa-line .5s ease .3s both;transform:scaleX(0)"></div>
+    ${facts.map((f,i)=>`
+      <div style="display:grid;grid-template-columns:30px 90px 1fr;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,212,0,.07);animation:sa-row .35s ease ${.3+i*.07}s both;opacity:0">
+        <span style="font-size:1.1rem">${f[0]}</span>
+        <span style="font-family:'Bebas Neue',cursive;font-size:1rem;color:#ffd400;letter-spacing:2px">${f[1]}</span>
+        <span style="font-family:'Bebas Neue',cursive;font-size:.92rem;color:rgba(255,212,0,.6);letter-spacing:1px">${f[2]}</span>
+      </div>`).join('')}
   `;
-
-  document.body.classList.remove('slam-active');
-  void overlay.offsetWidth;
-  document.body.classList.add('slam-active');
-
-  slamBall.style.animation = 'none';
-  void slamBall.offsetWidth;
-  slamBall.style.opacity = '0';
-  slamBall.style.animation = 'slamBallFly .85s cubic-bezier(.2,.9,.2,1) .15s forwards';
-
-  resetAnim(slamFlash);
-  resetAnim(slamShock1);
-  resetAnim(slamShock2);
-  resetAnim(slamTitle);
-
-  setTimeout(() => document.body.classList.remove('slam-active'), 1400);
+  slamOverlay.appendChild(card);
+  slamOverlay.appendChild(tipBar(tip));
 }
+
+function slamTeams(tip) {
+  clearOverlay();
+  slamOverlay.style.background = 'linear-gradient(135deg, #050505, #0a0a0a)';
+  injectStyle('s-teams', `
+    @keyframes st-tl { from{opacity:0;transform:translate(-100%,-100%) rotate(-8deg) scale(.85)} 70%{opacity:1;transform:translate(0,0) rotate(-4deg) scale(1.03)} to{opacity:1;transform:translate(0,0) rotate(-4deg) scale(1)} }
+    @keyframes st-tr { from{opacity:0;transform:translate(100%,-100%) rotate(8deg) scale(.85)}  70%{opacity:1;transform:translate(0,0) rotate(4deg)  scale(1.03)} to{opacity:1;transform:translate(0,0) rotate(4deg)  scale(1)} }
+    @keyframes st-bl { from{opacity:0;transform:translate(-100%,100%) rotate(6deg) scale(.85)}  70%{opacity:1;transform:translate(0,0) rotate(-3deg) scale(1.03)} to{opacity:1;transform:translate(0,0) rotate(-3deg) scale(1)} }
+    @keyframes st-br { from{opacity:0;transform:translate(100%,100%) rotate(-6deg) scale(.85)}  70%{opacity:1;transform:translate(0,0) rotate(5deg)  scale(1.03)} to{opacity:1;transform:translate(0,0) rotate(5deg)  scale(1)} }
+    @keyframes st-center { from{opacity:0;transform:translate(-50%,-50%) scale(2.2);filter:blur(8px)} 60%{opacity:1;transform:translate(-50%,-50%) scale(.97);filter:blur(0)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
+    @keyframes st-flash { 0%{opacity:.5} 100%{opacity:0} }
+  `);
+
+  const teams = [
+    {n:'Black Strikers', w:'Relentless defense', c:'#d0d0d0', bg:'linear-gradient(135deg,#1a1a1a,#111)', icon:'🖤', a:'st-tl', p:'top:5%;left:3%'},
+    {n:'Yellow Storm',   w:'Explosive offense',  c:'#ffd400', bg:'linear-gradient(135deg,#181200,#0f0c00)', icon:'⚡', a:'st-tr', p:'top:5%;right:3%'},
+    {n:'Net Breakers',   w:'Chaos incarnate',    c:'#ff6b35', bg:'linear-gradient(135deg,#180900,#0f0500)', icon:'💥', a:'st-bl', p:'bottom:8%;left:3%'},
+    {n:'Golden Bounce',  w:'Cool under pressure',c:'#ffe066', bg:'linear-gradient(135deg,#141100,#0a0900)', icon:'🏆', a:'st-br', p:'bottom:8%;right:3%'},
+  ];
+
+  teams.forEach((t, i) => {
+    const c = document.createElement('div');
+    c.style.cssText = `position:absolute;${t.p};width:min(195px,44vw);background:${t.bg};border:2px solid ${t.c}44;border-radius:16px;padding:18px 16px;box-shadow:0 20px 50px rgba(0,0,0,.8),0 0 30px ${t.c}22;animation:${t.a} .48s cubic-bezier(.2,.9,.2,1) ${i*.09}s both;opacity:0;`;
+    c.innerHTML = `<div style="font-size:2rem;margin-bottom:10px">${t.icon}</div><div style="font-family:'Bebas Neue',cursive;font-size:1.2rem;color:${t.c};letter-spacing:2px;margin-bottom:6px">${t.n}</div><div style="font-family:'Bebas Neue',cursive;font-size:.82rem;color:${t.c}88;letter-spacing:1px">${t.w}</div>`;
+    slamOverlay.appendChild(c);
+  });
+
+  const center = document.createElement('div');
+  center.style.cssText = 'position:absolute;top:50%;left:50%;z-index:10;text-align:center;animation:st-center .42s cubic-bezier(.2,.9,.2,1) .38s both;opacity:0;white-space:nowrap;';
+  center.innerHTML = `
+    <div style="font-family:'AnotherTag','Permanent Marker',cursive;font-size:clamp(2.8rem,7.5vw,5rem);color:#ffd400;letter-spacing:5px;text-shadow:-4px -4px 0 #000,4px 4px 0 #000,0 0 35px rgba(255,212,0,.9)">Teams</div>
+    <div style="font-family:'Bebas Neue',cursive;font-size:1rem;color:rgba(255,212,0,.4);letter-spacing:5px;margin-top:4px">Season 2026</div>
+  `;
+  slamOverlay.appendChild(center);
+
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:st-flash .25s ease .44s forwards;pointer-events:none;';
+  slamOverlay.appendChild(flash);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamLeaderboard(tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#050505';
+  injectStyle('s-lb', `
+    @keyframes slb-board  { from{opacity:0;transform:translate(-50%,-50%) scale(.82) translateY(24px)} 68%{opacity:1;transform:translate(-50%,-50%) scale(1.01) translateY(-2px)} to{opacity:1;transform:translate(-50%,-50%) scale(1) translateY(0)} }
+    @keyframes slb-header { from{transform:translateY(-110%)} to{transform:translateY(0)} }
+    @keyframes slb-row    { from{opacity:0;transform:translateX(-24px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes slb-blink  { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+    @keyframes slb-scan   { from{top:-2px} to{top:100%} }
+    @keyframes slb-pulse  { 0%,100%{box-shadow:0 0 35px rgba(255,212,0,.1),0 30px 80px rgba(0,0,0,.6)} 50%{box-shadow:0 0 80px rgba(255,212,0,.35),0 30px 80px rgba(0,0,0,.6)} }
+    @keyframes slb-bar    { from{width:0} to{width:var(--w)} }
+  `);
+
+  const rows = [
+    ['#1','Dylan Kang',     '22W','96%', 96],
+    ['#2','Virup Chalsani', '19W','94%', 88],
+    ['#3','Sean Anderson',  '17W','92%', 80],
+    ['#4','Justin Lim',     '14W','88%', 65],
+    ['#5','Kai Bodeman',    '12W','85%', 56],
+  ];
+
+  const board = document.createElement('div');
+  board.style.cssText = 'position:absolute;top:50%;left:50%;width:min(680px,94vw);background:#0a0a0a;border:1px solid rgba(255,212,0,.3);border-radius:18px;overflow:hidden;animation:slb-board .5s cubic-bezier(.2,.9,.2,1) forwards,slb-pulse 1.6s ease .5s infinite;opacity:0;';
+
+  board.innerHTML = `
+    <div style="background:linear-gradient(90deg,#ffd400,#ffe566);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;animation:slb-header .32s cubic-bezier(.2,.9,.2,1) .05s both;transform:translateY(-110%)">
+      <div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.5rem;color:#000;letter-spacing:3px">Player Rankings</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:.78rem;color:rgba(0,0,0,.55);letter-spacing:3px">G League Season 2026</div>
+      </div>
+      <span style="font-family:'Bebas Neue',cursive;font-size:.85rem;color:#000;background:rgba(0,0,0,.15);padding:4px 10px;border-radius:999px;animation:slb-blink .9s step-end infinite">● LIVE</span>
+    </div>
+    ${rows.map((r,i)=>`
+      <div style="padding:10px 24px;border-bottom:1px solid rgba(255,212,0,.06);animation:slb-row .32s ease ${.12+i*.07}s both;opacity:0;${i===0?'background:rgba(255,212,0,.04)':''}">
+        <div style="display:grid;grid-template-columns:48px 1fr 60px 72px;align-items:center;gap:8px;margin-bottom:6px">
+          <span style="font-family:'Bebas Neue',cursive;font-size:${i===0?'1.6':'1.3'}rem;color:${i===0?'#ffd400':i===1?'rgba(255,212,0,.6)':'rgba(255,212,0,.35)'}">${r[0]}</span>
+          <span style="font-family:'Bebas Neue',cursive;font-size:1.05rem;color:#ffd400;letter-spacing:2px">${r[1]}</span>
+          <span style="font-family:'Bebas Neue',cursive;font-size:.9rem;color:rgba(255,212,0,.5);text-align:right">${r[2]}</span>
+          <span style="font-family:'Bebas Neue',cursive;font-size:.85rem;color:rgba(255,212,0,.4);text-align:right">${r[3]}</span>
+        </div>
+        <div style="height:3px;background:rgba(255,212,0,.08);border-radius:2px;overflow:hidden">
+          <div style="height:100%;background:linear-gradient(90deg,#ffd400,rgba(255,212,0,.4));border-radius:2px;--w:${r[4]}%;width:0;animation:slb-bar .6s ease ${.2+i*.07}s both"></div>
+        </div>
+      </div>`).join('')}
+    <div style="position:absolute;left:0;right:0;height:1px;background:rgba(255,255,255,.04);animation:slb-scan .8s linear infinite;top:0;pointer-events:none"></div>
+  `;
+  slamOverlay.appendChild(board);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamBracket(tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#050505';
+  injectStyle('s-br', `
+    @keyframes sbr-title { from{opacity:0;transform:translateY(-20px);filter:blur(4px)} to{opacity:1;transform:translateY(0);filter:blur(0)} }
+    @keyframes sbr-match { from{opacity:0;transform:translateX(var(--dx)) scale(.92)} 65%{opacity:1;transform:translateX(0) scale(1.02)} to{opacity:1;transform:translateX(0) scale(1)} }
+    @keyframes sbr-line  { from{transform:scaleX(0);opacity:0} to{transform:scaleX(1);opacity:1} }
+    @keyframes sbr-flash { 0%{opacity:.5} 100%{opacity:0} }
+    @keyframes sbr-final { from{opacity:0;transform:translate(-50%,-50%) scale(.6);filter:blur(6px)} 65%{opacity:1;transform:translate(-50%,-50%) scale(1.05);filter:blur(0)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
+  `);
+
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(700px,94vw);z-index:5;';
+
+  const qf = [
+    ['Black Strikers', '#ffd400', '#130f00', '-40px'],
+    ['Yellow Storm',   '#ffd400', '#130f00',  '40px'],
+    ['Net Breakers',   '#ff6b35', '#140600', '-40px'],
+    ['Golden Bounce',  '#ffe066', '#121000',  '40px'],
+  ];
+
+  wrap.innerHTML = `
+    <div style="font-family:'AnotherTag','Permanent Marker',cursive;font-size:clamp(1.8rem,5vw,3rem);color:#ffd400;text-align:center;letter-spacing:4px;margin-bottom:24px;text-shadow:-3px -3px 0 #000,3px 3px 0 #000,0 0 28px rgba(255,212,0,.7);animation:sbr-title .38s ease .05s both;opacity:0">Tournament Bracket</div>
+    <div style="display:grid;grid-template-columns:1fr 80px 1fr;gap:10px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${qf.slice(0,2).map((m,i)=>`<div style="background:${m[2]};border:1.5px solid ${m[1]}55;border-left:3px solid ${m[1]};border-radius:10px;padding:12px 16px;font-family:'Bebas Neue',cursive;font-size:1.05rem;color:${m[1]};letter-spacing:2px;--dx:${m[3]};animation:sbr-match .38s ease ${i*.12}s both;opacity:0">${m[0]}</div>`).join('')}
+      </div>
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.4rem;color:rgba(255,212,0,.3);letter-spacing:3px">VS</div>
+        <div style="width:2px;height:30px;background:linear-gradient(180deg,rgba(255,212,0,.3),transparent)"></div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.4rem;color:rgba(255,212,0,.3);letter-spacing:3px">VS</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${qf.slice(2,4).map((m,i)=>`<div style="background:${m[2]};border:1.5px solid ${m[1]}55;border-right:3px solid ${m[1]};border-radius:10px;padding:12px 16px;font-family:'Bebas Neue',cursive;font-size:1.05rem;color:${m[1]};letter-spacing:2px;text-align:right;--dx:${m[3]};animation:sbr-match .38s ease ${.08+i*.12}s both;opacity:0">${m[0]}</div>`).join('')}
+      </div>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,212,0,.4),transparent);margin:18px 0 14px;transform-origin:center;animation:sbr-line .5s ease .32s both;transform:scaleX(0)"></div>
+    <div style="text-align:center;font-family:'Bebas Neue',cursive;font-size:.88rem;color:rgba(255,212,0,.3);letter-spacing:4px;animation:sbr-title .3s ease .45s both;opacity:0">SEMIFINALS · FINALS · CHAMPION</div>
+  `;
+  slamOverlay.appendChild(wrap);
+
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:sbr-flash .25s ease .35s forwards;pointer-events:none;';
+  slamOverlay.appendChild(flash);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamHighlights(tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#000';
+  injectStyle('s-hl', `
+    @keyframes shl-roll   { from{transform:translateY(0)} to{transform:translateY(-50%)} }
+    @keyframes shl-clip   { from{opacity:0;transform:translateX(28px) scale(.96)} 65%{opacity:1;transform:translateX(-2px) scale(1.01)} to{opacity:1;transform:translateX(0) scale(1)} }
+    @keyframes shl-title  { from{opacity:0;letter-spacing:22px;filter:blur(5px);transform:translate(-50%,-50%) scale(.9)} to{opacity:1;letter-spacing:5px;filter:blur(0);transform:translate(-50%,-50%) scale(1)} }
+    @keyframes shl-scan   { from{top:-3px} to{top:100%} }
+    @keyframes shl-rec    { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  `);
+
+  // Film strips
+  ['left:0;border-right:3px solid rgba(255,212,0,.5);','right:0;border-left:3px solid rgba(255,212,0,.5);animation-direction:reverse;'].forEach((pos,si) => {
+    const s = document.createElement('div');
+    s.style.cssText = `position:absolute;top:0;${pos}width:64px;height:200%;background:#0c0c0c;animation:shl-roll ${si===0?'.9':'1.1'}s linear infinite;z-index:2;`;
+    s.innerHTML = Array.from({length:18}, (_,i) => `<div style="width:38px;height:26px;background:${i%3===0?'#1a1a1a':'#161616'};border-radius:3px;margin:7px 13px;${i%2===0?'border:1px solid rgba(255,212,0,.2)':''}"></div>`).join('');
+    slamOverlay.appendChild(s);
+  });
+
+  // Clip cards
+  const clips = [
+    {icon:'⚡',label:'ACE SERVE',   sub:'Dylan Kang — 140km/h'},
+    {icon:'💥',label:'SPIKE',       sub:'Sean Anderson — Q3 M5'},
+    {icon:'🏆',label:'MATCH POINT', sub:'Black Strikers vs Yellow Storm'},
+    {icon:'🔥',label:'RALLY',       sub:'18-stroke exchange'},
+    {icon:'🎯',label:'GAME WINNER', sub:'Virup Chalsani seals it'},
+  ];
+  const fc = document.createElement('div');
+  fc.style.cssText = 'position:absolute;inset:0 70px;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:16px 20px;z-index:3;';
+  clips.forEach((c, i) => {
+    const fr = document.createElement('div');
+    fr.style.cssText = `background:linear-gradient(90deg,#0e0e0e,#111);border:1px solid rgba(255,212,0,.22);border-left:3px solid rgba(255,212,0,.7);border-radius:8px;padding:9px 14px;display:flex;align-items:center;gap:12px;animation:shl-clip .35s ease ${i*.08}s both;opacity:0;`;
+    fr.innerHTML = `<span style="font-size:1.3rem">${c.icon}</span><div><div style="font-family:'Bebas Neue',cursive;font-size:1rem;color:#ffd400;letter-spacing:3px">${c.label}</div><div style="font-family:'Bebas Neue',cursive;font-size:.78rem;color:rgba(255,212,0,.4);letter-spacing:1px">${c.sub}</div></div>`;
+    fc.appendChild(fr);
+  });
+  slamOverlay.appendChild(fc);
+
+  // REC indicator
+  const rec = document.createElement('div');
+  rec.style.cssText = 'position:absolute;top:16px;right:80px;display:flex;align-items:center;gap:8px;z-index:10;animation:shl-rec .8s step-end infinite;';
+  rec.innerHTML = '<div style="width:10px;height:10px;background:#ff3333;border-radius:50%;box-shadow:0 0 8px #ff3333"></div><span style="font-family:\'Bebas Neue\',cursive;font-size:.9rem;color:#ff3333;letter-spacing:2px">REC</span>';
+  slamOverlay.appendChild(rec);
+
+  const title = document.createElement('div');
+  title.style.cssText = 'position:absolute;top:50%;left:50%;z-index:10;text-align:center;animation:shl-title .45s cubic-bezier(.15,.9,.2,1) .3s both;opacity:0;white-space:nowrap;';
+  title.innerHTML = '<div style="font-family:\'AnotherTag\',\'Permanent Marker\',cursive;font-size:clamp(2.5rem,7vw,4.5rem);color:#ffd400;text-shadow:-3px -3px 0 #000,3px 3px 0 #000,0 0 35px rgba(255,212,0,.9)">Highlights</div>';
+  slamOverlay.appendChild(title);
+
+  const scan = document.createElement('div');
+  scan.style.cssText = 'position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:shl-scan .9s linear infinite;z-index:4;';
+  slamOverlay.appendChild(scan);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamPlayers(tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#000';
+  injectStyle('s-pl', `
+    @keyframes spl-drop  { from{opacity:0;transform:translateY(-55px) scale(.88)} 65%{opacity:1;transform:translateY(4px) scale(1.04)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @keyframes spl-title { from{opacity:0;transform:translate(-50%,-50%) scale(1.55);filter:blur(6px)} 65%{opacity:1;transform:translate(-50%,-50%) scale(.97);filter:blur(0)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
+    @keyframes spl-flash { 0%{opacity:.45} 100%{opacity:0} }
+    @keyframes spl-glow  { 0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 10px rgba(255,212,0,.1)} 50%{box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 24px rgba(255,212,0,.35)} }
+  `);
+
+  const configs = [
+    {name:'Dylan',   rank:'#1', pos:'top:6%;left:3%',    delay:0},
+    {name:'Virup',   rank:'#2', pos:'top:4%;right:3%',   delay:.07},
+    {name:'Sean',    rank:'#3', pos:'top:40%;left:2%',   delay:.14},
+    {name:'Justin',  rank:'#4', pos:'top:38%;right:2%',  delay:.21},
+    {name:'Kai',     rank:'#5', pos:'bottom:5%;left:3%', delay:.28},
+    {name:'Aarav',   rank:'#6', pos:'bottom:3%;right:3%',delay:.35},
+  ];
+
+  configs.forEach(p => {
+    const card = document.createElement('div');
+    card.style.cssText = `position:absolute;${p.pos};width:min(148px,36vw);background:linear-gradient(145deg,#0e0e0e,#0a0a0a);border:1px solid rgba(255,212,0,.28);border-top:2px solid rgba(255,212,0,.6);border-radius:12px;padding:12px;text-align:center;animation:spl-drop .42s cubic-bezier(.2,.9,.2,1) ${p.delay}s both,spl-glow 1.8s ease ${p.delay+.5}s infinite;opacity:0;`;
+    card.innerHTML = `<div style="width:100%;height:58px;background:#181818;border-radius:7px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;font-size:1.6rem">👤</div><div style="font-family:'Bebas Neue',cursive;font-size:1rem;color:#ffd400;letter-spacing:2px">${p.name}</div><div style="font-family:'Bebas Neue',cursive;font-size:.78rem;color:rgba(255,212,0,.35);letter-spacing:2px">${p.rank}</div>`;
+    slamOverlay.appendChild(card);
+  });
+
+  const title = document.createElement('div');
+  title.style.cssText = 'position:absolute;top:50%;left:50%;z-index:10;text-align:center;animation:spl-title .44s cubic-bezier(.2,.9,.2,1) .38s both;opacity:0;white-space:nowrap;';
+  title.innerHTML = '<div style="font-family:\'AnotherTag\',\'Permanent Marker\',cursive;font-size:clamp(2.8rem,7.5vw,4.8rem);color:#ffd400;text-shadow:-3px -3px 0 #000,3px 3px 0 #000,0 0 35px rgba(255,212,0,.9);letter-spacing:4px">Players</div><div style="font-family:\'Bebas Neue\',cursive;font-size:.95rem;color:rgba(255,212,0,.35);letter-spacing:5px;margin-top:5px">16 Active This Season</div>';
+  slamOverlay.appendChild(title);
+
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:spl-flash .25s ease .4s forwards;pointer-events:none;';
+  slamOverlay.appendChild(flash);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamJoin(tip) {
+  clearOverlay();
+  slamOverlay.style.background = 'radial-gradient(ellipse at center, rgba(255,212,0,.06) 0%, transparent 65%), #000';
+  injectStyle('s-join', `
+    @keyframes sjoin-ring  { 0%{transform:translate(-50%,-50%) scale(.2);opacity:.8} 100%{transform:translate(-50%,-50%) scale(5);opacity:0} }
+    @keyframes sjoin-punch { from{opacity:0;transform:translate(-50%,-50%) scale(1.8);filter:blur(8px)} 60%{opacity:1;transform:translate(-50%,-50%) scale(.97);filter:blur(0)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
+    @keyframes sjoin-badge { from{opacity:0;transform:translateY(18px) scale(.9)} 65%{opacity:1;transform:translateY(-2px) scale(1.03)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @keyframes sjoin-flash { 0%{opacity:.45} 100%{opacity:0} }
+    @keyframes sjoin-pulse { 0%,100%{box-shadow:0 0 30px rgba(255,212,0,.15)} 50%{box-shadow:0 0 70px rgba(255,212,0,.5)} }
+  `);
+
+  [.28, .52, .76].forEach((d,i) => {
+    const r = document.createElement('div');
+    r.style.cssText = `position:absolute;top:50%;left:50%;width:${120+i*40}px;height:${120+i*40}px;margin-top:${-(60+i*20)}px;margin-left:${-(60+i*20)}px;border-radius:50%;border:${2-i*.5}px solid rgba(255,212,0,${.5-i*.12});animation:sjoin-ring 1.8s cubic-bezier(.1,.8,.2,1) ${d}s infinite;`;
+    slamOverlay.appendChild(r);
+  });
+
+  const main = document.createElement('div');
+  main.style.cssText = 'position:absolute;top:48%;left:50%;z-index:5;text-align:center;animation:sjoin-punch .52s cubic-bezier(.2,.9,.2,1) .05s forwards;opacity:0;white-space:nowrap;';
+  main.innerHTML = `
+    <div style="font-family:'AnotherTag','Permanent Marker',cursive;font-size:clamp(2.8rem,8vw,5.2rem);color:#ffd400;letter-spacing:5px;text-shadow:-4px -4px 0 #000,4px 4px 0 #000,0 0 45px rgba(255,212,0,.95)">Join the League</div>
+    <div style="font-family:'Bebas Neue',cursive;font-size:clamp(.9rem,2.5vw,1.3rem);color:rgba(255,212,0,.5);letter-spacing:6px;margin-top:8px">Invite Only · Elite Players · Gilroy CA</div>
+  `;
+  slamOverlay.appendChild(main);
+
+  // Requirements badges
+  const badges = document.createElement('div');
+  badges.style.cssText = 'position:absolute;top:72%;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:5;white-space:nowrap;';
+  ['Elite Skill','Invite Only','Season 2026'].forEach((b,i) => {
+    const el = document.createElement('div');
+    el.style.cssText = `background:rgba(255,212,0,.08);border:1px solid rgba(255,212,0,.3);border-radius:999px;padding:5px 14px;font-family:'Bebas Neue',cursive;font-size:.82rem;color:rgba(255,212,0,.6);letter-spacing:2px;animation:sjoin-badge .3s ease ${.4+i*.08}s both;opacity:0;`;
+    el.textContent = b;
+    badges.appendChild(el);
+  });
+  slamOverlay.appendChild(badges);
+
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:sjoin-flash .25s ease .12s forwards;pointer-events:none;';
+  slamOverlay.appendChild(flash);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamPlayerPage(name, tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#000';
+  injectStyle('s-spot', `
+    @keyframes ssp-rays  { from{opacity:0;transform:rotate(var(--a)) scaleY(0)} to{opacity:var(--o);transform:rotate(var(--a)) scaleY(1)} }
+    @keyframes ssp-card  { from{opacity:0;transform:translate(-50%,-50%) scale(.78);filter:blur(5px)} 65%{opacity:1;transform:translate(-50%,-50%) scale(1.02);filter:blur(0)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
+    @keyframes ssp-bar   { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+    @keyframes ssp-stat  { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes ssp-flash { 0%{opacity:.5} 100%{opacity:0} }
+    @keyframes ssp-pulse { 0%,100%{box-shadow:0 0 50px rgba(255,212,0,.15),0 30px 70px rgba(0,0,0,.8)} 50%{box-shadow:0 0 90px rgba(255,212,0,.4),0 30px 70px rgba(0,0,0,.8)} }
+  `);
+
+  // Spotlight rays
+  Array.from({length:16}, (_,i) => {
+    const ray = document.createElement('div');
+    const angle = i * (360/16);
+    const opacity = .06 + (i % 3) * .02;
+    ray.style.cssText = `position:absolute;top:0;left:50%;width:2px;height:100%;background:linear-gradient(180deg,transparent 5%,rgba(255,212,0,${opacity}) 40%,rgba(255,212,0,${opacity}) 60%,transparent 95%);transform-origin:top center;transform:rotate(${angle}deg) scaleY(0);--a:${angle}deg;--o:${opacity};animation:ssp-rays .5s ease ${i*.02}s both;`;
+    slamOverlay.appendChild(ray);
+  });
+
+  const card = document.createElement('div');
+  card.style.cssText = 'position:absolute;top:50%;left:50%;width:min(420px,90vw);background:linear-gradient(145deg,#0d0d0d,#0a0a0a);border:1px solid rgba(255,212,0,.3);border-top:2px solid #ffd400;border-radius:22px;padding:30px;text-align:center;animation:ssp-card .52s cubic-bezier(.2,.9,.2,1) .06s both,ssp-pulse 1.8s ease .6s infinite;opacity:0;z-index:5;';
+
+  const playerName = name.charAt(0).toUpperCase() + name.slice(1);
+
+  card.innerHTML = `
+    <div style="width:90px;height:90px;background:radial-gradient(circle,#1e1e1e,#111);border-radius:50%;border:2px solid rgba(255,212,0,.5);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;box-shadow:0 0 30px rgba(255,212,0,.2)">👤</div>
+    <div style="font-family:'AnotherTag','Permanent Marker',cursive;font-size:clamp(2rem,6vw,3.2rem);color:#ffd400;letter-spacing:4px;text-shadow:-3px -3px 0 #000,3px 3px 0 #000,0 0 22px rgba(255,212,0,.75);margin-bottom:12px">${playerName}</div>
+    <div style="height:1px;background:linear-gradient(90deg,transparent,#ffd400,transparent);margin:0 0 14px;transform-origin:center;animation:ssp-bar .4s ease .35s both;transform:scaleX(0)"></div>
+    <div style="font-family:'Bebas Neue',cursive;font-size:.9rem;color:rgba(255,212,0,.4);letter-spacing:3px;animation:ssp-stat .3s ease .42s both;opacity:0">G League Spikeball · Gilroy CA</div>
+    <div style="display:flex;justify-content:center;gap:20px;margin-top:14px">
+      ${['Wins','Aces','Accuracy'].map((s,i)=>`<div style="animation:ssp-stat .3s ease ${.46+i*.08}s both;opacity:0;text-align:center"><div style="font-family:'Bebas Neue',cursive;font-size:.75rem;color:rgba(255,212,0,.35);letter-spacing:2px">${s}</div><div style="font-family:'Bebas Neue',cursive;font-size:1.1rem;color:rgba(255,212,0,.6);margin-top:2px">—</div></div>`).join('')}
+    </div>
+  `;
+  slamOverlay.appendChild(card);
+
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:ssp-flash .25s ease .08s forwards;pointer-events:none;';
+  slamOverlay.appendChild(flash);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamForm(tip) {
+  clearOverlay();
+  injectStyle('s-form', `
+    @keyframes sfm-card { from{opacity:0;transform:translate(-50%,-50%) scale(.84) translateY(24px)} 65%{opacity:1;transform:translate(-50%,-50%) scale(1.01) translateY(-2px)} to{opacity:1;transform:translate(-50%,-50%) scale(1) translateY(0)} }
+    @keyframes sfm-line { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+    @keyframes sfm-row  { from{opacity:0;transform:translateX(-16px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes sfm-dot  { 0%,100%{opacity:1} 33%{opacity:.2} 66%{opacity:.6} }
+  `);
+
+  const card = document.createElement('div');
+  card.style.cssText = 'position:absolute;top:50%;left:50%;width:min(500px,90vw);background:linear-gradient(145deg,#0d0d0d,#0a0a0a);border:1px solid rgba(255,212,0,.28);border-top:2px solid #ffd400;border-radius:18px;padding:28px 30px;animation:sfm-card .5s cubic-bezier(.2,.9,.2,1) forwards;opacity:0;z-index:5;';
+
+  const fields = [
+    {label:'Full Name',        icon:'👤'},
+    {label:'Current Rank',     icon:'🏆'},
+    {label:'Wins This Season', icon:'✅'},
+    {label:'Aces',             icon:'⚡'},
+    {label:'Serve Accuracy %', icon:'🎯'},
+  ];
+
+  card.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.5rem;color:#ffd400;letter-spacing:3px">Stat Reevaluation</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:.78rem;color:rgba(255,212,0,.3);letter-spacing:2px">G League Season 2026</div>
+      </div>
+      <div style="display:flex;gap:4px;align-items:center">
+        ${[0,1,2].map(i=>`<div style="width:7px;height:7px;border-radius:50%;background:#ffd400;animation:sfm-dot 1.2s ease-in-out ${i*.2}s infinite"></div>`).join('')}
+      </div>
+    </div>
+    <div style="height:1px;background:linear-gradient(90deg,#ffd400,rgba(255,212,0,.2),transparent);margin-bottom:16px;transform-origin:left;animation:sfm-line .4s ease .18s both;transform:scaleX(0)"></div>
+    ${fields.map((f,i)=>`
+      <div style="display:grid;grid-template-columns:24px 1fr 1fr;gap:10px;margin-bottom:8px;align-items:center;animation:sfm-row .3s ease ${.18+i*.07}s both;opacity:0">
+        <span style="font-size:1rem">${f.icon}</span>
+        <span style="font-family:'Bebas Neue',cursive;font-size:.9rem;color:rgba(255,212,0,.5);letter-spacing:2px">${f.label}</span>
+        <div style="height:28px;background:rgba(255,212,0,.04);border:1px solid rgba(255,212,0,.18);border-radius:6px"></div>
+      </div>`).join('')}
+  `;
+  slamOverlay.appendChild(card);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+function slamDefault(tip) {
+  clearOverlay();
+  const W = slamOverlay.offsetWidth, H = slamOverlay.offsetHeight;
+  injectStyle('s-def',
+    '@keyframes sdf-net{to{transform:translate(-50%,-50%) perspective(900px) rotateX(70deg) rotateZ(360deg)}}' +
+    '@keyframes sdf-ball{0%{opacity:1;transform:translate('+Math.round(W*.55)+'px,'+Math.round(-H*.65)+'px) scale(.25) rotate(0deg);filter:blur(8px)}44%{transform:translate('+Math.round(W*.1)+'px,'+Math.round(-H*.12)+'px) scale(.88) rotate(210deg);filter:blur(2px)}56%{transform:translate(-50px,-50px) scaleX(1.62) scaleY(.64) rotate(268deg);filter:blur(0)}61%{transform:translate(-50px,-50px) scaleX(1.45) scaleY(.78) rotate(272deg)}100%{transform:translate('+Math.round(-W*.52)+'px,'+Math.round(-H*.62)+'px) scale(.8) rotate(440deg);filter:blur(1px)}}' +
+    '@keyframes sdf-flash{0%{opacity:.9}100%{opacity:0}}' +
+    '@keyframes sdf-shock{0%{transform:translate(-50%,-50%) scale(.15);opacity:1}100%{transform:translate(-50%,-50%) scale(6);opacity:0}}' +
+    '@keyframes sdf-title{0%{opacity:0;transform:translate(-50%,-50%) scale(1.75);filter:blur(5px)}60%{opacity:1;transform:translate(-50%,-50%) scale(.97);filter:blur(0)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}'
+  );
+
+  const net = document.createElement('div');
+  net.style.cssText = 'position:absolute;top:58%;left:50%;width:440px;height:440px;margin-top:-220px;margin-left:-220px;border-radius:50%;border:10px solid #ffd400;background:repeating-linear-gradient(0deg,transparent 0 18px,rgba(255,212,0,.65) 18px 20px),repeating-linear-gradient(90deg,transparent 0 18px,rgba(255,212,0,.65) 18px 20px);box-shadow:0 0 50px rgba(255,212,0,.4);animation:sdf-net 1.3s linear infinite;transform:translate(-50%,-50%) perspective(900px) rotateX(70deg) rotateZ(0deg);';
+  slamOverlay.appendChild(net);
+
+  const ball = document.createElement('div');
+  ball.style.cssText = 'position:absolute;top:58%;left:50%;width:100px;height:100px;margin-top:-50px;margin-left:-50px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff8c0,#ffd400 44%,#c49000 82%);box-shadow:0 0 30px rgba(255,212,0,.7);animation:sdf-ball .88s cubic-bezier(.2,.9,.2,1) .14s forwards;opacity:0;';
+  slamOverlay.appendChild(ball);
+
+  const shock = document.createElement('div');
+  shock.style.cssText = 'position:absolute;top:58%;left:50%;width:80px;height:80px;margin-top:-40px;margin-left:-40px;border-radius:50%;border:5px solid #ffd400;box-shadow:0 0 25px rgba(255,212,0,.6);animation:sdf-shock .65s cubic-bezier(.1,.8,.2,1) .63s forwards;transform:translate(-50%,-50%) scale(.15);opacity:0;';
+  slamOverlay.appendChild(shock);
+
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:sdf-flash .35s ease .62s forwards;pointer-events:none;';
+  slamOverlay.appendChild(flash);
+
+  const title = document.createElement('div');
+  title.style.cssText = 'position:absolute;top:50%;left:50%;text-align:center;white-space:nowrap;animation:sdf-title .5s cubic-bezier(.15,.85,.2,1) .72s forwards;opacity:0;';
+  title.innerHTML = '<div style="font-family:\'AnotherTag\',\'Permanent Marker\',cursive;font-size:clamp(3rem,8vw,5.5rem);color:#ffd400;letter-spacing:6px;display:inline-block;transform:rotate(-2deg);text-shadow:-3px -3px 0 #000,3px 3px 0 #000,0 0 40px rgba(255,212,0,1)">G League</div><div style="font-family:\'AnotherTag\',\'Permanent Marker\',cursive;font-size:clamp(1rem,2.8vw,1.7rem);color:rgba(255,212,0,.7);letter-spacing:8px;margin-top:5px;text-shadow:-2px -2px 0 #000,2px 2px 0 #000">Spikeball</div>';
+  slamOverlay.appendChild(title);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+
+function triggerSlam(href) {
+  document.body.classList.remove('slam-active');
+  void slamOverlay.offsetWidth;
+  document.body.classList.add('slam-active');
+  setTimeout(() => { document.body.classList.remove('slam-active'); clearOverlay(); }, 2200);
+  if (!href)                                            { slamDefault(getTip('default'));         return; }
+  if (href === '#about')                                { slamAbout(getTip('#about'));             return; }
+  if (href === '#teams')                                { slamTeams(getTip('#teams'));             return; }
+  if (href === '#leaderboard' || href === '#rankings')  { slamLeaderboard(getTip('#leaderboard')); return; }
+  if (href === '#bracket')                              { slamBracket(getTip('#bracket'));         return; }
+  if (href === '#highlights')                           { slamHighlights(getTip('#highlights'));   return; }
+  if (href === '#players')                              { slamPlayers(getTip('#players'));         return; }
+  if (href === '#join')                                 { slamJoin(getTip('#join'));               return; }
+  if (href.endsWith('.html') && href !== 'index.html')  {
+    const raw = href.replace('.html','');
+    slamPlayerPage(raw.charAt(0).toUpperCase()+raw.slice(1), getTip('player')); return;
+  }
+  if (href.includes('form') || href.includes('gleaguespikeball')) { slamForm(getTip('form')); return; }
+  slamDefault(getTip('default'));
+}
+
+
 
 document.addEventListener('click', (e) => {
   const btn = e.target.closest('a, button');
   if (!btn) return;
-
-  // ignore compare modal close/reset and drag-compare buttons to avoid interfering
   if (btn.closest('#compare-modal')) return;
 
   const href = btn.getAttribute('href');
 
-  // anchor links — prevent default, slam, then scroll
   if (href && href.startsWith('#')) {
     e.preventDefault();
-    triggerSlam();
+    triggerSlam(href);
     setTimeout(() => {
       const target = document.querySelector(href);
       if (target) target.scrollIntoView({ behavior: 'smooth' });
-    }, 500);
+    }, 800);
     return;
   }
 
-  // external / page links — slam then navigate after animation
   if (href && !href.startsWith('javascript')) {
     e.preventDefault();
-    triggerSlam();
-    setTimeout(() => { window.location.href = href; }, 600);
+    triggerSlam(href);
+    setTimeout(() => { window.location.href = href; }, 900);
     return;
   }
 
-  // plain buttons (no href) — just slam
-  triggerSlam();
+  triggerSlam(null);
 });
 
 window.addEventListener("load", () => { /* loader handled by inline script */ });
@@ -3344,7 +3610,6 @@ modal.addEventListener('click', e => { if(e.target === modal) modal.classList.re
 
 </style>
 
-</body>
 
 <div id="loading-screen">
   <div id="loader-net"></div>
@@ -3369,11 +3634,5 @@ window.addEventListener('load', ()=>{
   }, 2200);
 });
 </script>
+</body>
 </html>
-
-
-
-
-
-
-
