@@ -6923,10 +6923,22 @@ label {
 .anim-in[data-delay="9"]  { animation-delay: 0.72s !important; }
 .anim-in[data-delay="10"] { animation-delay: 0.80s !important; }
 
-/* ══ Page-reset: strip anim-in when page goes inactive ══ */
-.page:not(.active) [data-anim] {
+/* ══ Page-reset: only non-home pages get hidden on inactive ══ */
+.page:not(.active):not(#page-home) [data-anim] {
   opacity: 0 !important;
   animation: none !important;
+}
+/* Home page elements: reset anim-in but keep opacity via base state */
+#page-home:not(.active) [data-anim] {
+  animation: none !important;
+}
+/* Countdown always visible */
+#cd-days, #cd-hours, #cd-mins, #cd-secs, #cd-bar,
+.top-bar, .hero-wordmark, .hero-eyebrow, .hero-rule,
+.hero-tagline, .score-strip, .countdown-wrap,
+.countdown-label, .countdown-display, .countdown-bar-wrap,
+.countdown-date, .home-footer, .home-nav {
+  opacity: 1 !important;
 }
 
 /* ══ Countdown digit slam on tick ══ */
@@ -7116,6 +7128,8 @@ label {
 
   /* ── Page switch: reset and re-trigger ── */
   function resetPage(pageEl) {
+    // Never reset home page — its elements (countdown, wordmark etc) are always live
+    if (pageEl.id === 'page-home') return;
     pageEl.querySelectorAll('[data-anim]').forEach(el => {
       el.classList.remove('anim-in');
     });
