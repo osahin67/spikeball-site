@@ -2590,44 +2590,361 @@ label {
       <div class="countdown-date">JUNE 1, 2026 · SYDNEY CASPER PARK</div>
     </div>
 
-    <!-- NAV GRID -->
+    <!-- NAV GRID — CD PLAYER HOVER CARDS -->
     <nav class="home-nav">
-      <a href="#about" class="nav-tile">
+
+      <!-- ABOUT -->
+      <a href="#about" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- Animated net spinning -->
+              <g transform="translate(60,48)">
+                <ellipse cx="0" cy="0" rx="28" ry="10" fill="none" stroke="rgba(255,212,0,.2)" stroke-width="1"/>
+                <circle cx="0" cy="0" r="28" fill="none" stroke="#ffd400" stroke-width="2.5">
+                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <line x1="-28" y1="0" x2="28" y2="0" stroke="rgba(255,212,0,.35)" stroke-width="1">
+                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="2.5s" repeatCount="indefinite"/>
+                </line>
+                <line x1="0" y1="-28" x2="0" y2="28" stroke="rgba(255,212,0,.35)" stroke-width="1">
+                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="2.5s" repeatCount="indefinite"/>
+                </line>
+                <!-- Ball bouncing -->
+                <circle cx="0" cy="0" r="5" fill="#ffd400">
+                  <animate attributeName="cx" values="-20;20;-20" dur="1.4s" repeatCount="indefinite"/>
+                  <animate attributeName="cy" values="-10;10;-10" dur="1.4s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+              <!-- Legs -->
+              <line x1="46" y1="58" x2="42" y2="72" stroke="#ffd400" stroke-width="2" stroke-linecap="round"/>
+              <line x1="74" y1="58" x2="78" y2="72" stroke="#ffd400" stroke-width="2" stroke-linecap="round"/>
+              <line x1="60" y1="58" x2="60" y2="73" stroke="#ffd400" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="cd-preview-label">Invite-only · Gilroy CA</div>
+          <div class="cd-preview-desc">16 players. 5 teams. One park. Zero mercy.</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 7v4M8 5v.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg></span>
-        <span class="nav-tile-label">About</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">About</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
-      <a href="#teams" class="nav-tile">
+
+      <!-- TEAMS -->
+      <a href="#teams" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- 4 team color bars animating in -->
+              <rect x="10" y="60" width="18" height="0" fill="#888" rx="1">
+                <animate attributeName="height" values="0;30;28;30" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="60;30;32;30" dur="1.8s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="35" y="60" width="18" height="0" fill="#ffd400" rx="1">
+                <animate attributeName="height" values="0;45;42;45" dur="1.8s" begin="0.15s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="60;15;18;15" dur="1.8s" begin="0.15s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="60" y="60" width="18" height="0" fill="#ff6b35" rx="1">
+                <animate attributeName="height" values="0;22;20;22" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="60;38;40;38" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+              </rect>
+              <rect x="85" y="60" width="18" height="0" fill="#ffe066" rx="1">
+                <animate attributeName="height" values="0;36;34;36" dur="1.8s" begin="0.45s" repeatCount="indefinite"/>
+                <animate attributeName="y" values="60;24;26;24" dur="1.8s" begin="0.45s" repeatCount="indefinite"/>
+              </rect>
+              <line x1="5" y1="62" x2="115" y2="62" stroke="rgba(255,212,0,.2)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="cd-preview-label">4 Teams · Season 2026</div>
+          <div class="cd-preview-desc">Black Strikers. Yellow Storm. Net Breakers. Golden Bounce.</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="5.5" cy="5" r="2.2" stroke="currentColor" stroke-width="1.2"/><circle cx="10.5" cy="5" r="2.2" stroke="currentColor" stroke-width="1.2"/><path d="M1.5 13c0-1.8 1.8-3 4-3s4 1.2 4 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/><path d="M8.5 13c0-1.8 1.8-3 4-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/></svg></span>
-        <span class="nav-tile-label">Teams</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">Teams</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
-      <a href="#leaderboard" class="nav-tile">
+
+      <!-- RANKINGS -->
+      <a href="#leaderboard" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- Podium with animated crowns -->
+              <rect x="40" y="28" width="40" height="34" fill="rgba(255,212,0,.12)" rx="1"/>
+              <rect x="40" y="28" width="40" height="3" fill="#ffd400" rx="1"/>
+              <!-- #1 text -->
+              <text x="60" y="50" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="14" fill="#ffd400">#1</text>
+              <!-- Pulsing rings around #1 -->
+              <circle cx="60" cy="15" r="8" fill="none" stroke="#ffd400" stroke-width="1.5" opacity="0">
+                <animate attributeName="r" values="6;14;6" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="60" cy="15" r="4" fill="#ffd400">
+                <animate attributeName="r" values="4;5;4" dur="1s" repeatCount="indefinite"/>
+              </circle>
+              <!-- Side ranks sliding in -->
+              <text x="22" y="65" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="10" fill="rgba(255,212,0,.5)">#2</text>
+              <text x="98" y="70" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="10" fill="rgba(255,212,0,.35)">#3</text>
+              <line x1="10" y1="72" x2="110" y2="72" stroke="rgba(255,212,0,.15)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="cd-preview-label">16 Players Ranked</div>
+          <div class="cd-preview-desc">Who's running the park this season?</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="9" width="3" height="6" stroke="currentColor" stroke-width="1.2"/><rect x="6.5" y="5" width="3" height="10" stroke="currentColor" stroke-width="1.2"/><rect x="11.5" y="1" width="3" height="14" stroke="currentColor" stroke-width="1.2"/></svg></span>
-        <span class="nav-tile-label">Rankings</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">Rankings</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
-      <a href="#bracket" class="nav-tile">
+
+      <!-- BRACKET -->
+      <a href="#bracket" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- Bracket lines drawing in -->
+              <!-- QF left -->
+              <rect x="8" y="12" width="22" height="8" fill="rgba(255,212,0,.1)" rx="1" stroke="rgba(255,212,0,.3)" stroke-width="0.8"/>
+              <rect x="8" y="28" width="22" height="8" fill="rgba(255,212,0,.1)" rx="1" stroke="rgba(255,212,0,.3)" stroke-width="0.8"/>
+              <rect x="8" y="46" width="22" height="8" fill="rgba(255,212,0,.1)" rx="1" stroke="rgba(255,212,0,.3)" stroke-width="0.8"/>
+              <rect x="8" y="62" width="22" height="8" fill="rgba(255,212,0,.1)" rx="1" stroke="rgba(255,212,0,.3)" stroke-width="0.8"/>
+              <!-- connector lines -->
+              <path d="M30 16 H40 V32 H30" fill="none" stroke="rgba(255,212,0,.35)" stroke-width="1"/>
+              <path d="M30 50 H40 V66 H30" fill="none" stroke="rgba(255,212,0,.35)" stroke-width="1"/>
+              <!-- SF -->
+              <rect x="40" y="22" width="24" height="8" fill="rgba(255,212,0,.15)" rx="1" stroke="rgba(255,212,0,.4)" stroke-width="0.8"/>
+              <rect x="40" y="54" width="24" height="8" fill="rgba(255,212,0,.15)" rx="1" stroke="rgba(255,212,0,.4)" stroke-width="0.8"/>
+              <path d="M64 26 H74 V58 H64" fill="none" stroke="rgba(255,212,0,.4)" stroke-width="1"/>
+              <!-- Final pulsing -->
+              <rect x="74" y="34" width="30" height="12" rx="1" stroke="#ffd400" stroke-width="1.5" fill="rgba(255,212,0,.08)">
+                <animate attributeName="stroke-opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+              </rect>
+              <text x="89" y="43" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="7" fill="#ffd400">FINAL</text>
+            </svg>
+          </div>
+          <div class="cd-preview-label">Single Elimination</div>
+          <div class="cd-preview-desc">One loss and you're done. No second chances.</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1.5" width="5" height="3" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="6.5" width="5" height="3" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="11.5" width="5" height="3" stroke="currentColor" stroke-width="1.2"/><path d="M6 3h1.5v4H6M7.5 7H10M6 8h1.5v4H6" stroke="currentColor" stroke-width="1.2"/><rect x="10" y="5.5" width="5" height="3" stroke="currentColor" stroke-width="1.2"/></svg></span>
-        <span class="nav-tile-label">Bracket</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">Bracket</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
-      <a href="#highlights" class="nav-tile">
+
+      <!-- HIGHLIGHTS -->
+      <a href="#highlights" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- Screen outline -->
+              <rect x="12" y="10" width="96" height="60" rx="2" fill="rgba(255,212,0,.04)" stroke="rgba(255,212,0,.25)" stroke-width="1.2"/>
+              <!-- Scanlines -->
+              <line x1="12" y1="23" x2="108" y2="23" stroke="rgba(255,212,0,.06)" stroke-width="1"/>
+              <line x1="12" y1="36" x2="108" y2="36" stroke="rgba(255,212,0,.06)" stroke-width="1"/>
+              <line x1="12" y1="49" x2="108" y2="49" stroke="rgba(255,212,0,.06)" stroke-width="1"/>
+              <line x1="12" y1="62" x2="108" y2="62" stroke="rgba(255,212,0,.06)" stroke-width="1"/>
+              <!-- Play button -->
+              <circle cx="60" cy="40" r="14" fill="rgba(255,212,0,.12)" stroke="#ffd400" stroke-width="1.5">
+                <animate attributeName="r" values="14;16;14" dur="1.6s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+              </circle>
+              <path d="M55 33 L55 47 L68 40 Z" fill="#ffd400">
+                <animate attributeName="opacity" values="1;0.5;1" dur="1.6s" repeatCount="indefinite"/>
+              </path>
+              <!-- REC dot -->
+              <circle cx="99" cy="17" r="3" fill="#ff3333">
+                <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          <div class="cd-preview-label">Best Plays · Season 2026</div>
+          <div class="cd-preview-desc">Aces, dives, and game-winning shots.</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="12" rx="0.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6l4 2-4 2V6z" fill="currentColor" opacity=".7"/></svg></span>
-        <span class="nav-tile-label">Highlights</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">Highlights</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
-      <a href="#players" class="nav-tile">
+
+      <!-- PLAYERS -->
+      <a href="#players" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- 3 player silhouettes -->
+              <!-- Center player (bigger = #1) -->
+              <circle cx="60" cy="18" r="9" fill="none" stroke="#ffd400" stroke-width="1.5"/>
+              <path d="M44 56 Q44 38 60 38 Q76 38 76 56" fill="none" stroke="#ffd400" stroke-width="1.5"/>
+              <!-- Left player -->
+              <circle cx="28" cy="22" r="6.5" fill="none" stroke="rgba(255,212,0,.45)" stroke-width="1.2"/>
+              <path d="M16 54 Q16 40 28 40 Q40 40 40 54" fill="none" stroke="rgba(255,212,0,.45)" stroke-width="1.2"/>
+              <!-- Right player -->
+              <circle cx="92" cy="22" r="6.5" fill="none" stroke="rgba(255,212,0,.45)" stroke-width="1.2"/>
+              <path d="M80 54 Q80 40 92 40 Q104 40 104 54" fill="none" stroke="rgba(255,212,0,.45)" stroke-width="1.2"/>
+              <!-- Rank badges -->
+              <text x="60" y="72" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="8" fill="#ffd400">#1</text>
+              <text x="28" y="72" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="7" fill="rgba(255,212,0,.5)">#2</text>
+              <text x="92" y="72" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="7" fill="rgba(255,212,0,.5)">#3</text>
+              <!-- Center glow pulse -->
+              <circle cx="60" cy="18" r="9" fill="none" stroke="rgba(255,212,0,.3)" stroke-width="3">
+                <animate attributeName="r" values="9;15;9" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          <div class="cd-preview-label">16 Active Players</div>
+          <div class="cd-preview-desc">Drag cards to compare stats head-to-head.</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="2.8" stroke="currentColor" stroke-width="1.2"/><path d="M2 14c0-3 2.7-5 6-5s6 2 6 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/></svg></span>
-        <span class="nav-tile-label">Players</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">Players</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
-      <a href="#join" class="nav-tile nav-tile-join">
+
+      <!-- REQUEST INVITE -->
+      <a href="#join" class="nav-tile cd-tile nav-tile-join" style="grid-column:1/-1">
+        <div class="cd-preview cd-preview-wide">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 200 70" xmlns="http://www.w3.org/2000/svg">
+              <!-- Lock that opens -->
+              <rect x="78" y="32" width="44" height="30" rx="3" fill="rgba(255,212,0,.08)" stroke="#ffd400" stroke-width="1.5"/>
+              <path id="shackle" d="M88 32 Q88 16 100 16 Q112 16 112 32" fill="none" stroke="#ffd400" stroke-width="2.5" stroke-linecap="round">
+                <animateTransform attributeName="transform" type="translate" values="0,0;-8,-4;0,0" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite"/>
+              </path>
+              <circle cx="100" cy="48" r="4" fill="#ffd400">
+                <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <!-- Stars/invite sparkles -->
+              <circle cx="30" cy="20" r="2" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="170" cy="30" r="2" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="45" cy="55" r="1.5" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.8s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="155" cy="55" r="1.5" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="20" cy="42" r="1" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1.6s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="182" cy="18" r="1" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          <div class="cd-preview-label">Invite Only · Elite Players</div>
+          <div class="cd-preview-desc">Think you belong? Show us what you've got.</div>
+        </div>
         <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="7" width="11" height="8" stroke="currentColor" stroke-width="1.2"/><path d="M5 7V5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"/><circle cx="8" cy="11.5" r="1.2" fill="currentColor"/></svg></span>
-        <span class="nav-tile-label">Request Invite</span>
-        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+          <span class="nav-tile-label">Request Invite</span>
+          <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
+
     </nav>
+
+    <style>
+    /* ── CD PLAYER TILE SYSTEM ──
+       Preview is position:absolute so it NEVER affects grid layout.
+       Only the popup moves — the tile itself stays completely static.
+    ── */
+
+    .cd-tile {
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      padding: 16px 5vw !important;
+      position: relative !important;
+      overflow: visible !important;
+      z-index: 1;
+      /* no height/transform changes on the tile itself */
+    }
+
+    /* The popup card — sits above the tile, never in flow */
+    .cd-preview {
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #0e0d0b;
+      border: 1px solid rgba(255,212,0,.25);
+      border-bottom: 2px solid #ffd400;
+      z-index: 100;
+      pointer-events: none;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 16px 12px;
+      gap: 6px;
+      text-align: center;
+
+      /* Hidden state */
+      opacity: 0;
+      transform: translateY(8px) scaleY(0.92);
+      transform-origin: bottom center;
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(.2,.9,.2,1);
+      box-shadow: 0 -8px 30px rgba(0,0,0,.6), 0 0 20px rgba(255,212,0,.06);
+    }
+
+    .cd-tile:hover {
+      background: rgba(255,212,0,.06) !important;
+      z-index: 100;
+    }
+
+    .cd-tile:hover .cd-preview {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+      pointer-events: auto;
+    }
+
+    /* Wide layout for join tile */
+    .cd-preview-wide {
+      flex-direction: row !important;
+      gap: 18px !important;
+      text-align: left !important;
+      justify-content: flex-start !important;
+    }
+
+    .cd-preview-anim {
+      width: 120px;
+      height: 70px;
+      flex-shrink: 0;
+    }
+    .cd-preview-wide .cd-preview-anim {
+      width: 100px;
+      height: 58px;
+    }
+    .cd-preview-anim svg { width: 100%; height: 100%; }
+
+    .cd-preview-label {
+      font-family: 'Bebas Neue', cursive;
+      font-size: .68rem;
+      letter-spacing: 3px;
+      color: rgba(255,212,0,.55);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .cd-preview-desc {
+      font-family: 'DM Sans', 'Oswald', sans-serif;
+      font-size: .72rem;
+      font-weight: 300;
+      color: rgba(232,221,208,.48);
+      line-height: 1.45;
+      max-width: 200px;
+    }
+
+    /* Arrow + icon stay same */
+    .cd-tile .nav-tile-icon { color: rgba(255,212,0,.4); transition: color .15s; flex-shrink: 0; }
+    .cd-tile:hover .nav-tile-icon { color: rgba(255,212,0,.9); }
+    .cd-tile .nav-tile-label { flex: 1; }
+    .cd-tile .nav-tile-arrow { color: rgba(255,212,0,.2); transition: transform .15s, color .15s; flex-shrink: 0; }
+    .cd-tile:hover .nav-tile-arrow { transform: translateX(4px); color: rgba(255,212,0,.6); }
+
+    /* Ensure nav doesn't clip the popups */
+    .home-nav { overflow: visible !important; }
+    #page-home { overflow: visible !important; }
+    .home-wrap { overflow: visible !important; }
+    </style>
 
     <!-- FOOTER STRIP -->
     <div class="home-footer">
@@ -5654,15 +5971,17 @@ modal.addEventListener('click', e => { if(e.target === modal) modal.classList.re
 </div>
 
 <script>
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{
-    const s = document.getElementById('loading-screen');
-    if(!s) return;
-    s.style.transition = 'opacity .55s ease';
-    s.style.opacity = '0';
-    setTimeout(()=>s.remove(), 580);
-  }, 2200);
-});
+function removeLoader() {
+  const s = document.getElementById('loading-screen');
+  if (!s || s._removing) return;
+  s._removing = true;
+  s.style.transition = 'opacity .6s ease';
+  s.style.opacity = '0';
+  setTimeout(() => { if(s.parentNode) s.remove(); }, 650);
+}
+window.addEventListener('load', () => setTimeout(removeLoader, 2200));
+document.addEventListener('DOMContentLoaded', () => setTimeout(removeLoader, 2400));
+setTimeout(removeLoader, 3000);
 </script>
 
 <script>
@@ -5720,5 +6039,1194 @@ window.addEventListener('load', ()=>{
   tick();
 })();
 </script>
+
+<style>
+/* ═══════════════════════════════════════════════════
+   ELEGANT + LAID-BACK OVERHAUL
+   Warm charcoal · Soft gold · Editorial breathing room
+   Loose, confident, not trying too hard
+═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap');
+
+:root {
+  --ink:        #1a1714;
+  --ink-2:      #221f1b;
+  --ink-3:      #2c2825;
+  --warm-mid:   #3a342e;
+  --gold:       #ffd400;
+  --gold-soft:  #ffd400;
+  --gold-dim:   rgba(255,212,0,.45);
+  --gold-faint: rgba(255,212,0,.08);
+  --cream:      #f5ead8;
+  --cream-dim:  rgba(245,234,216,.55);
+  --cream-faint:rgba(245,234,216,.18);
+  --text:       #e8ddd0;
+  --text-dim:   rgba(232,221,208,.5);
+  --border:     rgba(255,212,0,.16);
+  --border-up:  rgba(255,212,0,.38);
+  --radius-sm:  6px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+}
+
+/* ── Base ── */
+body {
+  background: var(--ink) !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* Warm grain overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.055'/%3E%3C/svg%3E");
+  background-size: 300px;
+  mix-blend-mode: overlay;
+}
+
+/* Soft warm vignette */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255,212,0,.05) 0%, transparent 60%);
+}
+
+/* ── Page backgrounds — warm not cold black ── */
+.page { background: var(--ink) !important; }
+.page.active { background: var(--ink) !important; }
+
+/* ── Header ── */
+header {
+  background: rgba(24,21,18,.96) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 20px 24px !important;
+  backdrop-filter: blur(16px) !important;
+}
+header::after { display: none; }
+
+/* ── Home wrap ── */
+.home-wrap {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(255,212,0,.07) 0%, transparent 55%),
+    var(--ink) !important;
+}
+
+/* ── Top bar ── */
+.top-bar {
+  border-bottom-color: rgba(255,212,0,.08) !important;
+  color: var(--text-dim) !important;
+}
+.top-bar-tag { color: var(--text-dim) !important; }
+.top-bar-tag.live-dot { color: #7ed98a !important; }
+.top-bar-tag.live-dot::after { background: #7ed98a !important; }
+
+/* ── Wordmark ── */
+.hero-wordmark {
+  color: var(--gold) !important;
+  text-shadow:
+    -2px -2px 0 rgba(0,0,0,.6),
+    2px 2px 0 rgba(0,0,0,.6),
+    0 0 50px rgba(255,212,0,.25) !important;
+}
+
+/* ── Tagline ── */
+.hero-tagline {
+  color: var(--text-dim) !important;
+  letter-spacing: 5px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: .82rem !important;
+}
+
+/* ── Hero rule ── */
+.hero-rule {
+  background: linear-gradient(90deg, var(--gold-dim), transparent) !important;
+}
+
+/* ── Eyebrow ── */
+.hero-eyebrow {
+  color: var(--text-dim) !important;
+  border-left-color: var(--border-up) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 4px !important;
+}
+
+/* ── Countdown ── */
+.countdown-label {
+  color: var(--text-dim) !important;
+  letter-spacing: 4px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+}
+.cd-num {
+  color: var(--gold) !important;
+  text-shadow: 0 0 20px rgba(255,212,0,.3) !important;
+  font-size: clamp(2.4rem, 8vw, 4.2rem) !important;
+}
+.cd-num.tick { color: var(--cream) !important; }
+.cd-sub {
+  color: var(--text-dim) !important;
+  letter-spacing: 3px !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.cd-sep { color: rgba(255,212,0,.2) !important; }
+.countdown-bar { background: linear-gradient(90deg, var(--gold-dim), var(--gold)) !important; }
+.countdown-bar-wrap { background: rgba(255,212,0,.08) !important; }
+.countdown-date {
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 3px !important;
+}
+
+/* ── Nav grid tiles ── */
+.home-nav {
+  background: rgba(255,212,0,.08) !important;
+  gap: 1px !important;
+  border-top-color: var(--border) !important;
+  border-bottom-color: var(--border) !important;
+  margin-top: 28px !important;
+}
+.nav-tile {
+  background: var(--ink-2) !important;
+  color: var(--gold) !important;
+  padding: 18px 5vw !important;
+  font-size: .85rem !important;
+  letter-spacing: 2.5px !important;
+  font-family: 'Bebas Neue', cursive !important;
+}
+.nav-tile:hover {
+  background: rgba(255,212,0,.06) !important;
+}
+.nav-tile-icon { color: var(--gold-dim) !important; }
+.nav-tile:hover .nav-tile-icon { color: var(--gold) !important; }
+.nav-tile-arrow { color: rgba(255,212,0,.18) !important; }
+.nav-tile:hover .nav-tile-arrow { color: var(--gold-dim) !important; }
+.nav-tile-join {
+  background: rgba(255,212,0,.04) !important;
+  border-top-color: var(--border) !important;
+}
+.nav-tile-join:hover { background: rgba(255,212,0,.08) !important; }
+
+/* ── Home footer ── */
+.home-footer {
+  color: var(--text-dim) !important;
+  border-top-color: rgba(255,212,0,.06) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 2px !important;
+  font-size: .7rem !important;
+}
+
+/* ── Score strip ── */
+.score-strip {
+  background: rgba(255,212,0,.03) !important;
+  border-color: var(--border) !important;
+}
+.score-strip-label {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  border-radius: 3px !important;
+}
+.score-name { color: var(--text-dim) !important; }
+.score-num  { color: var(--gold) !important; text-shadow: 0 0 16px rgba(255,212,0,.4) !important; }
+.score-divider { color: rgba(255,212,0,.2) !important; }
+
+/* ── Section pages ── */
+.sp-header {
+  background: rgba(22,19,16,.97) !important;
+  border-bottom-color: var(--border) !important;
+}
+.sp-header::after { background: linear-gradient(90deg, var(--gold), transparent) !important; }
+.sp-header-label {
+  color: var(--text-dim) !important;
+  letter-spacing: 3px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: .8rem !important;
+  text-transform: uppercase !important;
+}
+
+.sp-kicker {
+  color: var(--text-dim) !important;
+  letter-spacing: 3px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+}
+
+.sp-title {
+  color: var(--gold) !important;
+  text-shadow: -2px -2px 0 rgba(0,0,0,.4), 2px 2px 0 rgba(0,0,0,.4), 0 0 25px rgba(255,212,0,.15) !important;
+}
+
+.sp-lead {
+  color: var(--cream-dim) !important;
+  border-left-color: var(--gold-dim) !important;
+  font-weight: 300 !important;
+  font-size: .97rem !important;
+  line-height: 1.75 !important;
+}
+
+.sp-divider {
+  background: linear-gradient(90deg, var(--border-up), transparent) !important;
+}
+
+/* ── Fact grid ── */
+.fact-grid {
+  background: rgba(255,212,0,.08) !important;
+  border-color: var(--border) !important;
+  gap: 1px !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden;
+}
+.fact-card {
+  background: var(--ink-2) !important;
+  padding: 32px 26px !important;
+}
+.fact-num {
+  color: var(--gold) !important;
+  text-shadow: 0 0 20px rgba(255,212,0,.25) !important;
+  font-size: 3.8rem !important;
+}
+.fact-label {
+  color: var(--gold-dim) !important;
+  letter-spacing: 2px !important;
+  font-size: .78rem !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  margin: 6px 0 10px !important;
+}
+.fact-desc {
+  color: var(--text-dim) !important;
+  font-size: .85rem !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+}
+
+/* ── Rule cards ── */
+.rule-cards {
+  background: rgba(255,212,0,.07) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden;
+}
+.rule-card {
+  background: var(--ink-2) !important;
+  padding: 22px 24px !important;
+  gap: 18px !important;
+}
+.rule-card:hover { background: rgba(255,212,0,.03) !important; }
+.rule-num { color: rgba(255,212,0,.2) !important; font-size: 1.3rem !important; }
+.rule-title {
+  color: var(--gold) !important;
+  letter-spacing: 2px !important;
+  font-size: 1rem !important;
+  font-family: 'Bebas Neue', cursive !important;
+}
+.rule-body {
+  color: var(--text-dim) !important;
+  font-size: .88rem !important;
+  line-height: 1.6 !important;
+  font-weight: 300 !important;
+}
+
+/* ── Team grid ── */
+.team-grid {
+  background: rgba(255,212,0,.07) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden;
+}
+.team-card {
+  background: var(--ink-2) !important;
+  padding: 30px 26px !important;
+}
+.team-card:hover { background: rgba(255,212,0,.04) !important; }
+.team-badge {
+  color: rgba(255,212,0,.18) !important;
+  letter-spacing: 2px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+}
+.team-name {
+  color: var(--gold) !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 2px !important;
+  text-shadow: 0 0 15px rgba(255,212,0,.15) !important;
+}
+.team-tag {
+  border-color: var(--border) !important;
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 1px !important;
+  font-size: .7rem !important;
+  padding: 3px 10px !important;
+  border-radius: 999px !important;
+}
+.team-desc {
+  color: var(--text-dim) !important;
+  font-size: .88rem !important;
+  line-height: 1.65 !important;
+  font-weight: 300 !important;
+}
+.team-bar-wrap { background: rgba(255,212,0,.08) !important; border-radius: 4px !important; }
+.team-bar { background: linear-gradient(90deg, var(--gold), var(--gold-dim)) !important; border-radius: 4px !important; }
+.team-bar-label {
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  font-size: .7rem !important;
+  letter-spacing: 1.5px !important;
+}
+
+/* ── Leaderboard ── */
+.leaderboard {
+  border-color: var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+}
+.leader-row {
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  border-bottom-color: rgba(255,212,0,.06) !important;
+  padding: 15px 24px !important;
+  letter-spacing: .3px !important;
+}
+.leader-row.header {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 2.5px !important;
+}
+.leader-row:not(.header):hover {
+  background: rgba(255,212,0,.04) !important;
+  box-shadow: inset 3px 0 0 var(--gold) !important;
+}
+.leader-link { color: var(--text) !important; font-weight: 400 !important; letter-spacing: .3px !important; }
+.leader-link:hover { color: var(--gold) !important; }
+
+/* ── Bracket ── */
+.bracket-col-label {
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 2px !important;
+  font-size: .72rem !important;
+}
+.bracket-match {
+  background: rgba(255,212,0,.025) !important;
+  border-color: rgba(255,212,0,.1) !important;
+  border-left-color: rgba(255,212,0,.25) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 12px 16px !important;
+}
+.bracket-match:hover {
+  background: rgba(255,212,0,.05) !important;
+  border-left-color: var(--gold-dim) !important;
+}
+.bracket-final {
+  border-left-color: var(--gold) !important;
+  background: rgba(255,212,0,.05) !important;
+}
+.bm-slot {
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--text-dim) !important;
+  letter-spacing: .3px !important;
+  font-size: .9rem !important;
+}
+.bm-a { color: var(--gold-soft) !important; }
+.bm-final { color: var(--gold) !important; }
+.bm-vs {
+  color: rgba(255,212,0,.18) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: .7rem !important;
+  letter-spacing: 2px !important;
+}
+
+/* ── Clip list ── */
+.clip-list {
+  background: rgba(255,212,0,.07) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden;
+}
+.clip-item {
+  background: var(--ink-2) !important;
+  padding: 16px 22px !important;
+  border-left-color: rgba(255,212,0,.08) !important;
+  gap: 18px !important;
+}
+.clip-item:hover {
+  background: rgba(255,212,0,.04) !important;
+  border-left-color: var(--gold-dim) !important;
+}
+.clip-num { color: rgba(255,212,0,.22) !important; font-family: 'Bebas Neue', cursive !important; }
+.clip-title {
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: .2px !important;
+  font-size: .9rem !important;
+}
+.clip-time { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; }
+
+/* ── Video card ── */
+.video-card {
+  background: var(--ink-2) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+.vc-title { color: var(--gold) !important; letter-spacing: 2px !important; }
+.vc-sub { color: var(--text-dim) !important; font-weight: 300 !important; }
+
+/* ── Join form ── */
+.join-form-wrap {
+  background: rgba(255,212,0,.025) !important;
+  border-color: var(--border) !important;
+  border-top-color: var(--gold-dim) !important;
+  border-radius: var(--radius-md) !important;
+}
+.jf-label {
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+  font-size: .72rem !important;
+}
+input, select, textarea {
+  background: rgba(0,0,0,.4) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: .3px !important;
+  padding: 12px 15px !important;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold-dim) !important;
+  box-shadow: 0 0 0 2px rgba(255,212,0,.08) !important;
+}
+
+/* ── Buttons ── */
+.button {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  font-size: 1rem !important;
+  border-radius: var(--radius-sm) !important;
+  clip-path: none !important;
+  padding: 13px 28px !important;
+  box-shadow: 0 4px 20px rgba(255,212,0,.2) !important;
+  font-weight: 400 !important;
+}
+.button:hover {
+  box-shadow: 0 6px 28px rgba(255,212,0,.35) !important;
+  transform: translateY(-2px) !important;
+  letter-spacing: 3px !important;
+}
+.button-outline {
+  border: 1px solid var(--border-up) !important;
+  color: var(--gold) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  border-radius: var(--radius-sm) !important;
+  clip-path: none !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+}
+.button-outline:hover {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  border-color: var(--gold) !important;
+  transform: translateY(-2px) !important;
+}
+.back-to-league {
+  border-color: var(--border-up) !important;
+  color: var(--text-dim) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  border-radius: var(--radius-sm) !important;
+  clip-path: none !important;
+  font-size: .88rem !important;
+  padding: 10px 24px !important;
+}
+.back-to-league:hover {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+  border-color: var(--gold) !important;
+  transform: translateY(-2px) !important;
+}
+.page-back-btn {
+  border-color: var(--border-up) !important;
+  color: var(--text-dim) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 2px !important;
+  border-radius: var(--radius-sm) !important;
+  font-size: .85rem !important;
+}
+.page-back-btn:hover {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+}
+
+/* ── Player cards ── */
+.player-card {
+  background: var(--ink-2) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 2px solid var(--gold-dim) !important;
+  border-radius: var(--radius-md) !important;
+}
+.player-card:hover {
+  border-color: var(--border-up) !important;
+  border-top-color: var(--gold) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.5), 0 0 16px rgba(255,212,0,.12) !important;
+}
+.player-img {
+  background: linear-gradient(145deg, var(--ink-3), var(--ink-2)) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.player-name {
+  color: var(--gold) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 2px !important;
+  font-size: 1.1rem !important;
+}
+.drag-hint {
+  color: rgba(255,212,0,.2) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: .65rem !important;
+  letter-spacing: 1.5px !important;
+}
+
+/* ── Card rank badge ── */
+.card-rank-badge {
+  color: rgba(255,212,0,.28) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 1px !important;
+  font-size: .65rem !important;
+}
+
+/* ── Compare dropzone ── */
+.compare-dropzone {
+  border-color: var(--border) !important;
+  background: rgba(255,212,0,.02) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.compare-dropzone.drag-active { border-color: var(--gold-dim) !important; }
+.dropzone-slot {
+  border-color: var(--border) !important;
+  background: rgba(255,212,0,.02) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.slot-label { color: rgba(255,212,0,.25) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; }
+.dropzone-vs { color: rgba(255,212,0,.2) !important; }
+.dropzone-tip { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; }
+.compare-hint { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; font-size: .82rem !important; }
+
+/* ── Compare modal ── */
+.compare-modal-content {
+  background: var(--ink-2) !important;
+  border-color: var(--border) !important;
+  border-top-color: var(--gold-dim) !important;
+  border-radius: var(--radius-lg) !important;
+}
+.compare-header h2 { color: var(--gold) !important; font-family: 'Bebas Neue', cursive !important; letter-spacing: 4px !important; }
+.compare-badge {
+  border-color: var(--border) !important;
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 2px !important;
+  font-size: .65rem !important;
+}
+.cmp-name { color: var(--gold) !important; font-family: 'Bebas Neue', cursive !important; letter-spacing: 2px !important; }
+.cmp-rank { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; }
+.compare-vs-center { color: rgba(255,212,0,.25) !important; font-family: 'Bebas Neue', cursive !important; }
+.cmp-stat-label { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; letter-spacing: 2px !important; }
+.cmp-val { color: var(--gold) !important; font-family: 'Bebas Neue', cursive !important; }
+.cmp-bar-wrap { background: rgba(255,212,0,.07) !important; }
+.cmp-bar.left  { background: linear-gradient(90deg, rgba(255,212,0,.4), var(--gold)) !important; }
+.cmp-bar.right { background: linear-gradient(90deg, var(--gold), rgba(255,212,0,.4)) !important; }
+.compare-winner { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; font-size: .88rem !important; letter-spacing: .5px !important; }
+.compare-winner strong { color: var(--gold) !important; font-size: 1rem !important; }
+.compare-reset-btn {
+  border-color: var(--border) !important;
+  color: var(--text-dim) !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 2.5px !important;
+  border-radius: var(--radius-sm) !important;
+}
+.compare-reset-btn:hover { background: var(--gold) !important; color: var(--ink) !important; border-color: var(--gold) !important; }
+.compare-close {
+  border-color: var(--border) !important;
+  color: var(--text-dim) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.compare-close:hover { background: rgba(255,212,0,.08) !important; color: var(--gold) !important; }
+.cmp-avatar {
+  background: var(--ink-3) !important;
+  border-color: var(--border) !important;
+  border-top-color: var(--gold-dim) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* ── Mini stats ── */
+.mini-stat {
+  border-left-color: var(--gold-dim) !important;
+}
+.mini-stat strong { color: var(--gold) !important; text-shadow: 0 0 10px rgba(255,212,0,.2) !important; }
+
+/* ── Section titles ── */
+.section-title h2 {
+  color: var(--gold) !important;
+  text-shadow: 0 0 20px rgba(255,212,0,.15) !important;
+  letter-spacing: 5px !important;
+}
+.section-title h2::after { background: linear-gradient(90deg, transparent, var(--gold-dim), transparent) !important; }
+.section-title p { color: var(--text-dim) !important; font-weight: 300 !important; }
+
+/* ── Cards ── */
+.card {
+  background: linear-gradient(145deg, rgba(255,212,0,.04) 0%, rgba(255,212,0,.01) 100%) !important;
+  border-color: var(--border) !important;
+  border-top-color: var(--gold-dim) !important;
+  border-radius: var(--radius-md) !important;
+}
+.card:hover {
+  background: linear-gradient(145deg, rgba(255,212,0,.07) 0%, rgba(255,212,0,.02) 100%) !important;
+  border-color: var(--border-up) !important;
+  border-top-color: var(--gold) !important;
+  transform: translateY(-4px) !important;
+}
+.card h3 { color: var(--gold) !important; letter-spacing: 2px !important; }
+.card p { color: var(--text-dim) !important; font-weight: 300 !important; }
+
+/* ── Scoreboard ── */
+.scoreboard {
+  background: rgba(22,19,16,.92) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+.scoreboard h3 { color: var(--gold) !important; letter-spacing: 2px !important; font-family: 'Bebas Neue', cursive !important; }
+.score-row { color: var(--text-dim) !important; font-family: 'DM Sans', sans-serif !important; font-weight: 300 !important; }
+.live-badge { background: var(--gold) !important; color: var(--ink) !important; border-radius: 3px !important; font-family: 'Bebas Neue', cursive !important; letter-spacing: 2px !important; }
+
+/* ── Footer ── */
+footer {
+  border-top-color: var(--border) !important;
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 300 !important;
+  letter-spacing: 1.5px !important;
+}
+
+/* ── Page header ── */
+.page-header {
+  background: rgba(22,19,16,.97) !important;
+  border-bottom-color: var(--border) !important;
+}
+.page-header h2 {
+  color: var(--gold) !important;
+  letter-spacing: 4px !important;
+  text-shadow: 0 0 15px rgba(255,212,0,.2) !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--ink-2); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ── Slam overlay ── */
+#slam-overlay { transition: opacity 0.5s ease !important; }
+
+/* ── Loading screen ── */
+#loading-screen { background: var(--ink) !important; }
+#loader-net { border-color: var(--gold) !important; }
+#loader-shock { border-color: var(--gold) !important; box-shadow: 0 0 20px rgba(255,212,0,.4) !important; }
+
+/* ── Labels ── */
+label {
+  color: var(--text-dim) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 2px !important;
+}
+
+/* ── Remove harsh scan lines ── */
+.page::before { display: none !important; }
+
+/* ── Net on home page — warmer glow ── */
+.net {
+  border-color: var(--gold) !important;
+  box-shadow:
+    0 0 0 6px rgba(255,212,0,.04),
+    0 0 25px rgba(255,212,0,.3),
+    inset 0 0 15px rgba(255,212,0,.12) !important;
+}
+
+/* ── Smooth section spacing ── */
+.sp-body { padding: 0 6vw 80px !important; }
+.sp-hero-text { padding: 50px 0 36px !important; }
+
+/* ── Ghost drag card ── */
+#drag-ghost {
+  background: linear-gradient(160deg, rgba(255,212,0,.06) 0%, rgba(22,19,16,.98) 100%) !important;
+  border-color: var(--border-up) !important;
+  border-top-color: var(--gold) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 24px 50px rgba(0,0,0,.8), 0 0 30px rgba(255,212,0,.15) !important;
+}
+#drag-ghost .ghost-name { color: var(--gold) !important; }
+#drag-ghost .ghost-stat { color: var(--text-dim) !important; }
+
+</style>
+
+
+<style>
+/* ═══════════════════════════════════════════
+   BULLETPROOF TEXT ANIMATIONS
+   Pure CSS keyframes — no innerHTML rewrites
+   Single class toggle: .anim-in
+═══════════════════════════════════════════ */
+
+/* ── 1. Fade up — default for most text ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 2. Fade in from left ── */
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── 3. Scale pop — for big numbers/titles ── */
+@keyframes scalePop {
+  0%   { opacity: 0; transform: scale(0.82) translateY(12px); filter: blur(3px); }
+  60%  { opacity: 1; transform: scale(1.03) translateY(-2px); filter: blur(0); }
+  80%  { transform: scale(0.985); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── 4. Reveal from bottom clip ── */
+@keyframes revealClip {
+  from { opacity: 0; clip-path: inset(100% 0 0 0); transform: translateY(8px); }
+  to   { opacity: 1; clip-path: inset(0% 0 0 0);   transform: translateY(0); }
+}
+
+/* ── 5. Glow burst — for gold headings ── */
+@keyframes glowBurst {
+  0%   { opacity: 0; transform: scale(0.9); text-shadow: none; }
+  40%  { opacity: 1; transform: scale(1.02); text-shadow: 0 0 40px rgba(255,212,0,.7), 0 0 80px rgba(255,212,0,.3); }
+  70%  { transform: scale(0.995); text-shadow: 0 0 20px rgba(255,212,0,.4); }
+  100% { opacity: 1; transform: scale(1); text-shadow: 0 0 15px rgba(255,212,0,.25); }
+}
+
+/* ── 6. Letter spread — for eyebrows/kickers ── */
+@keyframes letterSpread {
+  from { opacity: 0; letter-spacing: 14px; filter: blur(2px); }
+  to   { opacity: 1; letter-spacing: inherit; filter: blur(0); }
+}
+
+/* ── 7. Rule draw — for dividers ── */
+@keyframes ruleDraw {
+  from { transform: scaleX(0); opacity: 0; transform-origin: left; }
+  to   { transform: scaleX(1); opacity: 1; transform-origin: left; }
+}
+
+/* ── 8. Slide in row — for list items ── */
+@keyframes slideRow {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── 9. Count pop — for stat numbers ── */
+@keyframes countPop {
+  0%   { opacity: 0; transform: scale(1.4); filter: brightness(2) blur(2px); }
+  50%  { opacity: 1; transform: scale(0.96); filter: brightness(1.2) blur(0); }
+  75%  { transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); filter: brightness(1); }
+}
+
+/* ── 10. Neon flicker — for live/active badges ── */
+@keyframes neonOn {
+  0%,15%  { opacity: 0; }
+  16%     { opacity: 1; }
+  17%     { opacity: 0.1; }
+  18%     { opacity: 1; }
+  35%     { opacity: 0.4; }
+  36%     { opacity: 1; }
+  100%    { opacity: 1; }
+}
+
+/* ══ BASE STATE — everything starts hidden ══ */
+[data-anim] {
+  opacity: 0;
+}
+
+/* ══ TRIGGERED STATE — .anim-in added by JS ══ */
+[data-anim="fade-up"].anim-in {
+  animation: fadeUp 0.65s cubic-bezier(.2,.9,.2,1) both;
+}
+[data-anim="fade-left"].anim-in {
+  animation: fadeLeft 0.6s cubic-bezier(.2,.9,.2,1) both;
+}
+[data-anim="scale-pop"].anim-in {
+  animation: scalePop 0.7s cubic-bezier(.2,.9,.2,1) both;
+}
+[data-anim="reveal-clip"].anim-in {
+  animation: revealClip 0.55s cubic-bezier(.4,0,.2,1) both;
+}
+[data-anim="glow-burst"].anim-in {
+  animation: glowBurst 0.8s cubic-bezier(.2,.9,.2,1) both;
+}
+[data-anim="letter-spread"].anim-in {
+  animation: letterSpread 0.75s cubic-bezier(.2,.9,.2,1) both;
+}
+[data-anim="rule-draw"].anim-in {
+  animation: ruleDraw 0.6s cubic-bezier(.2,.9,.2,1) both;
+  opacity: 1;
+}
+[data-anim="slide-row"].anim-in {
+  animation: slideRow 0.5s cubic-bezier(.2,.9,.2,1) both;
+}
+[data-anim="count-pop"].anim-in {
+  animation: countPop 0.7s cubic-bezier(.15,.9,.2,1) both;
+}
+[data-anim="neon-on"].anim-in {
+  animation: neonOn 0.9s ease both;
+  opacity: 1;
+}
+
+/* ══ STAGGER DELAYS via data-delay ══ */
+.anim-in[data-delay="1"]  { animation-delay: 0.08s !important; }
+.anim-in[data-delay="2"]  { animation-delay: 0.16s !important; }
+.anim-in[data-delay="3"]  { animation-delay: 0.24s !important; }
+.anim-in[data-delay="4"]  { animation-delay: 0.32s !important; }
+.anim-in[data-delay="5"]  { animation-delay: 0.40s !important; }
+.anim-in[data-delay="6"]  { animation-delay: 0.48s !important; }
+.anim-in[data-delay="7"]  { animation-delay: 0.56s !important; }
+.anim-in[data-delay="8"]  { animation-delay: 0.64s !important; }
+.anim-in[data-delay="9"]  { animation-delay: 0.72s !important; }
+.anim-in[data-delay="10"] { animation-delay: 0.80s !important; }
+
+/* ══ Page-reset: strip anim-in when page goes inactive ══ */
+.page:not(.active) [data-anim] {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* ══ Countdown digit slam on tick ══ */
+@keyframes digitSlam {
+  0%   { transform: scale(1.35); color: #fff; filter: brightness(2); }
+  40%  { transform: scale(0.94); color: var(--gold, #ffd400); filter: brightness(1.2); }
+  70%  { transform: scale(1.02); }
+  100% { transform: scale(1);    color: var(--gold, #ffd400); filter: brightness(1); }
+}
+.cd-num.digit-slam {
+  animation: digitSlam 0.28s cubic-bezier(.2,.9,.2,1) forwards !important;
+}
+
+/* ══ Nav tile hover scramble label ══ */
+.nav-tile-label {
+  display: inline-block;
+  transition: opacity 0.1s;
+}
+
+/* ══ Hero wordmark continuous glow pulse ══ */
+@keyframes wordmarkGlow {
+  0%,100% { text-shadow: -2px -2px 0 rgba(0,0,0,.6), 2px 2px 0 rgba(0,0,0,.6), 0 0 20px rgba(255,212,0,.2); }
+  50%     { text-shadow: -2px -2px 0 rgba(0,0,0,.6), 2px 2px 0 rgba(0,0,0,.6), 0 0 50px rgba(255,212,0,.6), 0 0 90px rgba(255,212,0,.2); }
+}
+.hero-wordmark {
+  animation: sprayReveal 0.9s ease forwards, wordmarkGlow 3.5s ease-in-out 1s infinite !important;
+}
+
+/* ══ Score strip numbers — odometer spin ══ */
+@keyframes odometerSpin {
+  from { opacity: 0; transform: translateY(-100%) rotateX(80deg); }
+  to   { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+.score-num {
+  display: inline-block;
+  transform-origin: top center;
+}
+.score-num.spin-in {
+  animation: odometerSpin 0.55s cubic-bezier(.2,.9,.2,1) both;
+}
+
+/* ══ Live badge neon flicker ══ */
+.score-strip-label {
+  animation: neonOn 1s ease 1.8s both, livePulse 1.2s ease-in-out 2.8s infinite !important;
+  opacity: 0;
+}
+
+/* ══ Fact number ongoing glow ══ */
+@keyframes factGlow {
+  0%,100% { text-shadow: 0 0 15px rgba(255,212,0,.2); }
+  50%     { text-shadow: 0 0 35px rgba(255,212,0,.55), 0 0 60px rgba(255,212,0,.2); }
+}
+.fact-num.anim-in {
+  animation: countPop 0.7s cubic-bezier(.15,.9,.2,1) both, factGlow 2.5s ease-in-out 0.8s infinite !important;
+}
+</style>
+
+<script>
+/* ═══════════════════════════════════════════
+   ANIMATION ENGINE — 100% CSS-driven
+   JS only adds/removes .anim-in class
+   Never touches innerHTML
+═══════════════════════════════════════════ */
+(function() {
+
+  /* ── Apply data-anim attributes to elements ── */
+  function tagElements(root) {
+    root = root || document;
+
+    /* Hero / home page */
+    tag(root, '.hero-eyebrow',      'letter-spread');
+    tag(root, '.hero-wordmark',     'scale-pop');
+    tag(root, '.hero-rule',         'rule-draw');
+    tag(root, '.hero-tagline',      'fade-up', 1);
+    tag(root, '.score-strip',       'fade-up', 2);
+    tag(root, '.countdown-label',   'fade-up', 1);
+    tag(root, '.countdown-display', 'scale-pop', 2);
+    tag(root, '.countdown-bar-wrap','fade-up', 3);
+    tag(root, '.countdown-date',    'fade-up', 4);
+    tag(root, '.home-footer',       'fade-up', 5);
+
+    /* Nav tiles staggered */
+    root.querySelectorAll('.nav-tile').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-left');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+
+    /* Section pages */
+    tag(root, '.sp-kicker',   'letter-spread');
+    tag(root, '.sp-title',    'glow-burst', 1);
+    tag(root, '.sp-lead',     'fade-left', 2);
+    tag(root, '.sp-divider',  'rule-draw', 3);
+
+    /* Fact cards */
+    root.querySelectorAll('.fact-card').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-up');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+    root.querySelectorAll('.fact-num').forEach((el, i) => {
+      el.setAttribute('data-anim', 'count-pop');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+
+    /* Rule cards */
+    root.querySelectorAll('.rule-card').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-left');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+
+    /* Team cards */
+    root.querySelectorAll('.team-card').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-up');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+    root.querySelectorAll('.team-name').forEach((el) => {
+      el.setAttribute('data-anim', 'glow-burst');
+    });
+
+    /* Bracket */
+    root.querySelectorAll('.bracket-col-label').forEach((el, i) => {
+      el.setAttribute('data-anim', 'letter-spread');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+    root.querySelectorAll('.bracket-match').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-up');
+      el.setAttribute('data-delay', String(Math.min(i + 1, 10)));
+    });
+
+    /* Clips */
+    root.querySelectorAll('.clip-item').forEach((el, i) => {
+      el.setAttribute('data-anim', 'slide-row');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+    tag(root, '.vc-title', 'glow-burst');
+    tag(root, '.vc-sub',   'fade-up', 1);
+
+    /* Leaderboard rows */
+    root.querySelectorAll('.leader-row:not(.header)').forEach((el, i) => {
+      el.setAttribute('data-anim', 'slide-row');
+      el.setAttribute('data-delay', String(Math.min(i + 1, 10)));
+    });
+
+    /* Player cards */
+    root.querySelectorAll('.player-card').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-up');
+      el.setAttribute('data-delay', String(Math.min(i + 1, 10)));
+    });
+
+    /* Join form */
+    root.querySelectorAll('.jf-field').forEach((el, i) => {
+      el.setAttribute('data-anim', 'fade-up');
+      el.setAttribute('data-delay', String(i + 1));
+    });
+    tag(root, '.jf-submit', 'scale-pop', 5);
+
+    /* Misc */
+    tag(root, '.compare-hint', 'fade-up');
+    tag(root, '#compare-dropzone', 'fade-up', 1);
+  }
+
+  function tag(root, selector, animType, delay) {
+    root.querySelectorAll(selector).forEach(el => {
+      if (!el.getAttribute('data-anim')) {
+        el.setAttribute('data-anim', animType);
+        if (delay) el.setAttribute('data-delay', String(delay));
+      }
+    });
+  }
+
+  /* ── Single observer — triggers .anim-in ── */
+  function makeObserver() {
+    return new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('anim-in');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+  }
+
+  let observer = makeObserver();
+
+  function observeAll(root) {
+    root = root || document;
+    root.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+  }
+
+  /* ── Page switch: reset and re-trigger ── */
+  function resetPage(pageEl) {
+    pageEl.querySelectorAll('[data-anim]').forEach(el => {
+      el.classList.remove('anim-in');
+    });
+  }
+
+  function triggerPage(pageEl) {
+    /* Small rAF delay so browser paints the reset first */
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        pageEl.querySelectorAll('[data-anim]').forEach(el => {
+          observer.observe(el);
+        });
+      });
+    });
+  }
+
+  /* ── Watch page switches ── */
+  function watchPages() {
+    document.querySelectorAll('.page').forEach(page => {
+      new MutationObserver((mutations) => {
+        mutations.forEach(m => {
+          if (m.attributeName === 'class') {
+            if (page.classList.contains('active')) {
+              triggerPage(page);
+            } else {
+              resetPage(page);
+            }
+          }
+        });
+      }).observe(page, { attributes: true, attributeFilter: ['class'] });
+    });
+  }
+
+  /* ── Score strip odometer ── */
+  function initScoreOdometer() {
+    document.querySelectorAll('.score-num').forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('spin-in');
+      }, 1400 + i * 120);
+    });
+  }
+
+  /* ── Countdown digit slam ── */
+  function initCountdownSlam() {
+    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      let last = el.textContent;
+      new MutationObserver(() => {
+        if (el.textContent !== last) {
+          last = el.textContent;
+          el.classList.remove('digit-slam');
+          void el.offsetWidth; /* reflow */
+          el.classList.add('digit-slam');
+          setTimeout(() => el.classList.remove('digit-slam'), 300);
+        }
+      }).observe(el, { childList: true, characterData: true, subtree: true });
+    });
+  }
+
+  /* ── Nav tile scramble on hover ── */
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  function scramble(el, original, ms) {
+    let frame = 0;
+    const total = Math.ceil(ms / 28);
+    const id = setInterval(() => {
+      frame++;
+      const pct = frame / total;
+      el.textContent = original.split('').map((c, i) => {
+        if (c === ' ') return ' ';
+        if (i / original.length < pct) return c;
+        return CHARS[Math.floor(Math.random() * CHARS.length)];
+      }).join('');
+      if (frame >= total) { clearInterval(id); el.textContent = original; }
+    }, 28);
+    return id;
+  }
+
+  function initNavScramble() {
+    document.querySelectorAll('.nav-tile').forEach(tile => {
+      const label = tile.querySelector('.nav-tile-label');
+      if (!label) return;
+      const orig = label.textContent.trim();
+      let tid = null;
+      tile.addEventListener('mouseenter', () => {
+        if (tid) clearInterval(tid);
+        tid = scramble(label, orig, 300);
+      });
+      tile.addEventListener('mouseleave', () => {
+        if (tid) clearInterval(tid);
+        label.textContent = orig;
+      });
+    });
+  }
+
+  /* ── Init ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    tagElements(document);
+    observeAll(document);
+    watchPages();
+    initCountdownSlam();
+    initNavScramble();
+    initScoreOdometer();
+
+    /* Home page is already active — trigger immediately */
+    const home = document.getElementById('page-home');
+    if (home) triggerPage(home);
+  });
+
+})();
+</script>
+
 </body>
 </html>
