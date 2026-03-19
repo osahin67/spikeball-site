@@ -7124,9 +7124,14 @@ label {
 [data-anim="letter-spread"].anim-in {
   animation: letterSpread 0.75s cubic-bezier(.2,.9,.2,1) both;
 }
+[data-anim="rule-draw"] {
+  opacity: 1 !important; /* dividers: only scale animates, not opacity */
+  transform: scaleX(0);
+  transform-origin: left;
+}
 [data-anim="rule-draw"].anim-in {
   animation: ruleDraw 0.6s cubic-bezier(.2,.9,.2,1) both;
-  opacity: 1;
+  opacity: 1 !important;
 }
 [data-anim="slide-row"].anim-in {
   animation: slideRow 0.5s cubic-bezier(.2,.9,.2,1) both;
@@ -7134,9 +7139,12 @@ label {
 [data-anim="count-pop"].anim-in {
   animation: countPop 0.7s cubic-bezier(.15,.9,.2,1) both;
 }
+[data-anim="neon-on"] {
+  opacity: 0;
+}
 [data-anim="neon-on"].anim-in {
   animation: neonOn 0.9s ease both;
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 /* ══ STAGGER DELAYS via data-delay ══ */
@@ -7260,14 +7268,17 @@ label {
     tag(root, '.sp-lead',     'fade-left', 2);
     tag(root, '.sp-divider',  'rule-draw', 3);
 
-    /* Fact cards */
+    /* Fact cards — animate the whole card, not nested children */
     root.querySelectorAll('.fact-card').forEach((el, i) => {
       el.setAttribute('data-anim', 'fade-up');
       el.setAttribute('data-delay', String(i + 1));
     });
+    /* fact-num: standalone count-pop ONLY when not inside a fact-card (avoids double-anim) */
     root.querySelectorAll('.fact-num').forEach((el, i) => {
-      el.setAttribute('data-anim', 'count-pop');
-      el.setAttribute('data-delay', String(i + 1));
+      if (!el.closest('.fact-card')) {
+        el.setAttribute('data-anim', 'count-pop');
+        el.setAttribute('data-delay', String(i + 1));
+      }
     });
 
     /* Rule cards */
@@ -7336,42 +7347,39 @@ label {
     });
   }
 
-  /* ── Single observer — triggers .anim-in ── */
-  function makeObserver() {
-    return new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('anim-in');
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-  }
-
-  let observer = makeObserver();
-
-  function observeAll(root) {
-    root = root || document;
-    root.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
-  }
-
-  /* ── Page switch: reset and re-trigger ── */
+  /* ── Page switch: reset then stagger-trigger all anim elements ── */
   function resetPage(pageEl) {
-    // Never reset home page — its elements (countdown, wordmark etc) are always live
     if (pageEl.id === 'page-home') return;
     pageEl.querySelectorAll('[data-anim]').forEach(el => {
       el.classList.remove('anim-in');
+      // Force reflow so CSS animation resets cleanly
+      void el.offsetWidth;
     });
   }
 
   function triggerPage(pageEl) {
-    /* Small rAF delay so browser paints the reset first */
-    requestAnimationFrame(() => {
+    // For home page, just ensure anim-in is set (elements are always visible)
+    if (pageEl.id === 'page-home') {
       requestAnimationFrame(() => {
         pageEl.querySelectorAll('[data-anim]').forEach(el => {
-          observer.observe(el);
+          el.classList.add('anim-in');
         });
       });
-    });
+      return;
+    }
+
+    // For section pages: wait for slam overlay to clear then stagger in
+    setTimeout(() => {
+      const els = Array.from(pageEl.querySelectorAll('[data-anim]'));
+      els.forEach((el, i) => {
+        // data-delay="1..10" maps to 80ms increments; fallback is order-based
+        const existingDelay = parseInt(el.getAttribute('data-delay') || '0');
+        const baseDelay = existingDelay > 0 ? (existingDelay * 80) : (i * 60);
+        setTimeout(() => {
+          el.classList.add('anim-in');
+        }, baseDelay);
+      });
+    }, 120);
   }
 
   /* ── Watch page switches ── */
@@ -7390,6 +7398,8 @@ label {
       }).observe(page, { attributes: true, attributeFilter: ['class'] });
     });
   }
+
+  function observeAll() {} // no-op — no longer using IntersectionObserver for page anims
 
   /* ── Score strip odometer ── */
   function initScoreOdometer() {
