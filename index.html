@@ -9318,21 +9318,22 @@ document.querySelectorAll('.player-card').forEach(card => {
 
     // Dark backdrop — appended to body, no transform on it
     const backdrop = document.createElement('div');
-    backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0);z-index:200000;transition:background .3s ease;pointer-events:auto;';
+    backdrop.id = 'tb-battle-backdrop';
+    backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0);z-index:99990;transition:background .3s ease;pointer-events:auto;';
     document.body.appendChild(backdrop);
     requestAnimationFrame(() => { backdrop.style.background = 'rgba(0,0,0,.88)'; });
 
     // Arena container — also on body
     const arena = document.createElement('div');
     arena.className = 'tb-arena';
-    arena.style.zIndex = '200001';
+    arena.style.zIndex = '99991';
     document.body.appendChild(arena);
 
     const cardA = makeTeamSlide(nameA, archA, ovrA, playersA, 'a');
     const cardB = makeTeamSlide(nameB, archB, ovrB, playersB, 'b');
     // Cards go directly on body so fixed positioning is against the viewport
-    cardA.style.zIndex = '200002';
-    cardB.style.zIndex = '200002';
+    cardA.style.zIndex = '99992';
+    cardB.style.zIndex = '99992';
     document.body.appendChild(cardA);
     document.body.appendChild(cardB);
 
@@ -9375,7 +9376,7 @@ document.querySelectorAll('.player-card').forEach(card => {
     setTimeout(() => {
       const vs = document.createElement('div');
       vs.className = 'tb-arena-vs';
-      vs.style.zIndex = '200003';
+      vs.style.zIndex = '99993';
       vs.textContent = 'VS';
       document.body.appendChild(vs);
       requestAnimationFrame(() => { vs.style.opacity = '1'; vs.style.transform = 'translate(-50%,-50%) scale(1)'; });
@@ -9408,39 +9409,56 @@ document.querySelectorAll('.player-card').forEach(card => {
 
     // PHASE 4 — fade out arena elements, show result modal
     setTimeout(() => {
-      [cardA, cardB, backdrop, arena].forEach(el => {
+      [cardA, cardB, arena].forEach(el => {
         el.style.transition = 'opacity .3s ease';
         el.style.opacity = '0';
       });
       if (arena._vs) { arena._vs.style.transition = 'opacity .3s ease'; arena._vs.style.opacity = '0'; }
+      // Reuse backdrop for result — dim it slightly less
+      backdrop.style.background = 'rgba(0,0,0,.92)';
     }, 2150);
 
     setTimeout(() => {
-      [cardA, cardB, backdrop, arena].forEach(el => el.remove());
+      [cardA, cardB, arena].forEach(el => el.remove());
       if (arena._vs) arena._vs.remove();
 
-      // Now show the result using the existing overlay
-      const overlay = document.getElementById('tb-battle-overlay');
-      const inner = document.getElementById('tb-battle-inner');
-      inner.innerHTML = buildResultHTML(nameA, nameB, archA, archB, statsA, statsB, ovrA, ovrB, playersA, playersB);
-      // Override the transition-based show — force visible immediately
-      inner.style.transition = 'none';
-      inner.style.opacity = '1';
-      inner.style.transform = 'scale(1) translateY(0)';
-      overlay.classList.add('active');
+      // Build result modal directly on body — no scroll dependency
+      const resultModal = document.createElement('div');
+      resultModal.id = 'tb-result-modal';
+      resultModal.style.cssText = [
+        'position:fixed;inset:0;z-index:99994;',
+        'display:flex;align-items:center;justify-content:center;',
+        'padding:20px;pointer-events:none;',
+        'opacity:0;transition:opacity .35s cubic-bezier(.2,.9,.2,1);',
+      ].join('');
+      resultModal.innerHTML = `<div style="width:min(680px,94vw);max-height:88vh;overflow-y:auto;pointer-events:auto;">${buildResultHTML(nameA, nameB, archA, archB, statsA, statsB, ovrA, ovrB, playersA, playersB)}</div>`;
+      document.body.appendChild(resultModal);
+
+      // Fade in
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          resultModal.style.opacity = '1';
+          resultModal.style.pointerEvents = 'auto';
+        });
+      });
     }, 2460);
   };
 
   window.tbCloseBattle = function() {
-    const overlay = document.getElementById('tb-battle-overlay');
-    overlay.classList.remove('active');
-    document.querySelectorAll('.tb-slide-card, .tb-arena, .tb-arena-vs').forEach(el => el.remove());
+    document.querySelectorAll(
+      '.tb-slide-card, .tb-arena, .tb-arena-vs, #tb-result-modal, #tb-battle-backdrop'
+    ).forEach(el => el.remove());
   };
 
-  // Close on backdrop click
+  // Close on backdrop click or clicking outside the result card
   document.addEventListener('click', e => {
-    const overlay = document.getElementById('tb-battle-overlay');
-    if (e.target === overlay) tbCloseBattle();
+    const modal = document.getElementById('tb-result-modal');
+    if (!modal) return;
+    // If they clicked the modal backdrop (not the inner card)
+    if (e.target === modal || e.target.closest('#tb-result-modal') === modal) {
+      const card = modal.querySelector('.tb-result-card');
+      if (card && !card.contains(e.target)) tbCloseBattle();
+    }
   });
 
   // Reset
