@@ -3353,6 +3353,62 @@ label {
   <div class="page-header">
     <button class="page-back-btn" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back</button>
     <h2>Players</h2>
+    <button class="sort-btn" id="sort-btn" onclick="toggleSortPanel()">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M1 3h10M3 6h6M5 9h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+      Sort By
+    </button>
+  </div>
+  <!-- SORT PANEL -->
+  <div id="sort-panel" class="sort-panel">
+    <div class="sort-panel-inner">
+      <div class="sort-panel-header">
+        <span class="sort-panel-title">Sort Players</span>
+        <span class="sort-active-label" id="sort-active-label">OVERALL</span>
+      </div>
+      <div class="sort-categories">
+
+        <div class="sort-category">
+          <div class="sort-cat-label">By Stat</div>
+          <div class="sort-chips">
+            <button class="sort-chip active" data-stats="overall">Overall</button>
+            <button class="sort-chip" data-stats="power">Power</button>
+            <button class="sort-chip" data-stats="hitting">Hitting</button>
+            <button class="sort-chip" data-stats="setting">Setting</button>
+            <button class="sort-chip" data-stats="defense">Defense</button>
+            <button class="sort-chip" data-stats="gameiq">Game IQ</button>
+            <button class="sort-chip" data-stats="hustle">Hustle</button>
+            <button class="sort-chip" data-stats="wins">Wins</button>
+          </div>
+        </div>
+
+        <div class="sort-category">
+          <div class="sort-cat-label">Two Stats</div>
+          <div class="sort-chips">
+            <button class="sort-chip" data-stats="power+hitting">Power + Hitting</button>
+            <button class="sort-chip" data-stats="hitting+gameiq">Hitting + Game IQ</button>
+            <button class="sort-chip" data-stats="defense+hustle">Defense + Hustle</button>
+            <button class="sort-chip" data-stats="defense+gameiq">Defense + Game IQ</button>
+            <button class="sort-chip" data-stats="defense+setting">Defense + Setting</button>
+            <button class="sort-chip" data-stats="setting+gameiq">Setting + Game IQ</button>
+            <button class="sort-chip" data-stats="gameiq+hustle">Game IQ + Hustle</button>
+            <button class="sort-chip" data-stats="hitting+hustle">Hitting + Hustle</button>
+            <button class="sort-chip" data-stats="power+defense">Power + Defense</button>
+          </div>
+        </div>
+
+        <div class="sort-category">
+          <div class="sort-cat-label">Three Stats</div>
+          <div class="sort-chips">
+            <button class="sort-chip" data-stats="power+hitting+setting">Power + Hitting + Setting</button>
+            <button class="sort-chip" data-stats="power+hitting+defense">Power + Hitting + Defense</button>
+            <button class="sort-chip" data-stats="hustle+defense+gameiq">Defense + Game IQ + Hustle</button>
+            <button class="sort-chip" data-stats="setting+gameiq+hustle">Setting + Game IQ + Hustle</button>
+            <button class="sort-chip" data-stats="power+setting+gameiq">Power + Setting + Game IQ</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
   <div style="padding:0 0 20px">
 <section id="players" class="players-section">
@@ -3378,130 +3434,274 @@ label {
   <div class="players-grid">
 
     <a href="justin.html" class="player-card" draggable="true"
-       data-name="Justin Lim" data-rank="4" data-wins="14" data-aces="21" data-accuracy="88">
+       data-name="Justin Lim" data-rank="4" data-wins="14" data-aces="21" data-accuracy="88" data-power="80" data-hitting="87" data-setting="75" data-defense="84" data-gameiq="82" data-hustle="90" data-overall="83">
       <div class="card-rank-badge">#4</div>
       <div class="player-img"></div>
       <div class="player-name">Justin</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="kai.html" class="player-card" draggable="true"
-       data-name="Kai Bodeman" data-rank="5" data-wins="12" data-aces="18" data-accuracy="85">
+       data-name="Kai Bodeman" data-rank="5" data-wins="12" data-aces="18" data-accuracy="85" data-power="78" data-hitting="84" data-setting="73" data-defense="81" data-gameiq="79" data-hustle="87" data-overall="80">
       <div class="card-rank-badge">#5</div>
       <div class="player-img"></div>
       <div class="player-name">Kai</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="dylan.html" class="player-card" draggable="true"
-       data-name="Dylan Kang" data-rank="1" data-wins="22" data-aces="34" data-accuracy="96">
+       data-name="Dylan Kang" data-rank="1" data-wins="22" data-aces="34" data-accuracy="96" data-power="88" data-hitting="96" data-setting="82" data-defense="91" data-gameiq="94" data-hustle="97" data-overall="91">
       <div class="card-rank-badge">#1</div>
       <div class="player-img"></div>
       <div class="player-name">Dylan</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="aarav.html" class="player-card" draggable="true"
-       data-name="Aarav Patel" data-rank="6" data-wins="11" data-aces="16" data-accuracy="83">
+       data-name="Aarav Patel" data-rank="6" data-wins="11" data-aces="16" data-accuracy="83" data-power="75" data-hitting="82" data-setting="70" data-defense="78" data-gameiq="76" data-hustle="84" data-overall="77">
       <div class="card-rank-badge">#6</div>
       <div class="player-img"></div>
       <div class="player-name">Aarav</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="anish.html" class="player-card" draggable="true"
-       data-name="Anish Mishra" data-rank="7" data-wins="10" data-aces="15" data-accuracy="82">
+       data-name="Anish Mishra" data-rank="7" data-wins="10" data-aces="15" data-accuracy="82" data-power="73" data-hitting="81" data-setting="68" data-defense="76" data-gameiq="74" data-hustle="82" data-overall="75">
       <div class="card-rank-badge">#7</div>
       <div class="player-img"></div>
       <div class="player-name">Anish</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="nikita.html" class="player-card" draggable="true"
-       data-name="Nikita Mescheryakov" data-rank="8" data-wins="9" data-aces="14" data-accuracy="80">
+       data-name="Nikita Mescheryakov" data-rank="8" data-wins="9" data-aces="14" data-accuracy="80" data-power="71" data-hitting="79" data-setting="66" data-defense="74" data-gameiq="72" data-hustle="80" data-overall="73">
       <div class="card-rank-badge">#8</div>
       <div class="player-img"></div>
       <div class="player-name">Nikita</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="brandon.html" class="player-card" draggable="true"
-       data-name="Brandon Rios" data-rank="9" data-wins="8" data-aces="12" data-accuracy="79">
+       data-name="Brandon Rios" data-rank="9" data-wins="8" data-aces="12" data-accuracy="79" data-power="69" data-hitting="78" data-setting="64" data-defense="72" data-gameiq="70" data-hustle="78" data-overall="71">
       <div class="card-rank-badge">#9</div>
       <div class="player-img"></div>
       <div class="player-name">Brandon</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="andres.html" class="player-card" draggable="true"
-       data-name="Andres Schindler" data-rank="10" data-wins="7" data-aces="11" data-accuracy="77">
+       data-name="Andres Schindler" data-rank="10" data-wins="7" data-aces="11" data-accuracy="77" data-power="67" data-hitting="76" data-setting="62" data-defense="70" data-gameiq="68" data-hustle="76" data-overall="69">
       <div class="card-rank-badge">#10</div>
       <div class="player-img"></div>
       <div class="player-name">Andres</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="saul.html" class="player-card" draggable="true"
-       data-name="Saul Vargas" data-rank="11" data-wins="7" data-aces="10" data-accuracy="76">
+       data-name="Saul Vargas" data-rank="11" data-wins="7" data-aces="10" data-accuracy="76" data-power="65" data-hitting="75" data-setting="60" data-defense="68" data-gameiq="66" data-hustle="74" data-overall="68">
       <div class="card-rank-badge">#11</div>
       <div class="player-img"></div>
       <div class="player-name">Saul</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="mario.html" class="player-card" draggable="true"
-       data-name="Mario" data-rank="12" data-wins="6" data-aces="9" data-accuracy="74">
+       data-name="Mario" data-rank="12" data-wins="6" data-aces="9" data-accuracy="74" data-power="63" data-hitting="73" data-setting="58" data-defense="66" data-gameiq="64" data-hustle="72" data-overall="66">
       <div class="card-rank-badge">#12</div>
       <div class="player-img"></div>
       <div class="player-name">Mario</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="virup.html" class="player-card" draggable="true"
-       data-name="Virup Chalsani" data-rank="2" data-wins="19" data-aces="30" data-accuracy="94">
+       data-name="Virup Chalsani" data-rank="2" data-wins="19" data-aces="30" data-accuracy="94" data-power="85" data-hitting="93" data-setting="86" data-defense="88" data-gameiq="91" data-hustle="95" data-overall="89">
       <div class="card-rank-badge">#2</div>
       <div class="player-img"></div>
       <div class="player-name">Virup</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="francisco.html" class="player-card" draggable="true"
-       data-name="Francisco Flores" data-rank="13" data-wins="5" data-aces="8" data-accuracy="73">
+       data-name="Francisco Flores" data-rank="13" data-wins="5" data-aces="8" data-accuracy="73" data-power="61" data-hitting="72" data-setting="56" data-defense="64" data-gameiq="62" data-hustle="70" data-overall="64">
       <div class="card-rank-badge">#13</div>
       <div class="player-img"></div>
       <div class="player-name">Francisco</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="sean.html" class="player-card" draggable="true"
-       data-name="Sean Anderson" data-rank="3" data-wins="17" data-aces="26" data-accuracy="92">
+       data-name="Sean Anderson" data-rank="3" data-wins="17" data-aces="26" data-accuracy="92" data-power="83" data-hitting="91" data-setting="80" data-defense="92" data-gameiq="88" data-hustle="93" data-overall="87">
       <div class="card-rank-badge">#3</div>
       <div class="player-img"></div>
       <div class="player-name">Sean</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="ozan.html" class="player-card" draggable="true"
-       data-name="Ozan Alexander Sahin" data-rank="14" data-wins="4" data-aces="7" data-accuracy="71">
+       data-name="Ozan Alexander Sahin" data-rank="14" data-wins="4" data-aces="7" data-accuracy="71" data-power="59" data-hitting="70" data-setting="54" data-defense="62" data-gameiq="60" data-hustle="68" data-overall="62">
       <div class="card-rank-badge">#14</div>
       <div class="player-img"></div>
       <div class="player-name">Ozan</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="evan.html" class="player-card" draggable="true"
-       data-name="Evan Tran" data-rank="15" data-wins="3" data-aces="5" data-accuracy="69">
+       data-name="Evan Tran" data-rank="15" data-wins="3" data-aces="5" data-accuracy="69" data-power="57" data-hitting="68" data-setting="52" data-defense="60" data-gameiq="58" data-hustle="66" data-overall="60">
       <div class="card-rank-badge">#15</div>
       <div class="player-img"></div>
       <div class="player-name">Evan</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
     <a href="cesar.html" class="player-card" draggable="true"
-       data-name="Cesar Velasco" data-rank="16" data-wins="2" data-aces="4" data-accuracy="66">
+       data-name="Cesar Velasco" data-rank="16" data-wins="2" data-aces="4" data-accuracy="66" data-power="55" data-hitting="66" data-setting="50" data-defense="58" data-gameiq="56" data-hustle="64" data-overall="58">
       <div class="card-rank-badge">#16</div>
       <div class="player-img"></div>
       <div class="player-name">Cesar</div>
+      <div class="pc-stats">
+        <div class="pc-ovr" data-attr="overall"></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">PWR</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="power"></div></div><span class="pc-stat-val" data-attr="power"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HIT</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hitting"></div></div><span class="pc-stat-val" data-attr="hitting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">SET</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="setting"></div></div><span class="pc-stat-val" data-attr="setting"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">DEF</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="defense"></div></div><span class="pc-stat-val" data-attr="defense"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">IQ</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="gameiq"></div></div><span class="pc-stat-val" data-attr="gameiq"></span></div>
+        <div class="pc-stat-row"><span class="pc-stat-lbl">HST</span><div class="pc-bar-wrap"><div class="pc-bar" data-attr="hustle"></div></div><span class="pc-stat-val" data-attr="hustle"></span></div>
+      </div>
       <div class="drag-hint"> drag to compare</div>
     </a>
 
@@ -4895,7 +5095,7 @@ function slamDefault(tip) {
     'font-size:clamp(1.1rem,3vw,1.9rem);color:rgba(255,212,0,.75);letter-spacing:8px;' +
     'margin:4px 0 0;text-transform:uppercase;' +
     'text-shadow:-2px -2px 0 #000,2px 2px 0 #000,0 0 16px rgba(255,212,0,.5);">' +
-    '"To spike is to live."</div>';
+    'It's finally here'</div>';
   slamOverlay.appendChild(title);
   slamOverlay.appendChild(tipBar(tip));
 }
@@ -4934,19 +5134,25 @@ document.addEventListener('click', (e) => {
   if (href && href.startsWith('#')) {
     e.preventDefault();
     const pageId = href.slice(1);
-    triggerSlam(href);
-    setTimeout(() => showPage(pageId), 900);
+    // Going TO home from a nav tile = slamDefault (back to league)
+    if (pageId === 'home' || pageId === '') {
+      triggerSlam(null);
+      setTimeout(() => showPage(pageId), 900);
+    } else {
+      // Nav tile clicks from home page — play the custom per-destination slam
+      triggerSlam(href);
+      setTimeout(() => showPage(pageId), 900);
+    }
     return;
   }
 
   if (href && !href.startsWith('javascript')) {
     e.preventDefault();
+    // .html links (player pages) — play player page slam, then navigate
     triggerSlam(href);
     setTimeout(() => { window.location.href = href; }, 900);
     return;
   }
-
-  triggerSlam(null);
 });
 
 window.addEventListener("load", () => { /* loader handled by inline script */ });
@@ -4969,13 +5175,20 @@ function showPage(id) {
   currentPage = id;
 }
 
-// Wire back buttons
+// Wire back buttons (data-goto)
 document.addEventListener('click', e => {
   const btn = e.target.closest('[data-goto]');
   if (!btn) return;
   const dest = btn.dataset.goto;
-  triggerSlam(dest === 'home' ? null : '#' + dest);
-  setTimeout(() => showPage(dest), 900);
+  // Always play slam when going back to home/league
+  if (dest === 'home') {
+    triggerSlam(null);
+    setTimeout(() => showPage(dest), 900);
+  } else {
+    // Going to a non-home page via data-goto — play its slam
+    triggerSlam('#' + dest);
+    setTimeout(() => showPage(dest), 900);
+  }
 });
 
 </script>
@@ -5091,6 +5304,13 @@ function getPlayerData(card){
     wins:     parseInt(card.dataset.wins),
     aces:     parseInt(card.dataset.aces),
     accuracy: parseInt(card.dataset.accuracy),
+    power:    parseInt(card.dataset.power)   || 50,
+    hitting:  parseInt(card.dataset.hitting) || 50,
+    setting:  parseInt(card.dataset.setting) || 50,
+    defense:  parseInt(card.dataset.defense) || 50,
+    gameiq:   parseInt(card.dataset.gameiq)  || 50,
+    hustle:   parseInt(card.dataset.hustle)  || 50,
+    overall:  parseInt(card.dataset.overall) || 50,
     href:     card.getAttribute('href'),
   };
 }
@@ -5439,10 +5659,14 @@ document.querySelectorAll('.player-card[draggable]').forEach(card => {
 /*  Clash animation then modal reveal  */
 function openCompareModal(a, b){
   const stats = [
-    { label:'Rank',          keyA:a.rank,     keyB:b.rank,     unit:'#', lowerIsBetter:true  },
-    { label:'Wins',          keyA:a.wins,     keyB:b.wins,     unit:'',  lowerIsBetter:false },
-    { label:'Aces',          keyA:a.aces,     keyB:b.aces,     unit:'',  lowerIsBetter:false },
-    { label:'Serve Accuracy',keyA:a.accuracy, keyB:b.accuracy, unit:'%', lowerIsBetter:false },
+    { label:'Overall',        keyA:a.overall,  keyB:b.overall,  unit:'',  lowerIsBetter:false },
+    { label:'Power',          keyA:a.power,    keyB:b.power,    unit:'',  lowerIsBetter:false },
+    { label:'Hitting',        keyA:a.hitting,  keyB:b.hitting,  unit:'',  lowerIsBetter:false },
+    { label:'Setting',        keyA:a.setting,  keyB:b.setting,  unit:'',  lowerIsBetter:false },
+    { label:'Defense',        keyA:a.defense,  keyB:b.defense,  unit:'',  lowerIsBetter:false },
+    { label:'Game IQ',        keyA:a.gameiq,   keyB:b.gameiq,   unit:'',  lowerIsBetter:false },
+    { label:'Hustle',         keyA:a.hustle,   keyB:b.hustle,   unit:'',  lowerIsBetter:false },
+    { label:'Wins',           keyA:a.wins,     keyB:b.wins,     unit:'',  lowerIsBetter:false },
   ];
   let aPoints = 0, bPoints = 0;
   stats.forEach(s => {
@@ -5970,7 +6194,7 @@ modal.addEventListener('click', e => { if(e.target === modal) modal.classList.re
   <div id="loader-flash"></div>
   <div id="loader-title">
     <h1>G League Spikeball</h1>
-    <p>Are you ready?</p>
+    <p>What you've all been waiting for...</p>
   </div>
 </div>
 
@@ -7244,6 +7468,341 @@ label {
   });
 
 })();
+</script>
+<style>
+/* ══ Player card stat bars ══ */
+.pc-stats {
+  margin: 10px 0 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pc-ovr {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2rem;
+  color: var(--gold, #ffd400);
+  line-height: 1;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 6px;
+  text-shadow: 0 0 20px rgba(255,212,0,.3);
+}
+.pc-ovr::before { content: attr(data-val); }
+.pc-stat-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 22px;
+  align-items: center;
+  gap: 5px;
+}
+.pc-stat-lbl {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .55rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,212,0,.35);
+  text-align: right;
+}
+.pc-bar-wrap {
+  height: 3px;
+  background: rgba(255,212,0,.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.pc-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255,212,0,.5), #ffd400);
+  width: 0%;
+  transition: width .6s cubic-bezier(.2,.9,.2,1), background .25s ease;
+}
+.pc-bar.sort-highlight {
+  background: linear-gradient(90deg, #ffd400, #ffe566) !important;
+  box-shadow: 0 0 6px rgba(255,212,0,.5);
+}
+.pc-stat-val {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .6rem;
+  color: rgba(255,212,0,.45);
+  text-align: right;
+  letter-spacing: .5px;
+}
+.pc-stat-val.sort-highlight-val {
+  color: #ffd400 !important;
+}
+
+/* ══ Sort By System ══ */
+.sort-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: rgba(255,212,0,.06);
+  border: 1px solid rgba(255,212,0,.3);
+  color: rgba(255,212,0,.8);
+  font-family: 'Bebas Neue', cursive;
+  font-size: .88rem;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.sort-btn:hover { background: rgba(255,212,0,.1) !important; border-color: rgba(255,212,0,.5) !important; color: #ffd400 !important; }
+.sort-btn.open { background: rgba(255,212,0,.12) !important; border-color: #ffd400 !important; color: #ffd400 !important; }
+
+.sort-panel {
+  position: sticky;
+  top: 57px;
+  z-index: 40;
+  background: rgba(20,18,15,.98);
+  border-bottom: 1px solid rgba(255,212,0,.15);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(.2,.9,.2,1);
+  backdrop-filter: blur(16px);
+}
+.sort-panel.open { max-height: 460px; }
+.sort-panel-inner { padding: 14px 24px 16px; }
+.sort-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.sort-panel-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .68rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.35);
+  text-transform: uppercase;
+}
+.sort-active-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .68rem;
+  letter-spacing: 3px;
+  background: rgba(255,212,0,.1);
+  color: #ffd400;
+  padding: 2px 10px;
+  border: 1px solid rgba(255,212,0,.3);
+  border-radius: 3px;
+}
+.sort-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.sort-categories::-webkit-scrollbar { width: 3px; }
+.sort-categories::-webkit-scrollbar-track { background: transparent; }
+.sort-categories::-webkit-scrollbar-thumb { background: rgba(255,212,0,.2); border-radius: 4px; }
+.sort-cat-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .6rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.28);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.sort-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.sort-chip {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 1.5px;
+  padding: 4px 11px;
+  border: 1px solid rgba(255,212,0,.18);
+  background: rgba(255,212,0,.03);
+  color: rgba(255,212,0,.5);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background .12s, border-color .12s, color .12s, transform .1s;
+  white-space: nowrap;
+}
+.sort-chip:hover { background: rgba(255,212,0,.08); border-color: rgba(255,212,0,.4); color: rgba(255,212,0,.9); transform: translateY(-1px); }
+.sort-chip.active { background: rgba(255,212,0,.14) !important; border-color: #ffd400 !important; color: #ffd400 !important; }
+
+/* Sort rank badge on each card */
+.pc-sort-rank {
+  display: none;
+  position: absolute;
+  top: 8px; right: 8px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: .62rem;
+  letter-spacing: 2px;
+  color: #ffd400;
+  background: rgba(0,0,0,.65);
+  border: 1px solid rgba(255,212,0,.28);
+  padding: 1px 6px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 5;
+}
+.players-grid.sorted .player-card { position: relative; }
+.players-grid.sorted .pc-sort-rank { display: block; }
+
+/* Card entry animation on re-sort */
+@keyframes cardSlideIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.player-card.sort-animating {
+  animation: cardSlideIn 0.35s cubic-bezier(.2,.9,.2,1) both;
+}
+</style>
+
+<script>
+
+/* ── Populate player card stat bars ── */
+function populateCardStats(card) {
+  const attrs = ['power','hitting','setting','defense','gameiq','hustle','overall'];
+  attrs.forEach(attr => {
+    const val = parseInt(card.dataset[attr]) || 50;
+    // OVR badge
+    if (attr === 'overall') {
+      const ovr = card.querySelector('.pc-ovr');
+      if (ovr) ovr.setAttribute('data-val', val);
+    }
+    // Bar fills
+    const bar = card.querySelector(`.pc-bar[data-attr="${attr}"]`);
+    if (bar) {
+      // width = (val - 50) / 49 * 100% maps 50→0% and 99→100%
+      const pct = Math.round((val - 50) / 49 * 100);
+      setTimeout(() => { bar.style.width = pct + '%'; }, 50);
+    }
+    // Val labels
+    const valEl = card.querySelector(`.pc-stat-val[data-attr="${attr}"]`);
+    if (valEl) valEl.textContent = val;
+  });
+}
+
+document.querySelectorAll('.player-card').forEach(card => {
+  populateCardStats(card);
+});
+
+</script>
+
+<script>
+/* ── SORT BY SYSTEM ── */
+(function() {
+
+  const STAT_KEYS = ['power','hitting','setting','defense','gameiq','hustle','overall','wins'];
+
+  function getStat(card, key) {
+    if (key === 'wins') return parseInt(card.dataset.wins) || 0;
+    return parseInt(card.dataset[key]) || 50;
+  }
+
+  function getComboScore(card, stats) {
+    return stats.reduce((sum, key) => sum + getStat(card, key), 0);
+  }
+
+  function getLabel(statsStr) {
+    const map = {
+      overall:'Overall', power:'Power', hitting:'Hitting', setting:'Setting',
+      defense:'Defense', gameiq:'Game IQ', hustle:'Hustle', wins:'Wins',
+      'power+hitting':'Power + Hitting',
+      'hitting+gameiq':'Hitting + Game IQ',
+      'defense+hustle':'Defense + Hustle',
+      'defense+gameiq':'Defense + Game IQ',
+      'defense+setting':'Defense + Setting',
+      'setting+gameiq':'Setting + Game IQ',
+      'gameiq+hustle':'Game IQ + Hustle',
+      'hitting+hustle':'Hitting + Hustle',
+      'power+defense':'Power + Defense',
+      'power+hitting+setting':'Power + Hitting + Setting',
+      'power+hitting+defense':'Power + Hitting + Defense',
+      'hustle+defense+gameiq':'Defense + Game IQ + Hustle',
+      'setting+gameiq+hustle':'Setting + Game IQ + Hustle',
+      'power+setting+gameiq':'Power + Setting + Game IQ',
+    };
+    return map[statsStr] || statsStr.split('+').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' + ');
+  }
+
+  let currentSort = 'overall';
+  let panelOpen = false;
+
+  window.toggleSortPanel = function() {
+    const panel = document.getElementById('sort-panel');
+    const btn = document.getElementById('sort-btn');
+    if (!panel || !btn) return;
+    panelOpen = !panelOpen;
+    panel.classList.toggle('open', panelOpen);
+    btn.classList.toggle('open', panelOpen);
+  };
+
+  function sortPlayers(statsStr) {
+    currentSort = statsStr;
+    const stats = statsStr.split('+');
+    const grid = document.querySelector('.players-grid');
+    if (!grid) return;
+
+    // Update active chip
+    document.querySelectorAll('.sort-chip').forEach(c => {
+      c.classList.toggle('active', c.dataset.stats === statsStr);
+    });
+
+    // Update active label
+    const lbl = document.getElementById('sort-active-label');
+    if (lbl) lbl.textContent = getLabel(statsStr);
+
+    // Sort cards
+    const cards = Array.from(grid.querySelectorAll('.player-card'));
+    cards.sort((a, b) => getComboScore(b, stats) - getComboScore(a, stats));
+
+    // Mark grid as sorted
+    grid.classList.add('sorted');
+
+    // Re-append in order with stagger animation
+    cards.forEach((card, i) => {
+      card.classList.remove('sort-animating');
+      void card.offsetWidth;
+      card.style.animationDelay = (i * 0.04) + 's';
+      card.classList.add('sort-animating');
+
+      // Rank badge
+      let badge = card.querySelector('.pc-sort-rank');
+      if (!badge) {
+        badge = document.createElement('div');
+        badge.className = 'pc-sort-rank';
+        card.appendChild(badge);
+      }
+      const score = getComboScore(card, stats);
+      badge.textContent = stats.length > 1 ? score : score;
+
+      // Highlight relevant stat bars
+      card.querySelectorAll('.pc-bar').forEach(bar => {
+        bar.classList.toggle('sort-highlight', stats.includes(bar.dataset.attr));
+      });
+      card.querySelectorAll('.pc-stat-val').forEach(val => {
+        val.classList.toggle('sort-highlight-val', stats.includes(val.dataset.attr));
+      });
+
+      grid.appendChild(card);
+    });
+
+    // Clean up animation class
+    setTimeout(() => {
+      grid.querySelectorAll('.player-card').forEach(c => c.classList.remove('sort-animating'));
+    }, 800);
+  }
+
+  // Wire chips
+  document.addEventListener('click', e => {
+    const chip = e.target.closest('.sort-chip');
+    if (!chip) return;
+    sortPlayers(chip.dataset.stats);
+  });
+
+  // Initial sort
+  document.addEventListener('DOMContentLoaded', () => {
+    // Small delay so cards are populated first
+    setTimeout(() => sortPlayers('overall'), 200);
+  });
+
+})();
+
 </script>
 
 </body>
