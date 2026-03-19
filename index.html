@@ -2556,7 +2556,7 @@ label {
       <div class="hero-eyebrow">Invite Only · Competitive · Local</div>
       <h1 class="hero-wordmark">G League<br>Spikeball</h1>
       <div class="hero-rule"></div>
-      <p class="hero-tagline">Are you ready?.</p>
+      <p class="hero-tagline">Can you even comprehend what's coming?</p>
     </div>
 
 
@@ -2942,8 +2942,12 @@ label {
 
     /* Ensure nav doesn't clip the popups */
     .home-nav { overflow: visible !important; }
-    #page-home { overflow: visible !important; }
     .home-wrap { overflow: visible !important; }
+    /* page-home must NOT be overflow:visible — it sits fixed over other pages
+       and visible overflow causes it to intercept clicks on sibling pages.
+       Use overflow:clip so popups still paint but don't block pointer events. */
+    #page-home { overflow: clip !important; }
+    #page-home:not(.active) { pointer-events: none !important; }
     </style>
 
     <!-- FOOTER STRIP -->
@@ -3077,7 +3081,7 @@ label {
   <section id="leaderboard" class="section">
     <div class="section-title">
       <h2>Player Rankings</h2>
-      <p>What does it mean to be the best?</p>
+      <p>A leaderboard section gives the site a more real league feel and makes room for stats and top players.</p>
     </div>
    <div class="leaderboard">
   <div class="leader-row header">
@@ -4357,7 +4361,7 @@ label {
 const slamOverlay = document.getElementById('slam-overlay');
 
 const TIPS = {
-  '#about':       ['Played on a circular trampoline net ','G League meets at Sydney Casper Park ','Can you even comprehend what's coming? '],
+  '#about':       ['Played on a circular trampoline net ','G League meets at Sydney Casper Park ','Fast. Loud. Competitive. '],
   '#teams':       ['Black Strikers vs Yellow Storm ','5 elite teams this season ','Pick your squad wisely '],
   '#leaderboard': ['Rankings update after every match ','Serve accuracy wins games ','Top 16 players compete '],
   '#bracket':     ['Single elimination format ','Every match counts ','Who will make the finals? '],
@@ -4891,7 +4895,7 @@ function slamDefault(tip) {
     'font-size:clamp(1.1rem,3vw,1.9rem);color:rgba(255,212,0,.75);letter-spacing:8px;' +
     'margin:4px 0 0;text-transform:uppercase;' +
     'text-shadow:-2px -2px 0 #000,2px 2px 0 #000,0 0 16px rgba(255,212,0,.5);">' +
-    'Here it comes...</div>';
+    '"To spike is to live."</div>';
   slamOverlay.appendChild(title);
   slamOverlay.appendChild(tipBar(tip));
 }
@@ -5966,7 +5970,7 @@ modal.addEventListener('click', e => { if(e.target === modal) modal.classList.re
   <div id="loader-flash"></div>
   <div id="loader-title">
     <h1>G League Spikeball</h1>
-    <p>It's finally here.</p>
+    <p>Are you ready?</p>
   </div>
 </div>
 
