@@ -3068,7 +3068,13 @@ label {
         <div class="team-bar-label">Consistency Rating · 85</div>
       </div>
     </div>
-    <div class="back-btn-row"><button class="back-to-league" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back to League</button></div>
+    <div class="back-btn-row" style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <a href="#team-builder" class="back-to-league" data-goto="teambuilder" style="background:rgba(255,212,0,.1);border-color:rgba(255,212,0,.6);color:#ffd400;display:inline-flex;align-items:center;gap:8px;">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="flex-shrink:0"><rect x="1" y="1" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.3"/><rect x="7.5" y="1" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.3"/><rect x="1" y="7.5" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.3"/><rect x="7.5" y="7.5" width="4.5" height="4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        Build a Team
+      </a>
+      <button class="back-to-league" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back to League</button>
+    </div>
   </div>
 </div>
 <div id="page-leaderboard" class="page">
@@ -3764,6 +3770,411 @@ label {
   </div>
 </div>
 
+
+<div id="page-teambuilder" class="page">
+  <div class="page-header">
+    <button class="page-back-btn" data-goto="teams"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back</button>
+    <h2>Team Builder</h2>
+    <button class="tb-reset-btn" onclick="tbReset()">Reset</button>
+  </div>
+
+  <div class="tb-layout">
+
+    <!-- LEFT: Player pool -->
+    <div class="tb-pool-col">
+      <div class="tb-col-label">Player Pool</div>
+      <div class="tb-pool" id="tb-pool">
+        <div class="tb-player-card" draggable="true"
+          data-id="dylan"
+          data-name="Dylan Kang"
+          data-rank="1"
+          data-ovr="91"
+          data-pwr="88"
+          data-hit="96"
+          data-set="82"
+          data-def="91"
+          data-iq="94"
+          data-hst="97">
+          <div class="tb-card-rank">#1</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Dylan</div>
+          <div class="tb-card-ovr">91</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="virup"
+          data-name="Virup Chalsani"
+          data-rank="2"
+          data-ovr="89"
+          data-pwr="85"
+          data-hit="93"
+          data-set="86"
+          data-def="88"
+          data-iq="91"
+          data-hst="95">
+          <div class="tb-card-rank">#2</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Virup</div>
+          <div class="tb-card-ovr">89</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="sean"
+          data-name="Sean Anderson"
+          data-rank="3"
+          data-ovr="87"
+          data-pwr="83"
+          data-hit="91"
+          data-set="80"
+          data-def="92"
+          data-iq="88"
+          data-hst="93">
+          <div class="tb-card-rank">#3</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Sean</div>
+          <div class="tb-card-ovr">87</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="justin"
+          data-name="Justin Lim"
+          data-rank="4"
+          data-ovr="83"
+          data-pwr="80"
+          data-hit="87"
+          data-set="75"
+          data-def="84"
+          data-iq="82"
+          data-hst="90">
+          <div class="tb-card-rank">#4</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Justin</div>
+          <div class="tb-card-ovr">83</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="kai"
+          data-name="Kai Bodeman"
+          data-rank="5"
+          data-ovr="80"
+          data-pwr="78"
+          data-hit="84"
+          data-set="73"
+          data-def="81"
+          data-iq="79"
+          data-hst="87">
+          <div class="tb-card-rank">#5</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Kai</div>
+          <div class="tb-card-ovr">80</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="aarav"
+          data-name="Aarav Patel"
+          data-rank="6"
+          data-ovr="77"
+          data-pwr="75"
+          data-hit="82"
+          data-set="70"
+          data-def="78"
+          data-iq="76"
+          data-hst="84">
+          <div class="tb-card-rank">#6</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Aarav</div>
+          <div class="tb-card-ovr">77</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="anish"
+          data-name="Anish Mishra"
+          data-rank="7"
+          data-ovr="75"
+          data-pwr="73"
+          data-hit="81"
+          data-set="68"
+          data-def="76"
+          data-iq="74"
+          data-hst="82">
+          <div class="tb-card-rank">#7</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Anish</div>
+          <div class="tb-card-ovr">75</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="nikita"
+          data-name="Nikita Mescheryakov"
+          data-rank="8"
+          data-ovr="73"
+          data-pwr="71"
+          data-hit="79"
+          data-set="66"
+          data-def="74"
+          data-iq="72"
+          data-hst="80">
+          <div class="tb-card-rank">#8</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Nikita</div>
+          <div class="tb-card-ovr">73</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="brandon"
+          data-name="Brandon Rios"
+          data-rank="9"
+          data-ovr="71"
+          data-pwr="69"
+          data-hit="78"
+          data-set="64"
+          data-def="72"
+          data-iq="70"
+          data-hst="78">
+          <div class="tb-card-rank">#9</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Brandon</div>
+          <div class="tb-card-ovr">71</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="andres"
+          data-name="Andres Schindler"
+          data-rank="10"
+          data-ovr="69"
+          data-pwr="67"
+          data-hit="76"
+          data-set="62"
+          data-def="70"
+          data-iq="68"
+          data-hst="76">
+          <div class="tb-card-rank">#10</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Andres</div>
+          <div class="tb-card-ovr">69</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="saul"
+          data-name="Saul Vargas"
+          data-rank="11"
+          data-ovr="68"
+          data-pwr="65"
+          data-hit="75"
+          data-set="60"
+          data-def="68"
+          data-iq="66"
+          data-hst="74">
+          <div class="tb-card-rank">#11</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Saul</div>
+          <div class="tb-card-ovr">68</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="mario"
+          data-name="Mario"
+          data-rank="12"
+          data-ovr="66"
+          data-pwr="63"
+          data-hit="73"
+          data-set="58"
+          data-def="66"
+          data-iq="64"
+          data-hst="72">
+          <div class="tb-card-rank">#12</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Mario</div>
+          <div class="tb-card-ovr">66</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="francisco"
+          data-name="Francisco Flores"
+          data-rank="13"
+          data-ovr="64"
+          data-pwr="61"
+          data-hit="72"
+          data-set="56"
+          data-def="64"
+          data-iq="62"
+          data-hst="70">
+          <div class="tb-card-rank">#13</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Francisco</div>
+          <div class="tb-card-ovr">64</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="ozan"
+          data-name="Ozan Alexander Sahin"
+          data-rank="14"
+          data-ovr="62"
+          data-pwr="59"
+          data-hit="70"
+          data-set="54"
+          data-def="62"
+          data-iq="60"
+          data-hst="68">
+          <div class="tb-card-rank">#14</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Ozan</div>
+          <div class="tb-card-ovr">62</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="evan"
+          data-name="Evan Tran"
+          data-rank="15"
+          data-ovr="60"
+          data-pwr="57"
+          data-hit="68"
+          data-set="52"
+          data-def="60"
+          data-iq="58"
+          data-hst="66">
+          <div class="tb-card-rank">#15</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Evan</div>
+          <div class="tb-card-ovr">60</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="cesar"
+          data-name="Cesar Velasco"
+          data-rank="16"
+          data-ovr="58"
+          data-pwr="55"
+          data-hit="66"
+          data-set="50"
+          data-def="58"
+          data-iq="56"
+          data-hst="64">
+          <div class="tb-card-rank">#16</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Cesar</div>
+          <div class="tb-card-ovr">58</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="kevin"
+          data-name="Kevin"
+          data-rank="17"
+          data-ovr="55"
+          data-pwr="53"
+          data-hit="63"
+          data-set="48"
+          data-def="55"
+          data-iq="54"
+          data-hst="61">
+          <div class="tb-card-rank">#17</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Kevin</div>
+          <div class="tb-card-ovr">55</div>
+        </div>
+        <div class="tb-player-card" draggable="true"
+          data-id="jeremy"
+          data-name="Jeremy"
+          data-rank="18"
+          data-ovr="52"
+          data-pwr="50"
+          data-hit="60"
+          data-set="46"
+          data-def="52"
+          data-iq="51"
+          data-hst="57">
+          <div class="tb-card-rank">#18</div>
+          <div class="tb-card-silhouette"></div>
+          <div class="tb-card-name">Jeremy</div>
+          <div class="tb-card-ovr">52</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Team slots -->
+    <div class="tb-teams-col">
+      <div class="tb-col-label">Your Teams</div>
+
+      <div class="tb-team-block" id="tb-team-a">
+        <div class="tb-team-header">
+          <input class="tb-team-name-input" type="text" value="Team A" maxlength="20" spellcheck="false"/>
+          <div class="tb-team-rating" id="tb-rating-a">OVR —</div>
+        </div>
+        <div class="tb-archetype" id="tb-arch-a">—</div>
+        <div class="tb-team-slots" id="tb-slots-a" data-team="a">
+          <div class="tb-slot empty" data-slot="0"><span class="tb-slot-hint">Drop player</span></div>
+          <div class="tb-slot empty" data-slot="1"><span class="tb-slot-hint">Drop player</span></div>
+          <div class="tb-slot empty" data-slot="2"><span class="tb-slot-hint">Drop player</span></div>
+        </div>
+        <div class="tb-team-stats" id="tb-stats-a">
+          <div class="tb-ts"><span class="tb-ts-lbl">PWR</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-a-pwr"></div></div><span class="tb-ts-val" id="tb-val-a-pwr">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">HIT</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-a-hit"></div></div><span class="tb-ts-val" id="tb-val-a-hit">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">SET</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-a-set"></div></div><span class="tb-ts-val" id="tb-val-a-set">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">DEF</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-a-def"></div></div><span class="tb-ts-val" id="tb-val-a-def">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">IQ</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-a-iq"></div></div><span class="tb-ts-val" id="tb-val-a-iq">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">HST</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-a-hst"></div></div><span class="tb-ts-val" id="tb-val-a-hst">—</span></div>
+        </div>
+      </div>
+
+      <div class="tb-team-block" id="tb-team-b">
+        <div class="tb-team-header">
+          <input class="tb-team-name-input" type="text" value="Team B" maxlength="20" spellcheck="false"/>
+          <div class="tb-team-rating" id="tb-rating-b">OVR —</div>
+        </div>
+        <div class="tb-archetype" id="tb-arch-b">—</div>
+        <div class="tb-team-slots" id="tb-slots-b" data-team="b">
+          <div class="tb-slot empty" data-slot="0"><span class="tb-slot-hint">Drop player</span></div>
+          <div class="tb-slot empty" data-slot="1"><span class="tb-slot-hint">Drop player</span></div>
+          <div class="tb-slot empty" data-slot="2"><span class="tb-slot-hint">Drop player</span></div>
+        </div>
+        <div class="tb-team-stats" id="tb-stats-b">
+          <div class="tb-ts"><span class="tb-ts-lbl">PWR</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-b-pwr"></div></div><span class="tb-ts-val" id="tb-val-b-pwr">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">HIT</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-b-hit"></div></div><span class="tb-ts-val" id="tb-val-b-hit">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">SET</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-b-set"></div></div><span class="tb-ts-val" id="tb-val-b-set">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">DEF</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-b-def"></div></div><span class="tb-ts-val" id="tb-val-b-def">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">IQ</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-b-iq"></div></div><span class="tb-ts-val" id="tb-val-b-iq">—</span></div>
+          <div class="tb-ts"><span class="tb-ts-lbl">HST</span><div class="tb-ts-bar-wrap"><div class="tb-ts-bar" id="tb-bar-b-hst"></div></div><span class="tb-ts-val" id="tb-val-b-hst">—</span></div>
+        </div>
+      </div>
+
+      <!-- VS / Matchup bar + Battle button -->
+      <div class="tb-matchup" id="tb-matchup">
+        <div class="tb-matchup-side" id="tb-mu-a">—</div>
+        <div class="tb-matchup-vs">VS</div>
+        <div class="tb-matchup-side" id="tb-mu-b">—</div>
+      </div>
+      <button class="tb-battle-btn" id="tb-battle-btn" onclick="tbBattle()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><path d="M7 1L9 5.5H13.5L9.75 8.5L11.5 13L7 10L2.5 13L4.25 8.5L0.5 5.5H5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        Simulate Matchup
+      </button>
+
+
+      <!-- Archetype Legend -->
+      <div class="tb-legend">
+        <div class="tb-legend-title">Archetype Guide</div>
+        <div class="tb-legend-grid">
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">Lockdown Defense</span>
+            <span class="tb-legend-desc">DEF is the team's standout stat</span>
+          </div>
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">Offensive Firepower</span>
+            <span class="tb-legend-desc">Hitting &amp; Power lead the team</span>
+          </div>
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">High IQ Unit</span>
+            <span class="tb-legend-desc">Game IQ is the dominant stat</span>
+          </div>
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">Grind Squad</span>
+            <span class="tb-legend-desc">Hustle is the team's engine</span>
+          </div>
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">Pure Power</span>
+            <span class="tb-legend-desc">Power is the team's defining trait</span>
+          </div>
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">Playmaking Core</span>
+            <span class="tb-legend-desc">Setting leads — controlled, precise</span>
+          </div>
+          <div class="tb-legend-item">
+            <span class="tb-legend-name">All-Round Unit</span>
+            <span class="tb-legend-desc">No single dominant stat — balanced</span>
+          </div>
+        </div>
+      </div>
+      <!-- Battle result overlay -->
+      <div class="tb-battle-overlay" id="tb-battle-overlay">
+        <div class="tb-battle-inner" id="tb-battle-inner"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 <!-- HEAD-TO-HEAD COMPARISON MODAL -->
@@ -5163,6 +5574,7 @@ function triggerSlam(href) {
   if (href === '#highlights')                           { slamHighlights(getTip('#highlights'));   return; }
   if (href === '#players')                              { slamPlayers(getTip('#players'));         return; }
   if (href === '#join')                                 { slamJoin(getTip('#join'));               return; }
+  if (href === '#teambuilder')                          { slamTeams(getTip('#teams'));              return; }
   if (href.endsWith('.html') && href !== 'index.html')  {
     const raw = href.replace('.html','');
     slamPlayerPage(raw.charAt(0).toUpperCase()+raw.slice(1), getTip('player')); return;
@@ -7530,6 +7942,684 @@ label {
 })();
 </script>
 <style>
+
+/* ════════════════════════════════
+   TEAM BUILDER
+════════════════════════════════ */
+.tb-reset-btn {
+  margin-left: auto;
+  font-family: 'Bebas Neue', cursive;
+  font-size: .82rem;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  background: transparent;
+  border: 1px solid rgba(255,212,0,.3);
+  color: rgba(255,212,0,.6);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.tb-reset-btn:hover { background: rgba(255,212,0,.1); color: #ffd400; border-color: rgba(255,212,0,.6); }
+
+.tb-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 0;
+  min-height: 0;
+}
+
+/* ── Pool column ── */
+.tb-pool-col {
+  border-right: 1px solid rgba(255,212,0,.12);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 57px;
+  height: calc(100vh - 57px);
+  overflow: hidden;
+}
+.tb-col-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.3);
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid rgba(255,212,0,.08);
+  flex-shrink: 0;
+}
+.tb-pool {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.tb-pool::-webkit-scrollbar { width: 3px; }
+.tb-pool::-webkit-scrollbar-track { background: transparent; }
+.tb-pool::-webkit-scrollbar-thumb { background: rgba(255,212,0,.2); border-radius: 4px; }
+
+/* ── Pool player card ── */
+.tb-player-card {
+  display: grid;
+  grid-template-columns: 26px 30px 1fr 28px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(255,212,0,.03);
+  border: 1px solid rgba(255,212,0,.12);
+  border-radius: 5px;
+  cursor: grab;
+  transition: background .12s, border-color .12s, transform .1s, opacity .15s;
+  user-select: none;
+}
+.tb-player-card:hover {
+  background: rgba(255,212,0,.07);
+  border-color: rgba(255,212,0,.35);
+  transform: translateX(3px);
+}
+.tb-player-card.is-dragging {
+  opacity: .25;
+  transform: scale(.97);
+  pointer-events: none;
+}
+.tb-player-card.assigned {
+  opacity: .22;
+  pointer-events: none;
+  filter: grayscale(1);
+}
+.tb-card-rank {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .6rem;
+  letter-spacing: 1px;
+  color: rgba(255,212,0,.3);
+  text-align: right;
+}
+.tb-card-silhouette {
+  width: 28px;
+  height: 28px;
+  background: rgba(255,212,0,.06);
+  border-radius: 3px;
+  clip-path: polygon(50% 0%,68% 18%,80% 18%,88% 22%,92% 40%,88% 56%,80% 62%,80% 72%,100% 100%,0% 100%,20% 72%,20% 62%,12% 56%,8% 40%,12% 22%,20% 18%,32% 18%);
+  position: relative;
+}
+.tb-card-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .88rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,212,0,.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tb-card-ovr {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .85rem;
+  color: rgba(255,212,0,.45);
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* ── Teams column ── */
+.tb-teams-col {
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible;
+  padding: 12px 16px 40px;
+  gap: 14px;
+}
+
+/* ── Team block ── */
+.tb-team-block {
+  border: 1px solid rgba(255,212,0,.15);
+  border-top: 2px solid rgba(255,212,0,.4);
+  border-radius: 6px;
+  background: rgba(255,212,0,.025);
+  padding: 12px 14px 14px;
+}
+.tb-team-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.tb-team-name-input {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  color: #ffd400;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,212,0,.2);
+  outline: none;
+  padding: 2px 4px;
+  width: 160px;
+  transition: border-color .15s;
+}
+.tb-team-name-input:focus { border-bottom-color: rgba(255,212,0,.6); }
+.tb-team-rating {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.5);
+  background: rgba(255,212,0,.07);
+  border: 1px solid rgba(255,212,0,.2);
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+/* ── Team slot row ── */
+.tb-team-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tb-slot {
+  aspect-ratio: 3/4;
+  border: 1px dashed rgba(255,212,0,.18);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color .15s, background .15s;
+  background: rgba(255,212,0,.02);
+  cursor: default;
+  overflow: hidden;
+}
+.tb-slot.drag-over {
+  border-color: rgba(255,212,0,.7);
+  background: rgba(255,212,0,.08);
+  border-style: solid;
+}
+.tb-slot.filled {
+  border-style: solid;
+  border-color: rgba(255,212,0,.3);
+  background: rgba(255,212,0,.04);
+  cursor: pointer;
+}
+.tb-slot.filled:hover { border-color: rgba(255,212,0,.6); background: rgba(255,212,0,.08); }
+.tb-slot-hint {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .55rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.2);
+  text-align: center;
+  pointer-events: none;
+}
+/* Filled slot content */
+.tb-slot-rank {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .52rem;
+  letter-spacing: 1px;
+  color: rgba(255,212,0,.35);
+  position: absolute;
+  top: 5px;
+  left: 6px;
+}
+.tb-slot-sil {
+  width: 44%;
+  aspect-ratio: 1;
+  background: rgba(255,212,0,.08);
+  clip-path: polygon(50% 0%,68% 18%,80% 18%,88% 22%,92% 40%,88% 56%,80% 62%,80% 72%,100% 100%,0% 100%,20% 72%,20% 62%,12% 56%,8% 40%,12% 22%,20% 18%,32% 18%);
+  margin-bottom: 4px;
+}
+.tb-slot-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,212,0,.8);
+  text-align: center;
+  padding: 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.tb-slot-ovr {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .62rem;
+  color: rgba(255,212,0,.45);
+  letter-spacing: 1px;
+  margin-top: 1px;
+}
+.tb-slot-remove {
+  position: absolute;
+  top: 3px;
+  right: 4px;
+  font-size: .7rem;
+  color: rgba(255,212,0,.25);
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 3px;
+  transition: color .1s;
+}
+.tb-slot-remove:hover { color: #ffd400; }
+
+/* ── Team stat bars ── */
+.tb-team-stats { display: flex; flex-direction: column; gap: 4px; }
+.tb-ts { display: grid; grid-template-columns: 22px 1fr 24px; align-items: center; gap: 6px; }
+.tb-ts-lbl {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .52rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,212,0,.3);
+  text-align: right;
+}
+.tb-ts-bar-wrap { height: 3px; background: rgba(255,212,0,.08); border-radius: 2px; overflow: hidden; }
+.tb-ts-bar { height: 100%; background: linear-gradient(90deg, rgba(255,212,0,.4), #ffd400); border-radius: 2px; width: 0%; transition: width .5s cubic-bezier(.2,.9,.2,1); }
+.tb-ts-val { font-family: 'Bebas Neue', cursive; font-size: .58rem; color: rgba(255,212,0,.4); letter-spacing: 1px; }
+
+/* ── VS matchup bar ── */
+.tb-matchup {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255,212,0,.12);
+  border-radius: 5px;
+  padding: 10px 16px;
+  background: rgba(255,212,0,.02);
+  margin-top: 4px;
+}
+.tb-matchup-side {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .9rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.5);
+}
+.tb-matchup-side:last-child { text-align: right; }
+.tb-matchup-vs {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.25);
+}
+.tb-matchup-side.winning { color: #ffd400 !important; }
+
+/* Mobile stacking */
+@media (max-width: 680px) {
+  .tb-layout { grid-template-columns: 1fr; }
+  .tb-pool-col { border-right: none; border-bottom: 1px solid rgba(255,212,0,.12); max-height: 260px; position: static; height: auto; }
+  .tb-team-slots { grid-template-columns: repeat(3,1fr); }
+}
+
+/* ── Archetype title ── */
+.tb-archetype {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.5);
+  background: rgba(255,212,0,.06);
+  border: 1px solid rgba(255,212,0,.18);
+  border-radius: 3px;
+  padding: 3px 10px;
+  display: inline-block;
+  margin-bottom: 8px;
+  transition: color .3s, background .3s, border-color .3s;
+}
+.tb-archetype.lit {
+  color: #ffd400;
+  background: rgba(255,212,0,.1);
+  border-color: rgba(255,212,0,.4);
+}
+
+/* ── Archetype legend ── */
+.tb-legend {
+  border: 1px solid rgba(255,212,0,.12);
+  border-left: 3px solid rgba(255,212,0,.35);
+  background: rgba(255,212,0,.02);
+  border-radius: 5px;
+  padding: 14px 16px;
+  margin-top: 4px;
+}
+.tb-legend-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .65rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.35);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.tb-legend-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.tb-legend-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.tb-legend-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .75rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.7);
+  white-space: nowrap;
+}
+.tb-legend-desc {
+  font-family: 'DM Sans', 'Oswald', sans-serif;
+  font-size: .75rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.35);
+  letter-spacing: .3px;
+}
+
+/* ── Battle button ── */
+.tb-battle-btn {
+  width: 100%;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 0;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: var(--ink, #1a1714);
+  background: #ffd400;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .15s, opacity .15s;
+  box-shadow: 0 4px 20px rgba(255,212,0,.25);
+}
+.tb-battle-btn:hover {
+  box-shadow: 0 6px 32px rgba(255,212,0,.5);
+  transform: translateY(-2px);
+}
+.tb-battle-btn:active { transform: translateY(0); }
+.tb-battle-btn:disabled { opacity: .35; cursor: default; transform: none; }
+
+/* ── Battle overlay ── */
+.tb-battle-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: background .3s ease;
+}
+.tb-battle-overlay.active {
+  background: rgba(0,0,0,.92);
+  pointer-events: auto;
+}
+.tb-battle-inner {
+  width: min(680px, 94vw);
+  max-height: 92vh;
+  overflow-y: auto;
+  opacity: 0;
+  transform: scale(.88) translateY(20px);
+  transition: opacity .35s cubic-bezier(.2,.9,.2,1), transform .35s cubic-bezier(.2,.9,.2,1);
+  position: relative;
+}
+.tb-battle-overlay.active .tb-battle-inner {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Battle result card */
+.tb-result-card {
+  background: #0e0c09;
+  border: 1px solid rgba(255,212,0,.28);
+  border-top: 3px solid #ffd400;
+  border-radius: 8px;
+  padding: 32px 28px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.tb-result-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none;
+  border: 1px solid rgba(255,212,0,.2);
+  color: rgba(255,212,0,.5);
+  font-size: 18px;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.tb-result-close:hover { background: rgba(255,212,0,.1); color: #ffd400; }
+
+/* Winner banner */
+.tb-winner-banner {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.tb-winner-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 5px;
+  color: rgba(255,212,0,.4);
+  display: block;
+  margin-bottom: 6px;
+}
+.tb-winner-name {
+  font-family: 'AnotherTag', 'Permanent Marker', cursive;
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  color: #ffd400;
+  letter-spacing: 3px;
+  text-shadow: -2px -2px 0 #000, 2px 2px 0 #000, 0 0 40px rgba(255,212,0,.6);
+  line-height: 1;
+  display: block;
+}
+.tb-winner-sub {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .78rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.4);
+  display: block;
+  margin-top: 8px;
+}
+
+/* Stat face-off rows */
+.tb-faceoff { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.tb-fo-row {
+  display: grid;
+  grid-template-columns: 1fr 90px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+.tb-fo-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .7rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.35);
+  text-align: center;
+}
+.tb-fo-bar-wrap {
+  height: 3px;
+  background: rgba(255,212,0,.08);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.tb-fo-bar {
+  position: absolute;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255,212,0,.5), #ffd400);
+  transition: width .8s cubic-bezier(.2,.9,.2,1);
+}
+.tb-fo-bar.left { right: 0; background: linear-gradient(90deg, rgba(255,212,0,.5), #ffd400); }
+.tb-fo-bar.right { left: 0; background: linear-gradient(90deg, #ffd400, rgba(255,212,0,.5)); }
+.tb-fo-bar.winner-bar { background: linear-gradient(90deg, #ffe566, #fff) !important; box-shadow: 0 0 6px rgba(255,230,0,.5); }
+.tb-fo-val {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.3rem;
+  color: rgba(255,212,0,.6);
+}
+.tb-fo-val.left { text-align: right; }
+.tb-fo-val.right { text-align: left; }
+.tb-fo-val.winner-val { color: #ffd400; }
+
+/* Player roster rows in result */
+.tb-result-rosters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px solid rgba(255,212,0,.1);
+  padding-top: 18px;
+}
+.tb-roster-col {}
+.tb-roster-team-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.4);
+  margin-bottom: 8px;
+}
+.tb-roster-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,212,0,.06);
+  font-family: 'Bebas Neue', cursive;
+  font-size: .82rem;
+  letter-spacing: 1px;
+  color: rgba(255,212,0,.6);
+}
+.tb-roster-rank { color: rgba(255,212,0,.3); font-size: .65rem; min-width: 24px; }
+.tb-roster-ovr { color: rgba(255,212,0,.4); font-size: .65rem; margin-left: auto; }
+
+/* ── Battle arena animation ── */
+.tb-arena {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .3s ease;
+}
+
+.tb-slide-card {
+  position: fixed;
+  width: min(260px, 38vw);
+  background: rgba(14,12,8,.97);
+  border: 1px solid rgba(255,212,0,.45);
+  border-top: 3px solid #ffd400;
+  border-radius: 6px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.9), 0 0 30px rgba(255,212,0,.2);
+  pointer-events: none;
+  z-index: 100000;
+  will-change: left, top;
+}
+
+.tb-slide-card[data-side="b"] {
+  border-top-color: rgba(255,212,0,.6);
+  box-shadow: 0 20px 60px rgba(0,0,0,.9), 0 0 30px rgba(255,212,0,.15);
+}
+
+.tb-slide-arch {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .58rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.4);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.tb-slide-name {
+  font-family: 'AnotherTag', 'Permanent Marker', cursive;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #ffd400;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow: -1px -1px 0 rgba(0,0,0,.6), 1px 1px 0 rgba(0,0,0,.6), 0 0 20px rgba(255,212,0,.35);
+  margin-bottom: 6px;
+}
+
+.tb-slide-ovr-big {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  color: #ffd400;
+  letter-spacing: 2px;
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(255,212,0,.4);
+  margin-bottom: 10px;
+}
+
+.tb-slide-ovr-lbl {
+  font-size: .75rem;
+  color: rgba(255,212,0,.4);
+  letter-spacing: 3px;
+}
+
+.tb-slide-roster {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255,212,0,.1);
+  padding-top: 8px;
+}
+
+.tb-slide-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: .72rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,212,0,.65);
+}
+
+.tb-slide-rank {
+  color: rgba(255,212,0,.3);
+  font-size: .6rem;
+  min-width: 22px;
+}
+
+.tb-slide-pname { flex: 1; }
+
+.tb-slide-ovr {
+  color: rgba(255,212,0,.35);
+  font-size: .6rem;
+}
+
+/* VS label in the arena */
+.tb-arena-vs {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  font-family: 'AnotherTag', 'Permanent Marker', cursive;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  color: #ffd400;
+  letter-spacing: 4px;
+  text-shadow: -3px -3px 0 #000, 3px 3px 0 #000, 0 0 40px rgba(255,212,0,.8);
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100001;
+  transition: opacity .35s ease, transform .35s cubic-bezier(.2,1.4,.3,1);
+}
+
+/* Spark animation keyframes */
+@keyframes tbSpark {
+  0%   { opacity: 0; transform: translate(-50%,-50%) scale(0); }
+  40%  { opacity: 1; transform: translate(-50%,-50%) scale(1.2); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(4); }
+}
+@keyframes tbFlash {
+  0%   { opacity: .8; }
+  100% { opacity: 0; }
+}
+@keyframes tbSlideIn {
+  from { opacity: 0; transform: translateX(var(--dx)); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 /* ══ Player card stat bars ══ */
 .pc-stats {
   margin: 10px 0 6px;
@@ -7860,6 +8950,517 @@ document.querySelectorAll('.player-card').forEach(card => {
     // Small delay so cards are populated first
     setTimeout(() => sortPlayers('overall'), 200);
   });
+
+})();
+
+</script>
+
+<script>
+
+/* ═══════════════════════════════
+   TEAM BUILDER ENGINE
+═══════════════════════════════ */
+(function() {
+  const STATS = ['pwr','hit','set','def','iq','hst'];
+  const STAT_LABELS = {pwr:'Power',hit:'Hitting',set:'Setting',def:'Defense',iq:'Game IQ',hst:'Hustle'};
+  const MAX_SLOTS = 3;
+
+  // Archetype system: ranked by dominant stat combo
+  const ARCHETYPES = [
+    { title:'LOCKDOWN DEFENSE',   cond: p => p.def >= p.hit && p.def >= p.iq  && p.def >= p.pwr },
+    { title:'OFFENSIVE FIREPOWER',cond: p => p.hit >= p.def && p.hit >= p.iq  && p.hit >= p.pwr && p.pwr >= p.def },
+    { title:'HIGH IQ UNIT',       cond: p => p.iq  >= p.hit && p.iq  >= p.def && p.iq  >= p.hst },
+    { title:'GRIND SQUAD',        cond: p => p.hst >= p.pwr && p.hst >= p.def && p.hst >= p.hit },
+    { title:'PURE POWER',         cond: p => p.pwr >= p.hit && p.pwr >= p.iq  && p.pwr >= p.hst },
+    { title:'PLAYMAKING CORE',    cond: p => p.set >= p.hit && p.set >= p.def && p.set >= p.pwr },
+    { title:'ALL-ROUND UNIT',     cond: () => true },
+  ];
+
+  function getArchetype(players) {
+    if (!players.length) return '—';
+    const avg = {};
+    STATS.forEach(s => {
+      avg[s] = Math.round(players.reduce((sum,p) => sum + p[s], 0) / players.length);
+    });
+    for (const a of ARCHETYPES) {
+      if (a.cond(avg)) return a.title;
+    }
+    return 'ALL-ROUND UNIT';
+  }
+
+  const teams = { a: [null,null,null], b: [null,null,null] };
+  let draggingCard = null;
+  let ghost = null;
+  let ghostOffX = 0, ghostOffY = 0;
+
+  // ── Drag from pool ──
+  document.addEventListener('pointerdown', e => {
+    const card = e.target.closest('.tb-player-card:not(.assigned):not(.is-dragging)');
+    if (!card) return;
+    const page = document.getElementById('page-teambuilder');
+    if (!page || !page.classList.contains('active')) return;
+    e.preventDefault();
+    startDrag(card, e.clientX, e.clientY);
+  });
+
+  // ── Drag from filled slot (pick back up) ──
+  document.addEventListener('pointerdown', e => {
+    const slot = e.target.closest('.tb-slot.filled');
+    if (!slot) return;
+    if (e.target.closest('.tb-slot-remove')) return;
+    const page = document.getElementById('page-teambuilder');
+    if (!page || !page.classList.contains('active')) return;
+    e.preventDefault();
+    const teamKey = slot.closest('.tb-team-slots').dataset.team;
+    const slotIdx = parseInt(slot.dataset.slot);
+    const player = teams[teamKey][slotIdx];
+    if (!player) return;
+    teams[teamKey][slotIdx] = null;
+    renderSlot(teamKey, slotIdx);
+    updateTeamStats(teamKey);
+    const poolCard = document.querySelector(`.tb-player-card[data-id="${player.id}"]`);
+    if (poolCard) {
+      poolCard.classList.remove('assigned');
+      startDrag(poolCard, e.clientX, e.clientY);
+    } else {
+      const g = makeGhostCard(player);
+      document.body.appendChild(g);
+      startDrag(g, e.clientX, e.clientY);
+    }
+  }, true);
+
+  function makeGhostCard(player) {
+    const c = document.createElement('div');
+    c.className = 'tb-player-card';
+    c.dataset.id = player.id;
+    c.dataset.name = player.name;
+    c.dataset.rank = player.rank;
+    c.dataset.ovr = player.ovr;
+    STATS.forEach(s => { c.dataset[s] = player[s]; });
+    return c;
+  }
+
+  function startDrag(card, cx, cy) {
+    draggingCard = card;
+    card.classList.add('is-dragging');
+    const rect = card.getBoundingClientRect();
+    ghostOffX = cx - rect.left;
+    ghostOffY = cy - rect.top;
+    ghost = document.createElement('div');
+    ghost.style.cssText = `position:fixed;z-index:99999;pointer-events:none;width:${rect.width}px;background:rgba(20,17,12,.97);border:1px solid rgba(255,212,0,.6);border-radius:5px;padding:8px 10px;display:grid;grid-template-columns:26px 30px 1fr 28px;align-items:center;gap:8px;font-family:'Bebas Neue',cursive;box-shadow:0 16px 40px rgba(0,0,0,.9),0 0 22px rgba(255,212,0,.18);opacity:0;transition:opacity .08s;`;
+    ghost.innerHTML = `<span style="font-size:.6rem;letter-spacing:1px;color:rgba(255,212,0,.35);text-align:right">#${card.dataset.rank}</span><div style="width:28px;height:28px;background:rgba(255,212,0,.08);border-radius:3px;clip-path:polygon(50% 0%,68% 18%,80% 18%,88% 22%,92% 40%,88% 56%,80% 62%,80% 72%,100% 100%,0% 100%,20% 72%,20% 62%,12% 56%,8% 40%,12% 22%,20% 18%,32% 18%)"></div><span style="font-size:.88rem;letter-spacing:1.5px;color:rgba(255,212,0,.9)">${card.dataset.name.split(' ')[0]}</span><span style="font-size:.85rem;color:rgba(255,212,0,.5);text-align:right">${card.dataset.ovr}</span>`;
+    document.body.appendChild(ghost);
+    positionGhost(cx, cy);
+    setTimeout(() => { if(ghost) ghost.style.opacity = '1'; }, 10);
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+  }
+
+  function positionGhost(cx, cy) {
+    if (!ghost) return;
+    ghost.style.left = (cx - ghostOffX) + 'px';
+    ghost.style.top  = (cy - ghostOffY) + 'px';
+  }
+
+  function onMove(e) {
+    positionGhost(e.clientX, e.clientY);
+    ghost.style.display = 'none';
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    ghost.style.display = '';
+    document.querySelectorAll('.tb-slot').forEach(s => s.classList.remove('drag-over'));
+    if (el) {
+      const slot = el.closest('.tb-slot:not(.filled)');
+      if (slot) slot.classList.add('drag-over');
+    }
+  }
+
+  function onUp(e) {
+    document.removeEventListener('pointermove', onMove);
+    document.removeEventListener('pointerup', onUp);
+    document.querySelectorAll('.tb-slot').forEach(s => s.classList.remove('drag-over'));
+    if (ghost) {
+      ghost.style.opacity = '0';
+      setTimeout(() => { if(ghost) { ghost.remove(); ghost = null; } }, 140);
+    }
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    if (el && draggingCard) {
+      const slot = el.closest('.tb-slot:not(.filled)');
+      if (slot) {
+        const teamKey = slot.closest('.tb-team-slots').dataset.team;
+        const slotIdx = parseInt(slot.dataset.slot);
+        assignPlayer(draggingCard, teamKey, slotIdx);
+      }
+    }
+    if (draggingCard) draggingCard.classList.remove('is-dragging');
+    draggingCard = null;
+  }
+
+  function assignPlayer(card, teamKey, slotIdx) {
+    const id = card.dataset.id;
+    // Already on a team?
+    if (teams.a.find(p => p && p.id === id) || teams.b.find(p => p && p.id === id)) return;
+    // Team full?
+    const filledCount = teams[teamKey].filter(Boolean).length;
+    if (filledCount >= MAX_SLOTS) return;
+
+    const player = { id, name: card.dataset.name, rank: parseInt(card.dataset.rank), ovr: parseInt(card.dataset.ovr) };
+    STATS.forEach(s => { player[s] = parseInt(card.dataset[s]); });
+    teams[teamKey][slotIdx] = player;
+    card.classList.add('assigned');
+    renderSlot(teamKey, slotIdx);
+    updateTeamStats(teamKey);
+  }
+
+  function renderSlot(teamKey, slotIdx) {
+    const slotEl = document.querySelector(`#tb-slots-${teamKey} .tb-slot[data-slot="${slotIdx}"]`);
+    if (!slotEl) return;
+    const player = teams[teamKey][slotIdx];
+    if (!player) {
+      slotEl.className = 'tb-slot empty';
+      slotEl.innerHTML = '<span class="tb-slot-hint">Drop player</span>';
+    } else {
+      slotEl.className = 'tb-slot filled';
+      slotEl.innerHTML = `<span class="tb-slot-rank">#${player.rank}</span><div class="tb-slot-sil"></div><div class="tb-slot-name">${player.name.split(' ')[0]}</div><div class="tb-slot-ovr">${player.ovr} OVR</div><span class="tb-slot-remove" data-team="${teamKey}" data-slot="${slotIdx}">✕</span>`;
+    }
+  }
+
+  // Remove (✕) button
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.tb-slot-remove');
+    if (!btn) return;
+    const teamKey = btn.dataset.team;
+    const slotIdx = parseInt(btn.dataset.slot);
+    const player = teams[teamKey][slotIdx];
+    if (!player) return;
+    const poolCard = document.querySelector(`.tb-player-card[data-id="${player.id}"]`);
+    if (poolCard) poolCard.classList.remove('assigned');
+    teams[teamKey][slotIdx] = null;
+    renderSlot(teamKey, slotIdx);
+    updateTeamStats(teamKey);
+  });
+
+  function teamAvg(teamKey, stat) {
+    const vals = teams[teamKey].filter(Boolean).map(p => p[stat]);
+    if (!vals.length) return null;
+    return Math.round(vals.reduce((s, v) => s + v, 0) / vals.length);
+  }
+
+  function teamOvr(teamKey) {
+    return teamAvg(teamKey, 'ovr');
+  }
+
+  function updateTeamStats(teamKey) {
+    const players = teams[teamKey].filter(Boolean);
+    const ratingEl = document.getElementById(`tb-rating-${teamKey}`);
+    const archEl   = document.getElementById(`tb-arch-${teamKey}`);
+
+    if (!players.length) {
+      ratingEl.textContent = 'OVR —';
+      if (archEl) { archEl.textContent = '—'; archEl.classList.remove('lit'); }
+      STATS.forEach(s => {
+        const bar = document.getElementById(`tb-bar-${teamKey}-${s}`);
+        const val = document.getElementById(`tb-val-${teamKey}-${s}`);
+        if (bar) bar.style.width = '0%';
+        if (val) val.textContent = '—';
+      });
+      updateMatchup();
+      return;
+    }
+
+    const ovr = teamOvr(teamKey);
+    ratingEl.textContent = `OVR ${ovr}`;
+
+    const arch = getArchetype(players);
+    if (archEl) {
+      archEl.textContent = arch;
+      archEl.classList.add('lit');
+    }
+
+    STATS.forEach(s => {
+      const avg = teamAvg(teamKey, s);
+      const bar = document.getElementById(`tb-bar-${teamKey}-${s}`);
+      const val = document.getElementById(`tb-val-${teamKey}-${s}`);
+      if (bar) bar.style.width = Math.round((avg - 50) / 49 * 100) + '%';
+      if (val) val.textContent = avg;
+    });
+
+    updateMatchup();
+  }
+
+  function updateMatchup() {
+    const muA = document.getElementById('tb-mu-a');
+    const muB = document.getElementById('tb-mu-b');
+    const btn  = document.getElementById('tb-battle-btn');
+    const nameA = document.querySelector('#tb-team-a .tb-team-name-input').value || 'Team A';
+    const nameB = document.querySelector('#tb-team-b .tb-team-name-input').value || 'Team B';
+    const ovrA = teamOvr('a');
+    const ovrB = teamOvr('b');
+
+    muA.textContent = ovrA !== null ? `${nameA}  ${ovrA}` : '—';
+    muB.textContent = ovrB !== null ? `${ovrB}  ${nameB}` : '—';
+    muA.classList.toggle('winning', ovrA !== null && ovrB !== null && ovrA > ovrB);
+    muB.classList.toggle('winning', ovrA !== null && ovrB !== null && ovrB > ovrA);
+
+    if (btn) btn.disabled = !(teams.a.some(Boolean) && teams.b.some(Boolean));
+  }
+
+  document.querySelectorAll('.tb-team-name-input').forEach(i => i.addEventListener('input', updateMatchup));
+
+  // ── BATTLE SIMULATION ──
+  function buildResultHTML(nameA, nameB, archA, archB, statsA, statsB, ovrA, ovrB, playersA, playersB) {
+    const swingA = ovrA + (Math.random() * 14 - 7);
+    const swingB = ovrB + (Math.random() * 14 - 7);
+    const aWins = swingA >= swingB;
+    const winnerName = aWins ? nameA : nameB;
+    const winnerArch = aWins ? archA : archB;
+    const winScore  = Math.floor(Math.random() * 5) + 17;
+    const loseScore = Math.floor(Math.random() * (winScore - 10)) + 10;
+    const finalScore = `${aWins ? winScore : loseScore} – ${aWins ? loseScore : winScore}`;
+
+    let statRows = '';
+    STATS.forEach(s => {
+      const vA = statsA[s], vB = statsB[s];
+      const maxV = Math.max(vA, vB, 1);
+      const pctA = Math.round((vA / maxV) * 100);
+      const pctB = Math.round((vB / maxV) * 100);
+      const aW = vA > vB, bW = vB > vA;
+      statRows += `
+        <div class="tb-fo-row">
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
+            <span class="tb-fo-val left ${aW?'winner-val':''}">${vA}</span>
+            <div class="tb-fo-bar-wrap" style="width:100%"><div class="tb-fo-bar left ${aW?'winner-bar':''}" style="width:${pctA}%"></div></div>
+          </div>
+          <div class="tb-fo-label">${STAT_LABELS[s]}</div>
+          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px">
+            <span class="tb-fo-val right ${bW?'winner-val':''}">${vB}</span>
+            <div class="tb-fo-bar-wrap" style="width:100%"><div class="tb-fo-bar right ${bW?'winner-bar':''}" style="width:${pctB}%"></div></div>
+          </div>
+        </div>`;
+    });
+
+    const rosterRow = p => `<div class="tb-roster-player"><span class="tb-roster-rank">#${p.rank}</span>${p.name.split(' ')[0]}<span class="tb-roster-ovr">${p.ovr}</span></div>`;
+
+    return `
+      <div class="tb-result-card">
+        <button class="tb-result-close" onclick="tbCloseBattle()">✕</button>
+        <div class="tb-winner-banner">
+          <span class="tb-winner-label">WINNER</span>
+          <span class="tb-winner-name">${winnerName}</span>
+          <span class="tb-winner-sub">${winnerArch} · ${finalScore}</span>
+        </div>
+        <div class="tb-faceoff">
+          <div class="tb-fo-row" style="margin-bottom:4px">
+            <div style="font-family:'Bebas Neue',cursive;font-size:.78rem;letter-spacing:2px;color:rgba(255,212,0,.6);text-align:right">${nameA}</div>
+            <div class="tb-fo-label">OVR</div>
+            <div style="font-family:'Bebas Neue',cursive;font-size:.78rem;letter-spacing:2px;color:rgba(255,212,0,.6)">${nameB}</div>
+          </div>
+          ${statRows}
+        </div>
+        <div class="tb-result-rosters">
+          <div class="tb-roster-col">
+            <div class="tb-roster-team-name">${nameA} · ${archA}</div>
+            ${playersA.map(rosterRow).join('')}
+          </div>
+          <div class="tb-roster-col">
+            <div class="tb-roster-team-name">${nameB} · ${archB}</div>
+            ${playersB.map(rosterRow).join('')}
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function makeTeamSlide(name, arch, ovr, players, side) {
+    // side: 'a' = top-left origin, 'b' = bottom-right origin
+    const card = document.createElement('div');
+    card.className = 'tb-slide-card';
+    const rosterHTML = players.map(p =>
+      `<div class="tb-slide-player">
+        <span class="tb-slide-rank">#${p.rank}</span>
+        <span class="tb-slide-pname">${p.name.split(' ')[0]}</span>
+        <span class="tb-slide-ovr">${p.ovr}</span>
+       </div>`
+    ).join('');
+    card.innerHTML = `
+      <div class="tb-slide-arch">${arch}</div>
+      <div class="tb-slide-name">${name}</div>
+      <div class="tb-slide-ovr-big">${ovr} <span class="tb-slide-ovr-lbl">OVR</span></div>
+      <div class="tb-slide-roster">${rosterHTML}</div>
+    `;
+    card.dataset.side = side;
+    return card;
+  }
+
+  window.tbBattle = function() {
+    const playersA = teams.a.filter(Boolean);
+    const playersB = teams.b.filter(Boolean);
+    if (!playersA.length || !playersB.length) return;
+
+    const nameA = document.querySelector('#tb-team-a .tb-team-name-input').value || 'Team A';
+    const nameB = document.querySelector('#tb-team-b .tb-team-name-input').value || 'Team B';
+    const archA = getArchetype(playersA);
+    const archB = getArchetype(playersB);
+
+    const statsA = {}, statsB = {};
+    STATS.forEach(s => {
+      statsA[s] = Math.round(playersA.reduce((sum,p) => sum + p[s], 0) / playersA.length);
+      statsB[s] = Math.round(playersB.reduce((sum,p) => sum + p[s], 0) / playersB.length);
+    });
+    const ovrA = Math.round(playersA.reduce((s,p) => s + p.ovr, 0) / playersA.length);
+    const ovrB = Math.round(playersB.reduce((s,p) => s + p.ovr, 0) / playersB.length);
+
+    // ── PHASE 1: Team cards slide in ──
+    // Append everything directly to body so position:fixed works without
+    // being trapped inside the overlay's stacking context
+
+    const W = window.innerWidth, H = window.innerHeight;
+    const CARD_W = Math.min(260, W * 0.38);
+    const CARD_H = 170;
+
+    // Dark backdrop — appended to body, no transform on it
+    const backdrop = document.createElement('div');
+    backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0);z-index:200000;transition:background .3s ease;pointer-events:auto;';
+    document.body.appendChild(backdrop);
+    requestAnimationFrame(() => { backdrop.style.background = 'rgba(0,0,0,.88)'; });
+
+    // Arena container — also on body
+    const arena = document.createElement('div');
+    arena.className = 'tb-arena';
+    arena.style.zIndex = '200001';
+    document.body.appendChild(arena);
+
+    const cardA = makeTeamSlide(nameA, archA, ovrA, playersA, 'a');
+    const cardB = makeTeamSlide(nameB, archB, ovrB, playersB, 'b');
+    // Cards go directly on body so fixed positioning is against the viewport
+    cardA.style.zIndex = '200002';
+    cardB.style.zIndex = '200002';
+    document.body.appendChild(cardA);
+    document.body.appendChild(cardB);
+
+    // Start positions: A = off top-left, B = off bottom-right
+    const startAx = -CARD_W - 40;
+    const startAy = -CARD_H - 40;
+    const startBx = W + 40;
+    const startBy = H + 40;
+
+    // Rest positions: A = top-center, B = bottom-center
+    const restAx = (W - CARD_W) / 2;
+    const restAy = H * 0.12;
+    const restBx = (W - CARD_W) / 2;
+    const restBy = H * 0.58;
+
+    // Clash position: both slam toward center
+    const clashX = (W - CARD_W) / 2;
+    const clashAy = H / 2 - CARD_H * 0.62;
+    const clashBy = H / 2 + CARD_H * 0.08;
+
+    function setPos(el, x, y, transition) {
+      el.style.transition = transition || 'none';
+      el.style.left = x + 'px';
+      el.style.top  = y + 'px';
+    }
+
+    // Init off-screen instantly
+    setPos(cardA, startAx, startAy);
+    setPos(cardB, startBx, startBy);
+
+    // PHASE 1 — slide to rest positions (staggered)
+    setTimeout(() => {
+      setPos(cardA, restAx, restAy, 'left .55s cubic-bezier(.2,.9,.2,1), top .55s cubic-bezier(.2,.9,.2,1)');
+    }, 80);
+    setTimeout(() => {
+      setPos(cardB, restBx, restBy, 'left .55s cubic-bezier(.2,.9,.2,1), top .55s cubic-bezier(.2,.9,.2,1)');
+    }, 200);
+
+    // VS label fades in between the cards
+    setTimeout(() => {
+      const vs = document.createElement('div');
+      vs.className = 'tb-arena-vs';
+      vs.style.zIndex = '200003';
+      vs.textContent = 'VS';
+      document.body.appendChild(vs);
+      requestAnimationFrame(() => { vs.style.opacity = '1'; vs.style.transform = 'translate(-50%,-50%) scale(1)'; });
+      arena._vs = vs;
+    }, 750);
+
+    // PHASE 2 — cards slam together toward center
+    setTimeout(() => {
+      if (arena._vs) { arena._vs.style.opacity = '0'; arena._vs.style.transform = 'translate(-50%,-50%) scale(2)'; }
+      setPos(cardA, clashX, clashAy, 'left .2s cubic-bezier(.8,0,.2,1), top .2s cubic-bezier(.8,0,.2,1)');
+      setPos(cardB, clashX, clashBy, 'left .2s cubic-bezier(.8,0,.2,1), top .2s cubic-bezier(.8,0,.2,1)');
+    }, 1550);
+
+    // PHASE 3 — impact flash + sparks
+    setTimeout(() => {
+      const flash = document.createElement('div');
+      flash.style.cssText = 'position:fixed;inset:0;background:#fff;z-index:200004;pointer-events:none;animation:tbFlash .3s ease forwards;';
+      document.body.appendChild(flash);
+      flash.addEventListener('animationend', () => flash.remove());
+
+      const cx = W / 2, cy = H / 2;
+      for (let i = 0; i < 10; i++) {
+        const spark = document.createElement('div');
+        const size = 30 + Math.random() * 80;
+        spark.style.cssText = `position:fixed;left:${cx}px;top:${cy}px;width:${size}px;height:${size}px;border-radius:50%;border:${1+Math.random()*3}px solid #ffd400;pointer-events:none;z-index:200003;animation:tbSpark ${0.35+Math.random()*0.45}s ease ${i*0.035}s forwards;`;
+        document.body.appendChild(spark);
+        spark.addEventListener('animationend', () => spark.remove());
+      }
+    }, 1760);
+
+    // PHASE 4 — fade out arena elements, show result modal
+    setTimeout(() => {
+      [cardA, cardB, backdrop, arena].forEach(el => {
+        el.style.transition = 'opacity .3s ease';
+        el.style.opacity = '0';
+      });
+      if (arena._vs) { arena._vs.style.transition = 'opacity .3s ease'; arena._vs.style.opacity = '0'; }
+    }, 2150);
+
+    setTimeout(() => {
+      [cardA, cardB, backdrop, arena].forEach(el => el.remove());
+      if (arena._vs) arena._vs.remove();
+
+      // Now show the result using the existing overlay
+      const overlay = document.getElementById('tb-battle-overlay');
+      const inner = document.getElementById('tb-battle-inner');
+      inner.innerHTML = buildResultHTML(nameA, nameB, archA, archB, statsA, statsB, ovrA, ovrB, playersA, playersB);
+      // Override the transition-based show — force visible immediately
+      inner.style.transition = 'none';
+      inner.style.opacity = '1';
+      inner.style.transform = 'scale(1) translateY(0)';
+      overlay.classList.add('active');
+    }, 2460);
+  };
+
+  window.tbCloseBattle = function() {
+    const overlay = document.getElementById('tb-battle-overlay');
+    overlay.classList.remove('active');
+    document.querySelectorAll('.tb-slide-card, .tb-arena, .tb-arena-vs').forEach(el => el.remove());
+  };
+
+  // Close on backdrop click
+  document.addEventListener('click', e => {
+    const overlay = document.getElementById('tb-battle-overlay');
+    if (e.target === overlay) tbCloseBattle();
+  });
+
+  // Reset
+  window.tbReset = function() {
+    ['a','b'].forEach(t => {
+      teams[t] = [null,null,null];
+      [0,1,2].forEach(i => renderSlot(t, i));
+      updateTeamStats(t);
+      const archEl = document.getElementById(`tb-arch-${t}`);
+      if (archEl) { archEl.textContent = '—'; archEl.classList.remove('lit'); }
+    });
+    document.querySelectorAll('.tb-player-card').forEach(c => c.classList.remove('assigned','is-dragging'));
+    document.querySelector('#tb-team-a .tb-team-name-input').value = 'Team A';
+    document.querySelector('#tb-team-b .tb-team-name-input').value = 'Team B';
+    updateMatchup();
+    tbCloseBattle();
+  };
+
+  // Init button state
+  updateMatchup();
 
 })();
 
