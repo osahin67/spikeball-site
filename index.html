@@ -2796,7 +2796,73 @@ label {
           <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
       </a>
 
+      <!-- SEASON RECAP -->
+      <a href="#recap" class="nav-tile cd-tile" id="nav-recap">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- Trophy silhouette -->
+              <path d="M52 12 H68 V38 Q68 52 60 56 Q52 52 52 38 Z" fill="rgba(255,212,0,.15)" stroke="#ffd400" stroke-width="1.5"/>
+              <rect x="56" y="56" width="8" height="10" fill="rgba(255,212,0,.2)" stroke="#ffd400" stroke-width="1"/>
+              <rect x="48" y="66" width="24" height="4" rx="1" fill="#ffd400" opacity="0.6"/>
+              <!-- Handles -->
+              <path d="M52 22 Q40 22 40 32 Q40 38 52 38" fill="none" stroke="#ffd400" stroke-width="1.5"/>
+              <path d="M68 22 Q80 22 80 32 Q80 38 68 38" fill="none" stroke="#ffd400" stroke-width="1.5"/>
+              <!-- Stars -->
+              <circle cx="30" cy="18" r="2" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;0.8;0" dur="2s" begin="0s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="90" cy="24" r="1.5" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;0.6;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="22" cy="40" r="1" fill="#ffd400" opacity="0">
+                <animate attributeName="opacity" values="0;0.7;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+              </circle>
+              <!-- Coming soon lock overlay -->
+              <rect x="36" y="28" width="48" height="28" rx="3" fill="rgba(0,0,0,.55)"/>
+              <text x="60" y="46" text-anchor="middle" font-family="Bebas Neue,cursive" font-size="7" fill="rgba(255,212,0,.5)" letter-spacing="1">JUNE 1</text>
+            </svg>
+          </div>
+          <div class="cd-preview-label">Unlocks June 1, 2026</div>
+          <div class="cd-preview-desc">Full season stats, standings, and awards.</div>
+        </div>
+        <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 2h6l1 4H4L5 2z" stroke="currentColor" stroke-width="1.2"/><path d="M4 6c0 3.3 2 5 4 6 2-1 4-2.7 4-6" stroke="currentColor" stroke-width="1.2"/><rect x="6" y="12" width="4" height="2" stroke="currentColor" stroke-width="1.2"/><line x1="4" y1="15" x2="12" y2="15" stroke="currentColor" stroke-width="1.2"/></svg></span>
+        <span class="nav-tile-label">Season Recap</span>
+        <span class="nav-tile-badge" id="recap-badge">JUNE 1</span>
+        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+      </a>
+
       <!-- REQUEST INVITE -->
+      <!-- GALLERY -->
+      <a href="#gallery" class="nav-tile cd-tile">
+        <div class="cd-preview">
+          <div class="cd-preview-anim">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <!-- Photo grid -->
+              <rect x="8"  y="8"  width="34" height="26" rx="2" fill="rgba(255,212,0,.08)" stroke="rgba(255,212,0,.35)" stroke-width="1"/>
+              <rect x="46" y="8"  width="34" height="26" rx="2" fill="rgba(255,212,0,.12)" stroke="rgba(255,212,0,.45)" stroke-width="1"/>
+              <rect x="84" y="8"  width="28" height="26" rx="2" fill="rgba(255,212,0,.06)" stroke="rgba(255,212,0,.25)" stroke-width="1"/>
+              <rect x="8"  y="38" width="28" height="34" rx="2" fill="rgba(255,212,0,.1)"  stroke="rgba(255,212,0,.35)" stroke-width="1"/>
+              <rect x="40" y="38" width="42" height="34" rx="2" fill="rgba(255,212,0,.06)" stroke="rgba(255,212,0,.3)"  stroke-width="1"/>
+              <rect x="86" y="38" width="26" height="34" rx="2" fill="rgba(255,212,0,.12)" stroke="rgba(255,212,0,.45)" stroke-width="1"/>
+              <!-- Photo placeholder mountains in bigger cells -->
+              <path d="M46 30 L54 18 L62 26 L68 20 L80 30 Z" fill="rgba(255,212,0,.15)"/>
+              <circle cx="74" cy="14" r="3" fill="rgba(255,212,0,.2)"/>
+              <!-- Scan line pulse on top-right photo -->
+              <rect x="86" y="38" width="26" height="2" fill="rgba(255,212,0,.3)">
+                <animate attributeName="y" values="38;70;38" dur="1.8s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" repeatCount="indefinite"/>
+              </rect>
+            </svg>
+          </div>
+          <div class="cd-preview-label">Season 2026 · Media</div>
+          <div class="cd-preview-desc">Photos, moments, and highlights from the park.</div>
+        </div>
+        <span class="nav-tile-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><circle cx="5.5" cy="7.5" r="1.5" stroke="currentColor" stroke-width="1"/><path d="M1 11l4-3 3 2.5 3-3.5 4 4" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg></span>
+        <span class="nav-tile-label">Gallery</span>
+        <svg class="nav-tile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 2L8 6L3 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/></svg>
+      </a>
+
       <a href="#join" class="nav-tile cd-tile nav-tile-join" style="grid-column:1/-1">
         <div class="cd-preview cd-preview-wide">
           <div class="cd-preview-anim">
@@ -4176,6 +4242,134 @@ label {
   </div>
 </div>
 
+<div id="page-gallery" class="page">
+  <div class="sp-header">
+    <button class="page-back-btn" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back</button>
+    <div class="sp-header-label">Gallery</div>
+  </div>
+  <div class="sp-body">
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Season 2026 · Gilroy CA</div>
+      <h2 class="sp-title">Gallery</h2>
+      <p class="sp-lead">Photos and moments from the park. Upload real shots here as the season plays out.</p>
+    </div>
+    <div class="sp-divider"></div>
+
+    <!-- Empty state -->
+    <div class="gallery-empty">
+      <div class="gallery-empty-icon">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="4" y="10" width="44" height="32" rx="4" stroke="rgba(255,212,0,.35)" stroke-width="1.5"/><circle cx="16" cy="22" r="4" stroke="rgba(255,212,0,.35)" stroke-width="1.2"/><path d="M4 34l12-9 8 7 8-10 16 13" stroke="rgba(255,212,0,.3)" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="gallery-empty-title">No Photos Yet</div>
+      <div class="gallery-empty-sub">Photos will appear here once the season gets going. Drop in real images as the park days stack up.</div>
+    </div>
+
+    <!-- Placeholder grid — ready to receive real photos -->
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-card gallery-card-wide">
+        <div class="gallery-placeholder">
+          <div class="gallery-ph-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="5" width="24" height="18" rx="2" stroke="rgba(255,212,0,.25)" stroke-width="1.2"/><circle cx="9" cy="12" r="3" stroke="rgba(255,212,0,.25)" stroke-width="1"/><path d="M2 19l7-6 5 5 5-6 9 8" stroke="rgba(255,212,0,.2)" stroke-width="1" stroke-linejoin="round"/></svg></div>
+          <div class="gallery-ph-label">Featured Photo</div>
+          <div class="gallery-ph-sub">Replace src with your image</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-placeholder">
+          <div class="gallery-ph-icon"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect x="2" y="5" width="24" height="18" rx="2" stroke="rgba(255,212,0,.2)" stroke-width="1.2"/><circle cx="9" cy="12" r="3" stroke="rgba(255,212,0,.2)" stroke-width="1"/><path d="M2 19l7-6 5 5 5-6 9 8" stroke="rgba(255,212,0,.15)" stroke-width="1" stroke-linejoin="round"/></svg></div>
+          <div class="gallery-ph-label">Game Day</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-placeholder">
+          <div class="gallery-ph-icon"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect x="2" y="5" width="24" height="18" rx="2" stroke="rgba(255,212,0,.2)" stroke-width="1.2"/><circle cx="9" cy="12" r="3" stroke="rgba(255,212,0,.2)" stroke-width="1"/><path d="M2 19l7-6 5 5 5-6 9 8" stroke="rgba(255,212,0,.15)" stroke-width="1" stroke-linejoin="round"/></svg></div>
+          <div class="gallery-ph-label">Action Shot</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-placeholder">
+          <div class="gallery-ph-icon"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect x="2" y="5" width="24" height="18" rx="2" stroke="rgba(255,212,0,.2)" stroke-width="1.2"/><circle cx="9" cy="12" r="3" stroke="rgba(255,212,0,.2)" stroke-width="1"/><path d="M2 19l7-6 5 5 5-6 9 8" stroke="rgba(255,212,0,.15)" stroke-width="1" stroke-linejoin="round"/></svg></div>
+          <div class="gallery-ph-label">Group Shot</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-placeholder">
+          <div class="gallery-ph-icon"><svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect x="2" y="5" width="24" height="18" rx="2" stroke="rgba(255,212,0,.2)" stroke-width="1.2"/><circle cx="9" cy="12" r="3" stroke="rgba(255,212,0,.2)" stroke-width="1"/><path d="M2 19l7-6 5 5 5-6 9 8" stroke="rgba(255,212,0,.15)" stroke-width="1" stroke-linejoin="round"/></svg></div>
+          <div class="gallery-ph-label">Highlights</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-upload-note">
+      <span>To add photos — replace the placeholder divs with <code>&lt;img src="yourphoto.jpg"&gt;</code> tags in the HTML</span>
+    </div>
+
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back to League</button></div>
+  </div>
+</div>
+
+<div id="page-recap" class="page">
+  <div class="sp-header">
+    <button class="page-back-btn" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back</button>
+    <div class="sp-header-label">Season Recap</div>
+  </div>
+
+  <!-- IN PROGRESS STATE (shown before June 1 2026) -->
+  <div class="sp-body" id="recap-in-progress">
+    <div class="sp-hero-text">
+      <div class="sp-kicker">Season 2026 · In Progress</div>
+      <h2 class="sp-title">Season<br>Recap</h2>
+      <p class="sp-lead">The season is still being played out. Check back on June 1st, 2026 for the full breakdown — final standings, individual awards, and every stat from the season.</p>
+    </div>
+    <div class="sp-divider"></div>
+
+    <!-- Countdown to unlock -->
+    <div class="recap-lock-block">
+      <div class="recap-lock-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="22" width="32" height="22" rx="4" stroke="rgba(255,212,0,.4)" stroke-width="2"/><path d="M14 22V16a10 10 0 0120 0v6" stroke="rgba(255,212,0,.4)" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="33" r="3" fill="rgba(255,212,0,.4)"/></svg>
+      </div>
+      <div class="recap-lock-title">Unlocks June 1, 2026</div>
+      <div class="recap-lock-sub">The full season recap will be available on closing day.</div>
+      <div class="recap-countdown">
+        <div class="recap-cd-unit"><span class="recap-cd-num" id="recap-days">--</span><span class="recap-cd-lbl">Days</span></div>
+        <span class="recap-cd-sep">:</span>
+        <div class="recap-cd-unit"><span class="recap-cd-num" id="recap-hours">--</span><span class="recap-cd-lbl">Hrs</span></div>
+        <span class="recap-cd-sep">:</span>
+        <div class="recap-cd-unit"><span class="recap-cd-num" id="recap-mins">--</span><span class="recap-cd-lbl">Min</span></div>
+        <span class="recap-cd-sep">:</span>
+        <div class="recap-cd-unit"><span class="recap-cd-num" id="recap-secs">--</span><span class="recap-cd-lbl">Sec</span></div>
+      </div>
+    </div>
+
+    <div class="sp-divider"></div>
+
+    <!-- Teaser: what will be shown -->
+    <div class="recap-teaser-grid">
+      <div class="recap-teaser-card">
+        <div class="recap-teaser-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 4h12l1.5 5H3.5L5 4z" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/><path d="M3.5 9c0 4.1 2.5 6.5 7.5 7.5 5-1 7.5-3.4 7.5-7.5" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/></svg></div>
+        <div class="recap-teaser-name">Final Standings</div>
+        <div class="recap-teaser-desc">Complete season rankings with wins, losses, and point totals</div>
+      </div>
+      <div class="recap-teaser-card">
+        <div class="recap-teaser-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/><path d="M3 19c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/></svg></div>
+        <div class="recap-teaser-name">Player Awards</div>
+        <div class="recap-teaser-desc">MVP, best serve, most improved, and more</div>
+      </div>
+      <div class="recap-teaser-card">
+        <div class="recap-teaser-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="14" width="4" height="6" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/><rect x="9" y="9" width="4" height="11" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/><rect x="16" y="4" width="4" height="16" stroke="rgba(255,212,0,.5)" stroke-width="1.2"/></svg></div>
+        <div class="recap-teaser-name">Full Stat Sheet</div>
+        <div class="recap-teaser-desc">Every player's wins, aces, accuracy, and rating across the season</div>
+      </div>
+      <div class="recap-teaser-card">
+        <div class="recap-teaser-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11h4l3-7 4 14 3-7h4" stroke="rgba(255,212,0,.5)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="recap-teaser-name">Head-to-Head Records</div>
+        <div class="recap-teaser-desc">Every matchup result from round-robin through championship</div>
+      </div>
+    </div>
+
+    <div class="back-btn-row"><button class="back-to-league" data-goto="home"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" style="flex-shrink:0"><path d="M11 5H1M4 1L1 5L4 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg> Back to League</button></div>
+  </div>
+</div>
+
 
 <!-- HEAD-TO-HEAD COMPARISON MODAL -->
 <div id="compare-modal" class="compare-modal">
@@ -5032,6 +5226,7 @@ const TIPS = {
   player:         ['Checking player stats... ','Loading player profile ',"Who's got the best serve? "],
   form:           ['Stats are updated manually ','Dispute your rankings here ','Accuracy matters '],
   default:        ['Spikeball never stops ','Stay ready, stay sharp ','Next rally incoming '],
+  '#gallery':     ['Photos incoming ','Memory captured ','Look at that shot '],
 };
 
 function getTip(k) { const p=TIPS[k]||TIPS.default; return p[Math.floor(Math.random()*p.length)]; }
@@ -5457,6 +5652,99 @@ function slamForm(tip) {
   slamOverlay.appendChild(tipBar(tip));
 }
 
+function slamGallery(tip) {
+  clearOverlay();
+  slamOverlay.style.background = '#000';
+  injectStyle('s-gal', `
+    @keyframes sgal-photo {
+      from { opacity:0; transform:translate(var(--tx),var(--ty)) rotate(var(--rot)) scale(.7); }
+      60%  { opacity:1; transform:translate(0,0) rotate(calc(var(--rot)*.3)) scale(1.04); }
+      to   { opacity:1; transform:translate(0,0) rotate(calc(var(--rot)*.2)) scale(1); }
+    }
+    @keyframes sgal-title {
+      from { opacity:0; transform:translate(-50%,-50%) scale(1.6); filter:blur(6px); }
+      60%  { opacity:1; transform:translate(-50%,-50%) scale(.97); filter:blur(0); }
+      to   { opacity:1; transform:translate(-50%,-50%) scale(1); }
+    }
+    @keyframes sgal-flash { 0%{opacity:.5} 100%{opacity:0} }
+    @keyframes sgal-scan  { from{top:-2px} to{top:100%} }
+    @keyframes sgal-frame {
+      0%,100% { box-shadow:0 0 0 1px rgba(255,212,0,.25), 0 8px 30px rgba(0,0,0,.7); }
+      50%     { box-shadow:0 0 0 2px rgba(255,212,0,.55), 0 8px 40px rgba(0,0,0,.8), 0 0 20px rgba(255,212,0,.12); }
+    }
+  `);
+
+  // Photo placeholder cards flung in from corners/edges
+  const configs = [
+    { w:160, h:105, x:'8%',  y:'10%', tx:'-220px', ty:'-160px', rot:'-8deg',  delay:0    },
+    { w:120, h:90,  x:'72%', y:'6%',  tx:'200px',  ty:'-180px', rot:'6deg',   delay:.08  },
+    { w:140, h:100, x:'4%',  y:'55%', tx:'-200px', ty:'120px',  rot:'10deg',  delay:.14  },
+    { w:130, h:95,  x:'76%', y:'52%', tx:'200px',  ty:'140px',  rot:'-7deg',  delay:.20  },
+    { w:110, h:80,  x:'38%', y:'64%', tx:'-40px',  ty:'200px',  rot:'4deg',   delay:.26  },
+    { w:100, h:75,  x:'54%', y:'2%',  tx:'60px',   ty:'-180px', rot:'-5deg',  delay:.06  },
+  ];
+
+  configs.forEach((c, i) => {
+    const frame = document.createElement('div');
+    frame.style.cssText = `
+      position:absolute;
+      left:${c.x}; top:${c.y};
+      width:${c.w}px; height:${c.h}px;
+      --tx:${c.tx}; --ty:${c.ty}; --rot:${c.rot};
+      background:linear-gradient(145deg,#1e1c18,#111008);
+      border:1px solid rgba(255,212,0,.28);
+      border-radius:3px;
+      overflow:hidden;
+      opacity:0;
+      animation:sgal-photo .5s cubic-bezier(.2,.9,.2,1) ${c.delay}s both,
+                sgal-frame 2.2s ease-in-out ${c.delay + .55}s infinite;
+      z-index:3;
+    `;
+    // Crosshatch fill
+    frame.innerHTML = `
+      <div style="position:absolute;inset:0;background:
+        repeating-linear-gradient(0deg,transparent 0 9px,rgba(255,212,0,.04) 9px 10px),
+        repeating-linear-gradient(90deg,transparent 0 9px,rgba(255,212,0,.04) 9px 10px);">
+      </div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="width:38%;aspect-ratio:1;background:rgba(255,212,0,.07);
+          clip-path:polygon(50% 0%,68% 18%,80% 18%,88% 22%,92% 40%,88% 56%,80% 62%,80% 72%,100% 100%,0% 100%,20% 72%,20% 62%,12% 56%,8% 40%,12% 22%,20% 18%,32% 18%);">
+        </div>
+      </div>
+      <div style="position:absolute;bottom:6px;left:8px;font-family:'Bebas Neue',cursive;font-size:.55rem;letter-spacing:2px;color:rgba(255,212,0,.3);">
+        G LEAGUE 2026
+      </div>
+    `;
+    slamOverlay.appendChild(frame);
+  });
+
+  // Scanline sweep
+  const scan = document.createElement('div');
+  scan.style.cssText = 'position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);animation:sgal-scan 1s linear infinite;z-index:4;';
+  slamOverlay.appendChild(scan);
+
+  // Flash
+  const flash = document.createElement('div');
+  flash.style.cssText = 'position:absolute;inset:0;background:#fff;opacity:0;animation:sgal-flash .28s ease .32s forwards;pointer-events:none;z-index:5;';
+  slamOverlay.appendChild(flash);
+
+  // Title punches in
+  const title = document.createElement('div');
+  title.style.cssText = 'position:absolute;top:50%;left:50%;z-index:10;text-align:center;white-space:nowrap;animation:sgal-title .48s cubic-bezier(.15,.9,.2,1) .36s both;opacity:0;';
+  title.innerHTML = `
+    <div style="font-family:'AnotherTag','Permanent Marker',cursive;
+      font-size:clamp(3rem,9vw,5.8rem);color:#ffd400;letter-spacing:5px;
+      text-shadow:-3px -3px 0 #000,3px 3px 0 #000,3px -3px 0 #000,-3px 3px 0 #000,
+      0 0 40px rgba(255,212,0,.9);">Gallery</div>
+    <div style="font-family:'Bebas Neue',cursive;font-size:clamp(.85rem,2.5vw,1.1rem);
+      color:rgba(255,212,0,.4);letter-spacing:6px;margin-top:8px;">
+      Season 2026 · Gilroy CA</div>
+  `;
+  slamOverlay.appendChild(title);
+  slamOverlay.appendChild(tipBar(tip));
+}
+
+
 function slamDefault(tip) {
   clearOverlay();
   injectStyle('s-def', `
@@ -5575,6 +5863,8 @@ function triggerSlam(href) {
   if (href === '#players')                              { slamPlayers(getTip('#players'));         return; }
   if (href === '#join')                                 { slamJoin(getTip('#join'));               return; }
   if (href === '#teambuilder')                          { slamTeams(getTip('#teams'));              return; }
+  if (href === '#recap')                                { slamDefault(getTip('default'));           return; }
+  if (href === '#gallery')                              { slamGallery(getTip('#highlights'));       return; }
   if (href.endsWith('.html') && href !== 'index.html')  {
     const raw = href.replace('.html','');
     slamPlayerPage(raw.charAt(0).toUpperCase()+raw.slice(1), getTip('player')); return;
@@ -7944,6 +8234,272 @@ label {
 <style>
 
 /* ════════════════════════════════
+   GALLERY PAGE
+════════════════════════════════ */
+.gallery-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 52px 20px;
+  border: 1px solid rgba(255,212,0,.1);
+  border-radius: 8px;
+  background: rgba(255,212,0,.02);
+  margin-bottom: 32px;
+  gap: 10px;
+}
+.gallery-empty-icon { opacity: .6; margin-bottom: 4px; }
+.gallery-empty-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.5);
+}
+.gallery-empty-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .85rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.25);
+  max-width: 380px;
+  line-height: 1.65;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+@media (max-width: 560px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-card-wide { grid-column: 1 / -1; }
+}
+
+.gallery-card {
+  border: 1px solid rgba(255,212,0,.12);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255,212,0,.02);
+  aspect-ratio: 4/3;
+  transition: border-color .2s, transform .2s;
+  position: relative;
+}
+.gallery-card:hover {
+  border-color: rgba(255,212,0,.35);
+  transform: scale(1.015);
+}
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-card-wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/7;
+}
+
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 18px, rgba(255,212,0,.025) 18px 19px),
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(255,212,0,.025) 18px 19px);
+}
+.gallery-ph-icon { opacity: .5; }
+.gallery-ph-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .7rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.25);
+}
+.gallery-ph-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .68rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.15);
+  letter-spacing: .5px;
+}
+
+/* Lightbox overlay for real photos */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.95);
+  z-index: 99990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.gallery-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.gallery-lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border: 1px solid rgba(255,212,0,.2);
+  border-radius: 4px;
+}
+.gallery-lightbox-close {
+  position: absolute;
+  top: 18px; right: 22px;
+  background: none;
+  border: 1px solid rgba(255,212,0,.25);
+  color: rgba(255,212,0,.6);
+  font-size: 20px;
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.gallery-lightbox-close:hover { background: rgba(255,212,0,.1); color: #ffd400; }
+
+.gallery-upload-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .75rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.2);
+  letter-spacing: .5px;
+  text-align: center;
+  padding: 10px 0 6px;
+  border-top: 1px solid rgba(255,212,0,.06);
+  margin-bottom: 28px;
+}
+.gallery-upload-note code {
+  font-family: 'Courier New', monospace;
+  color: rgba(255,212,0,.35);
+  font-size: .7rem;
+}
+
+/* ════════════════════════════════
+   SEASON RECAP PAGE
+════════════════════════════════ */
+.nav-tile-badge {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .55rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.9);
+  background: rgba(255,212,0,.12);
+  border: 1px solid rgba(255,212,0,.35);
+  padding: 2px 7px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse {
+  0%,100% { opacity:.6; } 50% { opacity:1; }
+}
+
+.recap-lock-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 20px;
+  border: 1px solid rgba(255,212,0,.1);
+  border-radius: 8px;
+  background: rgba(255,212,0,.02);
+  margin-bottom: 32px;
+}
+.recap-lock-icon { margin-bottom: 18px; opacity: .7; }
+.recap-lock-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  color: rgba(255,212,0,.6);
+  margin-bottom: 8px;
+}
+.recap-lock-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .88rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.3);
+  letter-spacing: .5px;
+  max-width: 360px;
+  margin-bottom: 28px;
+}
+.recap-countdown {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+}
+.recap-cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+.recap-cd-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: #ffd400;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(255,212,0,.3);
+}
+.recap-cd-lbl {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .55rem;
+  letter-spacing: 3px;
+  color: rgba(255,212,0,.28);
+  margin-top: 3px;
+}
+.recap-cd-sep {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: rgba(255,212,0,.2);
+  padding: 0 2px;
+  line-height: 1.1;
+  align-self: flex-start;
+  margin-top: 4px;
+  animation: sepPulse 1s step-end infinite;
+}
+
+.recap-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255,212,0,.08);
+  border: 1px solid rgba(255,212,0,.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+@media (max-width: 560px) { .recap-teaser-grid { grid-template-columns: 1fr; } }
+.recap-teaser-card {
+  background: var(--ink-2, #221f1b);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.recap-teaser-icon { opacity: .7; margin-bottom: 2px; }
+.recap-teaser-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .9rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.65);
+}
+.recap-teaser-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .8rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.3);
+  line-height: 1.5;
+}
+
+/* ════════════════════════════════
    TEAM BUILDER
 ════════════════════════════════ */
 .tb-reset-btn {
@@ -9481,6 +10037,91 @@ document.querySelectorAll('.player-card').forEach(card => {
   updateMatchup();
 
 })();
+
+</script>
+
+<script>
+/* ── Season Recap countdown + lock/unlock ── */
+(function() {
+  const UNLOCK = new Date('2026-06-01T00:00:00').getTime();
+
+  function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
+
+  function tickRecap() {
+    const now = Date.now();
+    const diff = Math.max(0, UNLOCK - now);
+
+    const dEl = document.getElementById('recap-days');
+    const hEl = document.getElementById('recap-hours');
+    const mEl = document.getElementById('recap-mins');
+    const sEl = document.getElementById('recap-secs');
+    if (!dEl) return; // page not active yet — check again
+
+    if (diff <= 0) {
+      // Unlocked — hide the in-progress block (future: show real content)
+      const block = document.getElementById('recap-in-progress');
+      if (block) {
+        block.querySelector('.recap-lock-block').style.display = 'none';
+        // Could swap to actual content here when the season ends
+      }
+      return;
+    }
+
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+
+    dEl.textContent = days;
+    hEl.textContent = pad(hours);
+    mEl.textContent = pad(mins);
+    sEl.textContent = pad(secs);
+
+    // Disable the nav tile and show badge if before unlock
+    const tile = document.getElementById('nav-recap');
+    const badge = document.getElementById('recap-badge');
+    if (tile && diff > 0) {
+      tile.style.opacity = '.6';
+      tile.style.cursor = 'default';
+    }
+  }
+
+  // Intercept recap nav tile clicks if locked
+  document.addEventListener('click', e => {
+    const tile = e.target.closest('#nav-recap');
+    if (!tile) return;
+    const diff = UNLOCK - Date.now();
+    if (diff > 0) {
+      // Still locked — navigate anyway to show the "coming soon" page
+      // (already handled by the normal slam + showPage system)
+    }
+  });
+
+  setInterval(tickRecap, 1000);
+  tickRecap();
+})();
+
+</script>
+
+<script>
+/* ── Gallery lightbox ── */
+document.addEventListener('click', e => {
+  const card = e.target.closest('#gallery-grid .gallery-card');
+  if (!card) return;
+  const img = card.querySelector('img');
+  if (!img) return;
+  let lb = document.getElementById('gallery-lightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'gallery-lightbox';
+    lb.className = 'gallery-lightbox';
+    lb.innerHTML = '<img id="gallery-lb-img"/><button class="gallery-lightbox-close" onclick="document.getElementById(\'gallery-lightbox\').classList.remove(\'open\')">✕</button>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click', e => { if(e.target === lb) lb.classList.remove('open'); });
+  }
+  document.getElementById('gallery-lb-img').src = img.src;
+  lb.classList.add('open');
+});
 
 </script>
 
