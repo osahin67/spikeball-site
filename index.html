@@ -10122,11 +10122,64 @@ document.querySelectorAll('.player-card').forEach(card => {
     const W = window.innerWidth, H = window.innerHeight;
     const cx = W / 2, cy = H / 2;
 
-    // ── PHASE 0: Instant black vignette ──
-    const vignette = document.createElement('div');
-    vignette.style.cssText = 'position:fixed;inset:0;z-index:99990;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.75) 100%);pointer-events:none;opacity:0;transition:opacity .18s ease;';
-    document.body.appendChild(vignette);
-    requestAnimationFrame(() => { vignette.style.opacity = '1'; });
+    // ── PHASE 0: Slow fade to black over 2s ──
+    const blackout = document.createElement('div');
+    blackout.style.cssText = 'position:fixed;inset:0;z-index:99989;background:#000;pointer-events:auto;opacity:0;transition:opacity 2s ease;';
+    document.body.appendChild(blackout);
+    requestAnimationFrame(() => { blackout.style.opacity = '1'; });
+
+    // ── PHASE 0b: "Power of friendship" message fades in after blackout ──
+    const msg = document.createElement('div');
+    msg.style.cssText = [
+      'position:fixed;inset:0;z-index:99990;',
+      'display:flex;align-items:center;justify-content:center;',
+      'pointer-events:none;opacity:0;',
+      'transition:opacity .9s ease;',
+    ].join('');
+    msg.innerHTML = `
+      <div style="text-align:center;">
+        <div style="
+          font-family:'DM Sans','Oswald',sans-serif;
+          font-weight:300;
+          font-size:clamp(1rem,3vw,1.6rem);
+          color:rgba(255,212,0,.75);
+          letter-spacing:4px;
+          font-style:italic;
+          text-shadow:0 0 30px rgba(255,212,0,.3);
+          max-width:600px;
+          line-height:1.7;
+          padding:0 40px;
+        ">can you even defeat the power of friendship?</div>
+      </div>
+    `;
+    document.body.appendChild(msg);
+
+    // Fade message in at 2.2s (after blackout completes)
+    setTimeout(() => { msg.style.opacity = '1'; }, 2200);
+
+    // Linger for 1 second, then fade BOTH out together
+    setTimeout(() => {
+      msg.style.transition = 'opacity .7s ease';
+      blackout.style.transition = 'opacity .7s ease';
+      msg.style.opacity = '0';
+      blackout.style.opacity = '0';
+      setTimeout(() => { msg.remove(); blackout.remove(); }, 750);
+    }, 3400);
+
+    // Delay everything else until after the fade-out (3.4 + 0.75 ≈ 4.15s)
+    const DELAY = 4000;
+
+    // ── PHASE 0c: Quick vignette just before lightning ──
+    setTimeout(() => {
+      const vignette = document.createElement('div');
+      vignette.style.cssText = 'position:fixed;inset:0;z-index:99990;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.75) 100%);pointer-events:none;opacity:0;transition:opacity .18s ease;';
+      document.body.appendChild(vignette);
+      requestAnimationFrame(() => { vignette.style.opacity = '1'; });
+      // Store for cleanup later
+      fireSynergyAnimation._vignette = vignette;
+    }, DELAY - 100);
+
+    setTimeout(() => {
 
     // ── PHASE 1: Canvas lightning ──
     const canvas = document.createElement('canvas');
@@ -10319,9 +10372,11 @@ document.querySelectorAll('.player-card').forEach(card => {
 
     // ── PHASE 5: Clean up vignette ──
     setTimeout(() => {
-      vignette.style.opacity = '0';
-      setTimeout(() => vignette.remove(), 300);
+      const v = fireSynergyAnimation._vignette;
+      if (v) { v.style.opacity = '0'; setTimeout(() => v.remove(), 300); }
     }, 1600);
+
+    }, DELAY); // end of delayed block
   }
 
 
