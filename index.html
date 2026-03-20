@@ -4201,35 +4201,36 @@ label {
 
       <!-- Archetype Legend -->
       <div class="tb-legend">
-        <div class="tb-legend-title">Archetype Guide</div>
+        <div class="tb-legend-title">How archetypes work</div>
+        <div class="tb-legend-subtitle">When you drop players onto a team, their stats get averaged together. The team's highest average stat determines what archetype they get assigned. Here's what each one means:</div>
         <div class="tb-legend-grid">
           <div class="tb-legend-item">
             <span class="tb-legend-name">Lockdown Defense</span>
-            <span class="tb-legend-desc">DEF is the team's standout stat</span>
+            <span class="tb-legend-desc">Defense is this team's highest average stat. They win by stopping the opponent — hard to score on, disciplined on every touch.</span>
           </div>
           <div class="tb-legend-item">
             <span class="tb-legend-name">Offensive Firepower</span>
-            <span class="tb-legend-desc">Hitting &amp; Power lead the team</span>
+            <span class="tb-legend-desc">Hitting and Power lead this roster. They go after points aggressively — big swings, fast attacks, high risk high reward.</span>
           </div>
           <div class="tb-legend-item">
             <span class="tb-legend-name">High IQ Unit</span>
-            <span class="tb-legend-desc">Game IQ is the dominant stat</span>
+            <span class="tb-legend-desc">Game IQ is the dominant stat. This team reads the play before it happens — smart positioning, fewer mistakes, good decisions under pressure.</span>
           </div>
           <div class="tb-legend-item">
             <span class="tb-legend-name">Grind Squad</span>
-            <span class="tb-legend-desc">Hustle is the team's engine</span>
+            <span class="tb-legend-desc">Hustle is through the roof on this team. They chase every ball, never give up a point for free, and wear opponents down over long rallies.</span>
           </div>
           <div class="tb-legend-item">
             <span class="tb-legend-name">Pure Power</span>
-            <span class="tb-legend-desc">Power is the team's defining trait</span>
+            <span class="tb-legend-desc">Power is the standout stat. Every hit is meant to end the rally. Opponents can't control the pace — this team dictates it.</span>
           </div>
           <div class="tb-legend-item">
             <span class="tb-legend-name">Playmaking Core</span>
-            <span class="tb-legend-desc">Setting leads — controlled, precise</span>
+            <span class="tb-legend-desc">Setting leads this roster. They control the flow of the game — sharp sets that put teammates in position to score, rarely out of system.</span>
           </div>
           <div class="tb-legend-item">
             <span class="tb-legend-name">All-Round Unit</span>
-            <span class="tb-legend-desc">No single dominant stat — balanced</span>
+            <span class="tb-legend-desc">No single stat pulls ahead — this team is balanced across the board. Versatile and adaptable, but without a clear identity to lean on.</span>
           </div>
         </div>
       </div>
@@ -8621,8 +8622,8 @@ label {
   display: flex;
   flex-direction: column;
   overflow-y: visible;
-  padding: 12px 16px 40px;
-  gap: 14px;
+  padding: 10px 14px 30px;
+  gap: 10px;
 }
 
 /* ── Team block ── */
@@ -8631,17 +8632,17 @@ label {
   border-top: 2px solid rgba(255,212,0,.4);
   border-radius: 6px;
   background: rgba(255,212,0,.025);
-  padding: 12px 14px 14px;
+  padding: 8px 10px 10px;
 }
 .tb-team-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .tb-team-name-input {
   font-family: 'Bebas Neue', cursive;
-  font-size: 1.1rem;
+  font-size: .95rem;
   letter-spacing: 3px;
   color: #ffd400;
   background: transparent;
@@ -8668,11 +8669,11 @@ label {
 .tb-team-slots {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  margin-bottom: 12px;
+  gap: 5px;
+  margin-bottom: 8px;
 }
 .tb-slot {
-  aspect-ratio: 3/4;
+  aspect-ratio: 1/1;
   border: 1px dashed rgba(255,212,0,.18);
   border-radius: 5px;
   display: flex;
@@ -8716,7 +8717,7 @@ label {
   left: 6px;
 }
 .tb-slot-sil {
-  width: 44%;
+  width: 32%;
   aspect-ratio: 1;
   background: rgba(255,212,0,.08);
   clip-path: polygon(50% 0%,68% 18%,80% 18%,88% 22%,92% 40%,88% 56%,80% 62%,80% 72%,100% 100%,0% 100%,20% 72%,20% 62%,12% 56%,8% 40%,12% 22%,20% 18%,32% 18%);
@@ -8724,7 +8725,7 @@ label {
 }
 .tb-slot-name {
   font-family: 'Bebas Neue', cursive;
-  font-size: .65rem;
+  font-size: .58rem;
   letter-spacing: 1.5px;
   color: rgba(255,212,0,.8);
   text-align: center;
@@ -8736,7 +8737,7 @@ label {
 }
 .tb-slot-ovr {
   font-family: 'Bebas Neue', cursive;
-  font-size: .62rem;
+  font-size: .54rem;
   color: rgba(255,212,0,.45);
   letter-spacing: 1px;
   margin-top: 1px;
@@ -8755,7 +8756,7 @@ label {
 .tb-slot-remove:hover { color: #ffd400; }
 
 /* ── Team stat bars ── */
-.tb-team-stats { display: flex; flex-direction: column; gap: 4px; }
+.tb-team-stats { display: flex; flex-direction: column; gap: 3px; }
 .tb-ts { display: grid; grid-template-columns: 22px 1fr 24px; align-items: center; gap: 6px; }
 .tb-ts-lbl {
   font-family: 'Bebas Neue', cursive;
@@ -8805,15 +8806,15 @@ label {
 /* ── Archetype title ── */
 .tb-archetype {
   font-family: 'Bebas Neue', cursive;
-  font-size: .65rem;
-  letter-spacing: 4px;
+  font-size: .58rem;
+  letter-spacing: 3px;
   color: rgba(255,212,0,.5);
   background: rgba(255,212,0,.06);
   border: 1px solid rgba(255,212,0,.18);
   border-radius: 3px;
-  padding: 3px 10px;
+  padding: 2px 8px;
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   transition: color .3s, background .3s, border-color .3s;
 }
 .tb-archetype.lit {
@@ -8835,34 +8836,258 @@ label {
   font-family: 'Bebas Neue', cursive;
   font-size: .65rem;
   letter-spacing: 4px;
-  color: rgba(255,212,0,.35);
+  color: rgba(255,212,0,.45);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+}
+.tb-legend-subtitle {
+  font-family: 'DM Sans', 'Oswald', sans-serif;
+  font-size: .78rem;
+  font-weight: 300;
+  color: rgba(255,212,0,.35);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,212,0,.08);
 }
 .tb-legend-grid {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 12px;
 }
 .tb-legend-item {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 12px;
-  align-items: baseline;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  align-items: start;
 }
 .tb-legend-name {
   font-family: 'Bebas Neue', cursive;
-  font-size: .75rem;
+  font-size: .72rem;
   letter-spacing: 2px;
-  color: rgba(255,212,0,.7);
+  color: rgba(255,212,0,.75);
   white-space: nowrap;
+  padding-top: 1px;
 }
 .tb-legend-desc {
   font-family: 'DM Sans', 'Oswald', sans-serif;
-  font-size: .75rem;
+  font-size: .76rem;
   font-weight: 300;
-  color: rgba(255,212,0,.35);
-  letter-spacing: .3px;
+  color: rgba(255,212,0,.38);
+  letter-spacing: .2px;
+  line-height: 1.55;
+}
+
+/* ── Synergy badge ── */
+/* ── Synergy system ── */
+
+/* Team block gets a living gold border when synergy active */
+.tb-team-block.synergy-active {
+  border-color: rgba(255,212,0,.5) !important;
+  border-top-color: #ffd400 !important;
+  box-shadow: 0 0 0 1px rgba(255,212,0,.1), 0 0 24px rgba(255,212,0,.12) !important;
+  position: relative;
+  overflow: visible;
+}
+
+/* Sweeping top-edge light on the block */
+.tb-team-block.synergy-active::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -4px; right: -4px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #ffd400 40%, #fff 55%, #ffd400 70%, transparent 100%);
+  border-radius: 2px;
+  animation: synergyEdgeSweep 2s ease-in-out infinite;
+}
+@keyframes synergyEdgeSweep {
+  0%   { transform: scaleX(0); transform-origin: left; opacity: 0; }
+  20%  { opacity: 1; }
+  50%  { transform: scaleX(1); transform-origin: left; }
+  60%  { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; opacity: 0; }
+}
+
+/* Stat bars glow gold when synergy active */
+.tb-team-block.synergy-active .tb-ts-bar {
+  background: linear-gradient(90deg, #ffd400, #fffb80) !important;
+  box-shadow: 0 0 6px rgba(255,212,0,.45);
+  animation: synergyBarPulse 1.6s ease-in-out infinite;
+}
+@keyframes synergyBarPulse {
+  0%,100% { box-shadow: 0 0 4px rgba(255,212,0,.35); }
+  50%     { box-shadow: 0 0 14px rgba(255,212,0,.7), 0 0 28px rgba(255,212,0,.2); }
+}
+
+/* OVR badge glows */
+.tb-team-block.synergy-active .tb-team-rating {
+  color: #ffd400 !important;
+  border-color: rgba(255,212,0,.6) !important;
+  background: rgba(255,212,0,.15) !important;
+  animation: synergyOvrPulse 1.4s ease-in-out infinite;
+}
+@keyframes synergyOvrPulse {
+  0%,100% { box-shadow: none; }
+  50%     { box-shadow: 0 0 10px rgba(255,212,0,.5); }
+}
+
+/* The synergy badge itself */
+.tb-synergy-badge {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .7rem;
+  letter-spacing: 2.5px;
+  color: #ffd400;
+  background: linear-gradient(90deg, rgba(255,212,0,.12), rgba(255,212,0,.06));
+  border: 1px solid rgba(255,212,0,.45);
+  border-left: 3px solid #ffd400;
+  padding: 6px 12px 6px 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  position: relative;
+  animation: synergyBadgeIn .5s cubic-bezier(.2,.9,.2,1) both;
+}
+@keyframes synergyBadgeIn {
+  from { opacity: 0; transform: translateY(-8px) scaleY(.85); }
+  to   { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+/* Shimmer sweep on badge */
+.tb-synergy-badge::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -80%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: skewX(-15deg);
+  animation: synergyShimmer 2.2s ease-in-out infinite 0.6s;
+}
+@keyframes synergyShimmer {
+  0%   { left: -80%; opacity: 0; }
+  10%  { opacity: 1; }
+  100% { left: 140%; opacity: 1; }
+}
+.tb-synergy-bolt {
+  font-size: 1rem;
+  animation: synergyBolt .8s ease-in-out infinite alternate;
+  flex-shrink: 0;
+}
+@keyframes synergyBolt {
+  from { opacity: .7; transform: scale(1); filter: brightness(1); }
+  to   { opacity: 1; transform: scale(1.25); filter: brightness(1.6) drop-shadow(0 0 4px #ffd400); }
+}
+.tb-synergy-text { flex: 1; }
+.tb-synergy-boost {
+  font-size: .65rem;
+  letter-spacing: 2px;
+  color: rgba(255,212,0,.55);
+  padding: 1px 7px;
+  border: 1px solid rgba(255,212,0,.25);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Slot cards for Justin/Ozan get a gold glow when synergy active */
+.tb-team-block.synergy-active .tb-slot.filled {
+  box-shadow: 0 0 10px rgba(255,212,0,.18) !important;
+}
+
+/* Full-screen synergy activation flash overlay */
+#synergy-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.synergy-flash-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,212,0,.22) 0%, transparent 65%);
+  animation: sfBg .7s cubic-bezier(.2,.9,.2,1) forwards;
+}
+@keyframes sfBg {
+  0%   { opacity: 0; transform: scale(.5); }
+  50%  { opacity: 1; }
+  100% { opacity: 0; transform: scale(2); }
+}
+.synergy-flash-ring {
+  position: absolute;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 2px solid #ffd400;
+  animation: sfRing var(--dur) cubic-bezier(.1,.8,.2,1) var(--delay) forwards;
+  opacity: 0;
+  left: 50%; top: 50%;
+  transform: translate(-50%,-50%) scale(0);
+}
+@keyframes sfRing {
+  0%   { opacity: 1; transform: translate(-50%,-50%) scale(0); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(var(--scale)); }
+}
+.synergy-flash-label {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: sfLabel .6s cubic-bezier(.15,.9,.2,1) .05s forwards;
+  opacity: 0;
+}
+@keyframes sfLabel {
+  0%   { opacity: 0; transform: scale(2.2); filter: blur(8px); }
+  60%  { opacity: 1; transform: scale(.97); filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+.sfl-top {
+  font-family: 'Bebas Neue', cursive;
+  font-size: .8rem;
+  letter-spacing: 6px;
+  color: rgba(255,212,0,.5);
+  margin-bottom: 6px;
+}
+.sfl-main {
+  font-family: 'AnotherTag', 'Permanent Marker', cursive;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  color: #ffd400;
+  letter-spacing: 4px;
+  text-shadow: -3px -3px 0 #000, 3px 3px 0 #000, 0 0 50px rgba(255,212,0,.9);
+  line-height: 1;
+}
+.sfl-sub {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(.8rem, 2.5vw, 1.1rem);
+  color: rgba(255,212,0,.45);
+  letter-spacing: 5px;
+  margin-top: 8px;
+}
+
+/* ── Synergy persistent canvas ── */
+#synergy-canvas-a, #synergy-canvas-b {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 6px;
+  z-index: 0;
+  opacity: .7;
+}
+.tb-team-block.synergy-active > * { position: relative; z-index: 1; }
+
+/* Player name in slot glows gold when synergy active on that player */
+.tb-team-block.synergy-active .tb-slot-name {
+  color: #ffd400 !important;
+  text-shadow: 0 0 10px rgba(255,212,0,.6);
+}
+
+/* Archetype label extra glow */
+.tb-team-block.synergy-active .tb-archetype {
+  color: #ffd400 !important;
+  background: rgba(255,212,0,.15) !important;
+  border-color: rgba(255,212,0,.6) !important;
+  text-shadow: 0 0 8px rgba(255,212,0,.5);
 }
 
 /* ── Battle button ── */
@@ -9695,8 +9920,33 @@ document.querySelectorAll('.player-card').forEach(card => {
     updateTeamStats(teamKey);
   });
 
+  // ── Synergy: Justin + Ozan on the same team get +20% on all stats ──
+  function hasSynergy(players) {
+    const ids = players.map(p => p.id);
+    return ids.includes('justin') && ids.includes('ozan');
+  }
+
+  function applyBoost(val, boost) {
+    // Cap at 99
+    return Math.min(99, Math.round(val * (1 + boost)));
+  }
+
+  function getEffectivePlayers(teamKey) {
+    const players = teams[teamKey].filter(Boolean);
+    if (!hasSynergy(players)) return players;
+    // Return copies with boosted stats for Justin and Ozan
+    return players.map(p => {
+      if (p.id !== 'justin' && p.id !== 'ozan') return p;
+      const boosted = { ...p };
+      STATS.forEach(s => { boosted[s] = applyBoost(p[s], 0.20); });
+      boosted.ovr = applyBoost(p.ovr, 0.20);
+      return boosted;
+    });
+  }
+
   function teamAvg(teamKey, stat) {
-    const vals = teams[teamKey].filter(Boolean).map(p => p[stat]);
+    const players = getEffectivePlayers(teamKey);
+    const vals = players.map(p => p[stat]);
     if (!vals.length) return null;
     return Math.round(vals.reduce((s, v) => s + v, 0) / vals.length);
   }
@@ -9706,9 +9956,11 @@ document.querySelectorAll('.player-card').forEach(card => {
   }
 
   function updateTeamStats(teamKey) {
-    const players = teams[teamKey].filter(Boolean);
-    const ratingEl = document.getElementById(`tb-rating-${teamKey}`);
-    const archEl   = document.getElementById(`tb-arch-${teamKey}`);
+    const rawPlayers = teams[teamKey].filter(Boolean);
+    const players    = getEffectivePlayers(teamKey);
+    const ratingEl   = document.getElementById(`tb-rating-${teamKey}`);
+    const archEl     = document.getElementById(`tb-arch-${teamKey}`);
+    const synergy    = hasSynergy(rawPlayers);
 
     if (!players.length) {
       ratingEl.textContent = 'OVR —';
@@ -9719,6 +9971,9 @@ document.querySelectorAll('.player-card').forEach(card => {
         if (bar) bar.style.width = '0%';
         if (val) val.textContent = '—';
       });
+      // Remove synergy badge if present
+      const existing = document.getElementById(`tb-synergy-${teamKey}`);
+      if (existing) existing.remove();
       updateMatchup();
       return;
     }
@@ -9740,8 +9995,335 @@ document.querySelectorAll('.player-card').forEach(card => {
       if (val) val.textContent = avg;
     });
 
+    // Synergy badge + activation animation — show/hide
+    let badge = document.getElementById(`tb-synergy-${teamKey}`);
+    const teamBlock = document.getElementById(`tb-team-${teamKey}`);
+    if (synergy) {
+      teamBlock && teamBlock.classList.add('synergy-active');
+      if (!badge && teamBlock) {
+        // Fire the activation flash
+        fireSynergyAnimation();
+
+        badge = document.createElement('div');
+        badge.id = `tb-synergy-${teamKey}`;
+        badge.className = 'tb-synergy-badge';
+        badge.innerHTML = `
+          <span class="tb-synergy-bolt">⚡</span>
+          <span class="tb-synergy-text">SYNERGY UNLOCKED</span>
+          <span class="tb-synergy-boost">+20% ALL STATS</span>
+        `;
+        const header = teamBlock.querySelector('.tb-team-header');
+        if (header) header.insertAdjacentElement('afterend', badge);
+
+        // Spawn persistent particle canvas on the team block
+        spawnSynergyCanvas(teamKey, teamBlock);
+      }
+    } else {
+      if (badge) {
+        badge.style.transition = 'opacity .25s ease, transform .25s ease';
+        badge.style.opacity = '0';
+        badge.style.transform = 'translateY(-6px)';
+        setTimeout(() => badge.remove(), 280);
+      }
+      // Remove persistent canvas
+      const sc = document.getElementById(`synergy-canvas-${teamKey}`);
+      if (sc) sc.remove();
+      teamBlock && teamBlock.classList.remove('synergy-active');
+    }
+
     updateMatchup();
   }
+
+  function spawnSynergyCanvas(teamKey, teamBlock) {
+    const existing = document.getElementById(`synergy-canvas-${teamKey}`);
+    if (existing) return;
+
+    const sc = document.createElement('canvas');
+    sc.id = `synergy-canvas-${teamKey}`;
+    teamBlock.appendChild(sc);
+
+    function resize() {
+      sc.width  = teamBlock.offsetWidth;
+      sc.height = teamBlock.offsetHeight;
+    }
+    resize();
+
+    const ctx = sc.getContext('2d');
+    const particles = [];
+    const MAX_P = 28;
+
+    function addParticle() {
+      const edge = Math.floor(Math.random() * 4);
+      let x, y;
+      if (edge === 0) { x = Math.random() * sc.width; y = 0; }
+      else if (edge === 1) { x = sc.width; y = Math.random() * sc.height; }
+      else if (edge === 2) { x = Math.random() * sc.width; y = sc.height; }
+      else { x = 0; y = Math.random() * sc.height; }
+      const angle = Math.random() * Math.PI * 2;
+      const speed = .4 + Math.random() * 1.2;
+      particles.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        decay: .008 + Math.random() * .012,
+        size: .8 + Math.random() * 1.8,
+        bright: Math.random() > .4,
+        trail: [],
+      });
+    }
+
+    let running = true;
+    function drawCanvas() {
+      if (!running || !document.getElementById(`synergy-canvas-${teamKey}`)) { running = false; return; }
+      resize();
+      ctx.clearRect(0, 0, sc.width, sc.height);
+
+      if (particles.length < MAX_P && Math.random() < .35) addParticle();
+
+      for (let i = particles.length-1; i >= 0; i--) {
+        const p = particles[i];
+        p.trail.push({x:p.x,y:p.y,l:p.life});
+        if (p.trail.length > 6) p.trail.shift();
+
+        p.trail.forEach((t, ti) => {
+          const a = t.l * (ti/p.trail.length) * .4;
+          ctx.beginPath();
+          ctx.arc(t.x, t.y, p.size*(ti/p.trail.length)*.6, 0, Math.PI*2);
+          ctx.fillStyle = p.bright
+            ? `rgba(255,230,0,${a})`
+            : `rgba(255,255,200,${a*.6})`;
+          ctx.fill();
+        });
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        const col = p.bright
+          ? `rgba(255,212,0,${p.life*.9})`
+          : `rgba(255,248,180,${p.life*.5})`;
+        ctx.fillStyle = col;
+        if (p.bright) { ctx.shadowColor = '#ffd400'; ctx.shadowBlur = 6; }
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        p.x += p.vx; p.y += p.vy;
+        p.vx += (Math.random()-.5)*.04;
+        p.vy += (Math.random()-.5)*.04;
+        p.life -= p.decay;
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+      requestAnimationFrame(drawCanvas);
+    }
+    requestAnimationFrame(drawCanvas);
+  }
+
+
+  function fireSynergyAnimation() {
+    const W = window.innerWidth, H = window.innerHeight;
+    const cx = W / 2, cy = H / 2;
+
+    // ── PHASE 0: Instant black vignette ──
+    const vignette = document.createElement('div');
+    vignette.style.cssText = 'position:fixed;inset:0;z-index:99990;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.75) 100%);pointer-events:none;opacity:0;transition:opacity .18s ease;';
+    document.body.appendChild(vignette);
+    requestAnimationFrame(() => { vignette.style.opacity = '1'; });
+
+    // ── PHASE 1: Canvas lightning ──
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = 'position:fixed;inset:0;z-index:99991;pointer-events:none;';
+    canvas.width = W; canvas.height = H;
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+
+    function lightning(x1, y1, x2, y2, rough, depth) {
+      if (depth <= 0) {
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        return;
+      }
+      const mx = (x1+x2)/2 + (Math.random()-.5)*rough;
+      const my = (y1+y2)/2 + (Math.random()-.5)*rough;
+      lightning(x1, y1, mx, my, rough/2, depth-1);
+      lightning(mx, my, x2, y2, rough/2, depth-1);
+      if (Math.random() < 0.35 && depth > 1) {
+        const bx = mx + (Math.random()-.5)*rough*1.5;
+        const by = my + (Math.random()-.5)*rough*1.5;
+        ctx.save();
+        ctx.globalAlpha *= 0.5;
+        lightning(mx, my, bx, by, rough/3, depth-2);
+        ctx.restore();
+      }
+    }
+
+    let frame = 0;
+    const totalFrames = 32;
+    const strikeAngles = [
+      { ax: cx - W*.4, ay: -20, bx: cx, by: cy },
+      { ax: cx + W*.4, ay: -20, bx: cx, by: cy },
+      { ax: -20,       ay: cy,  bx: cx, by: cy },
+      { ax: W+20,      ay: cy,  bx: cx, by: cy },
+    ];
+
+    function drawFrame() {
+      ctx.clearRect(0, 0, W, H);
+      const t = frame / totalFrames;
+      // 3 waves of lightning, each slightly offset
+      [[0,1],[2,3],[0,2,3,1]].forEach((indices, wave) => {
+        if (frame < wave * 8) return;
+        const wt = Math.min(1, (frame - wave*8) / 10);
+        indices.forEach(idx => {
+          const s = strikeAngles[idx];
+          // Core bright bolt
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, 1 - wt*.7) * (.6 + Math.random()*.4);
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 2.5 - wt*1.5;
+          ctx.shadowColor = '#ffd400';
+          ctx.shadowBlur = 18;
+          lightning(s.ax, s.ay, s.bx, s.by, 80 - wt*40, 6);
+          // Gold outer glow
+          ctx.strokeStyle = 'rgba(255,212,0,.6)';
+          ctx.lineWidth = 5 - wt*3;
+          ctx.shadowBlur = 30;
+          lightning(s.ax, s.ay, s.bx, s.by, 80 - wt*40, 5);
+          ctx.restore();
+        });
+      });
+      // Center impact glow
+      if (frame > 8) {
+        const gt = Math.min(1, (frame-8)/12);
+        const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, 120*gt);
+        grad.addColorStop(0, `rgba(255,255,255,${.9*(1-gt*.6)})`);
+        grad.addColorStop(.3, `rgba(255,212,0,${.7*(1-gt*.5)})`);
+        grad.addColorStop(1, 'rgba(255,212,0,0)');
+        ctx.beginPath();
+        ctx.arc(cx, cy, 120*gt, 0, Math.PI*2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+      frame++;
+      if (frame < totalFrames) requestAnimationFrame(drawFrame);
+      else { canvas.style.transition='opacity .3s ease'; canvas.style.opacity='0'; setTimeout(()=>canvas.remove(),320); }
+    }
+    requestAnimationFrame(drawFrame);
+
+    // ── PHASE 2: Particle burst ──
+    const pCanvas = document.createElement('canvas');
+    pCanvas.style.cssText = 'position:fixed;inset:0;z-index:99992;pointer-events:none;';
+    pCanvas.width = W; pCanvas.height = H;
+    document.body.appendChild(pCanvas);
+    const pc = pCanvas.getContext('2d');
+
+    const particles = Array.from({length: 60}, () => {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 4 + Math.random() * 12;
+      const gold = Math.random() > .3;
+      return {
+        x: cx, y: cy,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1, decay: .018 + Math.random()*.025,
+        size: 1.5 + Math.random() * 4,
+        color: gold ? `rgba(255,${170+Math.floor(Math.random()*85)},0,` : `rgba(255,255,${Math.floor(Math.random()*120)},`,
+        trail: [],
+      };
+    });
+
+    let pframe = 0;
+    function drawParticles() {
+      pc.clearRect(0, 0, W, H);
+      let alive = false;
+      particles.forEach(p => {
+        if (p.life <= 0) return;
+        alive = true;
+        p.trail.push({x:p.x, y:p.y, l:p.life});
+        if (p.trail.length > 9) p.trail.shift();
+        // Trail
+        p.trail.forEach((t, i) => {
+          const ta = t.l * (i/p.trail.length) * .5;
+          pc.beginPath();
+          pc.arc(t.x, t.y, p.size*(i/p.trail.length)*.7, 0, Math.PI*2);
+          pc.fillStyle = p.color + ta + ')';
+          pc.fill();
+        });
+        // Head
+        pc.beginPath();
+        pc.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        pc.fillStyle = p.color + p.life + ')';
+        pc.shadowColor = '#ffd400';
+        pc.shadowBlur = 8;
+        pc.fill();
+        pc.shadowBlur = 0;
+        p.x += p.vx; p.y += p.vy;
+        p.vy += .18; p.vx *= .97;
+        p.life -= p.decay;
+      });
+      pframe++;
+      if (alive && pframe < 120) requestAnimationFrame(drawParticles);
+      else pCanvas.remove();
+    }
+    setTimeout(() => requestAnimationFrame(drawParticles), 80);
+
+    // ── PHASE 3: Screen flash ──
+    setTimeout(() => {
+      const flash = document.createElement('div');
+      flash.style.cssText = 'position:fixed;inset:0;background:#fff;z-index:99998;pointer-events:none;animation:tbFlash .35s ease forwards;';
+      document.body.appendChild(flash);
+      flash.addEventListener('animationend', () => flash.remove());
+    }, 120);
+
+    // ── PHASE 4: Big title card ──
+    setTimeout(() => {
+      const title = document.createElement('div');
+      title.id = 'synergy-flash';
+      title.style.cssText = 'position:fixed;inset:0;z-index:99995;display:flex;align-items:center;justify-content:center;pointer-events:none;';
+      title.innerHTML = `
+        <div style="text-align:center;animation:sfLabel .55s cubic-bezier(.15,.9,.2,1) both;">
+          <div style="font-family:'Bebas Neue',cursive;font-size:.78rem;letter-spacing:7px;color:rgba(255,212,0,.5);margin-bottom:10px;">DUO ACTIVATED</div>
+          <div style="font-family:'AnotherTag','Permanent Marker',cursive;
+            font-size:clamp(3.8rem,14vw,8rem);color:#ffd400;letter-spacing:4px;line-height:.9;
+            text-shadow:-4px -4px 0 #000,4px 4px 0 #000,4px -4px 0 #000,-4px 4px 0 #000,
+            0 0 60px rgba(255,212,0,1),0 0 120px rgba(255,212,0,.4);">SYNERGY</div>
+          <div style="margin-top:14px;display:flex;align-items:center;justify-content:center;gap:10px;">
+            <div style="height:1px;width:60px;background:linear-gradient(90deg,transparent,rgba(255,212,0,.5));"></div>
+            <span style="font-family:'Bebas Neue',cursive;font-size:.85rem;letter-spacing:4px;color:rgba(255,212,0,.55);">Justin &amp; Ozan · +20% All Stats</span>
+            <div style="height:1px;width:60px;background:linear-gradient(90deg,rgba(255,212,0,.5),transparent);"></div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(title);
+
+      // Expanding rings behind title
+      for (let i = 0; i < 5; i++) {
+        const ring = document.createElement('div');
+        ring.style.cssText = `position:fixed;left:50%;top:50%;z-index:99994;
+          width:60px;height:60px;border-radius:50%;
+          border:${2-i*.3}px solid rgba(255,212,0,${.6-i*.1});
+          transform:translate(-50%,-50%) scale(0);
+          pointer-events:none;
+          animation:sfRing ${.7+i*.15}s cubic-bezier(.1,.8,.2,1) ${i*.06}s forwards;
+          --scale:${5+i*3};`;
+        document.body.appendChild(ring);
+        ring.addEventListener('animationend', () => ring.remove());
+      }
+
+      // Fade out title
+      setTimeout(() => {
+        title.style.transition = 'opacity .5s ease';
+        title.style.opacity = '0';
+        setTimeout(() => title.remove(), 520);
+      }, 1100);
+    }, 200);
+
+    // ── PHASE 5: Clean up vignette ──
+    setTimeout(() => {
+      vignette.style.opacity = '0';
+      setTimeout(() => vignette.remove(), 300);
+    }, 1600);
+  }
+
 
   function updateMatchup() {
     const muA = document.getElementById('tb-mu-a');
@@ -9856,13 +10438,17 @@ document.querySelectorAll('.player-card').forEach(card => {
     const archA = getArchetype(playersA);
     const archB = getArchetype(playersB);
 
+    // Apply synergy boost before computing battle stats
+    const effA = getEffectivePlayers('a');
+    const effB = getEffectivePlayers('b');
+
     const statsA = {}, statsB = {};
     STATS.forEach(s => {
-      statsA[s] = Math.round(playersA.reduce((sum,p) => sum + p[s], 0) / playersA.length);
-      statsB[s] = Math.round(playersB.reduce((sum,p) => sum + p[s], 0) / playersB.length);
+      statsA[s] = Math.round(effA.reduce((sum,p) => sum + p[s], 0) / effA.length);
+      statsB[s] = Math.round(effB.reduce((sum,p) => sum + p[s], 0) / effB.length);
     });
-    const ovrA = Math.round(playersA.reduce((s,p) => s + p.ovr, 0) / playersA.length);
-    const ovrB = Math.round(playersB.reduce((s,p) => s + p.ovr, 0) / playersB.length);
+    const ovrA = Math.round(effA.reduce((s,p) => s + p.ovr, 0) / effA.length);
+    const ovrB = Math.round(effB.reduce((s,p) => s + p.ovr, 0) / effB.length);
 
     // ── PHASE 1: Team cards slide in ──
     // Append everything directly to body so position:fixed works without
